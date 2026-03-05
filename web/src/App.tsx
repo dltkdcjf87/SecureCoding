@@ -79,27 +79,32 @@ function App() {
 
     const results: FileAudit[] = [];
 
-    for (let i = 0; i < validFiles.length; i++) {
-      const file = validFiles[i];
-      setAuditProgress(prev => ({ ...prev, current: i + 1 }));
-
+    const batchSize = 5;
+    for (let i = 0; i < validFiles.length; i += batchSize) {
+      const batch = validFiles.slice(i, i + batchSize);
       const formData = new FormData();
-      formData.append('file', file, file.webkitRelativePath || file.name);
+      batch.forEach(file => formData.append('files', file, file.webkitRelativePath || file.name));
 
       try {
-        const response = await fetch('http://localhost:8001/api/audit', {
+        const response = await fetch('http://localhost:8001/api/audit-batch', {
           method: 'POST',
           body: formData,
         });
 
         if (response.ok) {
-          const result: FileAudit = await response.json();
-          results.push(result);
-          setAudits(prev => [...prev, result]);
-          if (results.length === 1) setSelectedFile(result);
+          const batchResults: FileAudit[] = await response.json();
+          results.push(...batchResults);
+          setAudits(prev => [...prev, ...batchResults]);
+          if (results.length === batchResults.length) setSelectedFile(batchResults[0]);
+          setAuditProgress({ current: Math.min(i + batchSize, validFiles.length), total: validFiles.length });
+        }
+
+        // Add a 5-second delay between batches to respect free tier RPM
+        if (i + batchSize < validFiles.length) {
+          await new Promise(resolve => setTimeout(resolve, 5000));
         }
       } catch (error) {
-        console.error(`Error auditing file ${file.name}:`, error);
+        console.error(`Error auditing batch starting at ${i}:`, error);
       }
     }
 
