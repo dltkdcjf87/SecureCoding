@@ -105,10 +105,25 @@ async def perform_audit(filename: str, code: str) -> List[Issue]:
             )]
         raise api_err
 
+@app.post("/api/audit", response_model=AuditResult)
+async def audit_single_file(file: UploadFile = File(...)):
+    supported_extensions = ('.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.hxx', '.php')
+    if not file.filename.lower().endswith(supported_extensions):
+        raise HTTPException(status_code=400, detail="Unsupported file extension")
+    
+    try:
+        content = await file.read()
+        code = content.decode("utf-8")
+        issues = await perform_audit(file.filename, code)
+        return {"file_path": file.filename, "issues": issues}
+    except Exception as e:
+        print(f"Failed to audit {file.filename}: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/api/audit-batch", response_model=List[AuditResult])
 async def audit_batch(files: List[UploadFile] = File(...)):
     results = []
-    supported_extensions = ('.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.php')
+    supported_extensions = ('.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.hxx', '.php')
     
     for file in files:
         if file.filename.lower().endswith(supported_extensions):

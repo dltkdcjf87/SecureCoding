@@ -35,9 +35,9 @@ function App() {
     if (!files || files.length === 0) return;
 
     // Filter supported files
-    const supportedExtensions = ['.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.php'];
+    const supportedExtensions = ['.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.hxx', '.php'];
 
-    console.log(`Total files selected: ${files.length}`);
+    console.log(`[File Selection] Total files found in folder: ${files.length}`);
 
     const validFiles = Array.from(files).filter(file => {
       const fileName = file.name.toLowerCase();
@@ -51,10 +51,16 @@ function App() {
         relativePath.includes('dist') ||
         relativePath.includes('build');
 
+      if (!isSupported) {
+        // console.debug(`[Filtered] Unsupported extension: ${fileName}`);
+      } else if (isIgnored) {
+        console.debug(`[Filtered] Ignored path: ${relativePath}`);
+      }
+
       return isSupported && !isIgnored;
     });
 
-    console.log(`Filtered files to audit: ${validFiles.length}`);
+    console.log(`[File Selection] Filtered to ${validFiles.length} valid source files.`);
     if (validFiles.length > 0) {
       console.log('Sample files:', validFiles.slice(0, 5).map(f => f.webkitRelativePath || f.name));
     }
@@ -191,7 +197,9 @@ function App() {
                   className={`glass-card file-nav-item ${selectedFile?.file_path === file.file_path ? 'active' : ''}`}
                   onClick={() => setSelectedFile(file)}
                 >
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '4px' }}>{file.file_path.split('/').pop()}</div>
+                  <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '4px' }}>
+                    {file.file_path.split(/[/\\]/).pop()}
+                  </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{file.issues.length}개의 취약점 발견</div>
                 </div>
               ))}
