@@ -6,6 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
 from pydantic import BaseModel
 from typing import List
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = FastAPI(title="Security Audit API")
 
@@ -38,7 +42,7 @@ class AuditResult(BaseModel):
     issues: List[Issue]
 
 class ChecklistUpdate(BaseModel):
-    items: List[str]
+    text: str
 
 # Prompt template for Gemini
 AUDIT_PROMPT = """
@@ -146,20 +150,18 @@ async def audit_batch(files: List[UploadFile] = File(...)):
 async def get_checklist():
     checklist_path = r"c:\Users\dltkd\antigravity\보안취약점검사\보안성체크리스트.txt"
     if not os.path.exists(checklist_path):
-        return {"items": []}
+        return {"text": ""}
     
     with open(checklist_path, "r", encoding="utf-8") as f:
-        # Filter out empty lines or titles if needed, but for now return all meaningful lines
-        lines = [line.strip() for line in f.readlines() if line.strip()]
-    return {"items": lines}
+        content = f.read()
+    return {"text": content}
 
 @app.post("/api/checklist")
 async def update_checklist(update: ChecklistUpdate):
     checklist_path = r"c:\Users\dltkd\antigravity\보안취약점검사\보안성체크리스트.txt"
     try:
         with open(checklist_path, "w", encoding="utf-8") as f:
-            for item in update.items:
-                f.write(item + "\n")
+            f.write(update.text)
         return {"status": "success"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

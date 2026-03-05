@@ -380,3 +380,26 @@ pre {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+/* Checklist Editor Styles */
+.checklist-editor {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #e2e8f0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: none;
+  margin: 1rem 0;
+  outline: none;
+  transition: border-color 0.2s;
+  min-height: 300px;
+}
+
+.checklist-editor:focus {
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+}
