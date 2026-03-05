@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './index.css'
 
 export interface Issue {
@@ -21,6 +21,7 @@ function App() {
   const [selectedFile, setSelectedFile] = useState<FileAudit | null>(null);
   const [isAuditing, setIsAuditing] = useState(false);
   const [auditProgress, setAuditProgress] = useState({ current: 0, total: 0 });
+  const [showChecklistModal, setShowChecklistModal] = useState(false);
   const folderInputRef = useRef<HTMLInputElement>(null);
 
   const stats = {
@@ -139,8 +140,24 @@ function App() {
               </>
             )}
           </button>
+          <button
+            className="btn-primary"
+            onClick={() => setShowChecklistModal(true)}
+            style={{
+              background: 'transparent',
+              border: '1px solid var(--border-color)',
+              marginLeft: '10px'
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+            체크리스트 관리
+          </button>
         </div>
       </header>
+
+      {showChecklistModal && (
+        <ChecklistModal onClose={() => setShowChecklistModal(false)} />
+      )}
 
       {isAuditing && (
         <div style={{ marginBottom: '2rem' }}>
@@ -264,6 +281,112 @@ function IssueCard({ issue }: { issue: Issue }) {
             <span className="code-title">Suggested Code</span>
             <pre><code>{issue.suggested_code}</code></pre>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ChecklistModal({ onClose }: { onClose: () => void }) {
+  const [items, setItems] = useState<string[]>([]);
+  const [newItem, setNewItem] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    fetchChecklist();
+  }, []);
+
+  const fetchChecklist = async () => {
+    try {
+      const response = await fetch('http://localhost:8001/api/checklist');
+      if (response.ok) {
+        const data = await response.json();
+        setItems(data.items);
+      }
+    } catch (error) {
+      console.error('Error fetching checklist:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleAddItem = () => {
+    if (newItem.trim()) {
+      setItems([...items, newItem.trim()]);
+      setNewItem('');
+    }
+  };
+
+  const handleRemoveItem = (index: number) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      const response = await fetch('http://localhost:8001/api/checklist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+      if (response.ok) {
+        alert('체크리스트가 성공적으로 저장되었습니다.');
+        onClose();
+      }
+    } catch (error) {
+      console.error('Error saving checklist:', error);
+      alert('저장 중 오류가 발생했습니다.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="glass-card modal-content" onClick={e => e.stopPropagation()} style={{ padding: '2rem' }}>
+        <div className="flex-between" style={{ marginBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem' }}>보안성 체크리스트 관리</h2>
+          <button onClick={onClose} style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+          </button>
+        </div>
+
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+          AI가 코드를 검사할 때 참고할 보안 규칙들을 관리합니다. 각 항목은 한 줄씩 적용됩니다.
+        </p>
+
+        <div className="checklist-input-group">
+          <input
+            className="checklist-input"
+            placeholder="새로운 보안 규칙 입력..."
+            value={newItem}
+            onChange={e => setNewItem(e.target.value)}
+            onKeyPress={e => e.key === 'Enter' && handleAddItem()}
+          />
+          <button className="btn-primary" onClick={handleAddItem} style={{ padding: '8px 16px' }}>추가</button>
+        </div>
+
+        {isLoading ? (
+          <div style={{ textAlign: 'center', padding: '2rem' }}>로딩 중...</div>
+        ) : (
+          <div className="checklist-items">
+            {items.map((item, idx) => (
+              <div key={idx} className="checklist-item">
+                <span style={{ fontSize: '0.9rem' }}>{item}</span>
+                <button className="btn-icon-danger" onClick={() => handleRemoveItem(idx)}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></svg>
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex-between" style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <button className="btn-primary" onClick={onClose} style={{ background: 'rgba(255,255,255,0.1)', color: 'white' }}>취소</button>
+          <button className="btn-primary" onClick={handleSave} disabled={isSaving}>
+            {isSaving ? '저장 중...' : '변경사항 저장'}
+          </button>
         </div>
       </div>
     </div>

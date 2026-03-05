@@ -37,6 +37,9 @@ class AuditResult(BaseModel):
     file_path: str
     issues: List[Issue]
 
+class ChecklistUpdate(BaseModel):
+    items: List[str]
+
 # Prompt template for Gemini
 AUDIT_PROMPT = """
 당신은 전문 보안 시큐어 코딩 및 개인정보보호 감사관입니다.
@@ -138,6 +141,28 @@ async def audit_batch(files: List[UploadFile] = File(...)):
                 continue
     
     return results
+
+@app.get("/api/checklist")
+async def get_checklist():
+    checklist_path = r"c:\Users\dltkd\antigravity\보안취약점검사\보안성체크리스트.txt"
+    if not os.path.exists(checklist_path):
+        return {"items": []}
+    
+    with open(checklist_path, "r", encoding="utf-8") as f:
+        # Filter out empty lines or titles if needed, but for now return all meaningful lines
+        lines = [line.strip() for line in f.readlines() if line.strip()]
+    return {"items": lines}
+
+@app.post("/api/checklist")
+async def update_checklist(update: ChecklistUpdate):
+    checklist_path = r"c:\Users\dltkd\antigravity\보안취약점검사\보안성체크리스트.txt"
+    try:
+        with open(checklist_path, "w", encoding="utf-8") as f:
+            for item in update.items:
+                f.write(item + "\n")
+        return {"status": "success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8001)
