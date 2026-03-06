@@ -1,1 +1,23 @@
-git add .audit_report.json
+# Environment Variables
+.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.next/
+
+# IDE / Editor
+.vscode/
+.idea/
+.gemini/
+
+# Project Specific
+*_fixed/
+.audit_report.json

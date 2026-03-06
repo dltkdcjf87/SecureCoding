@@ -1,0 +1,6 @@
+# 웹 취약점 점검 가이드 (Web Security)
+
+1. [XSS 방지] 모든 사용자 입력값은 출력 시 HTML Entity Encoding을 수행해야 합니다.
+2. [CSRF 대응] 상태 변경 요청(POST, PUT, DELETE)에는 CSRF 토큰 검증 로직이 포함되어야 합니다.
+3. [보안 쿠키] Cookie 설정 시 `HttpOnly`와 `Secure` 플래그를 반드시 설정하세요.
+4. [헤더 보안] `X-Frame-Options`, `Content-Security-Policy` 등 보안 헤더가 설정되어 있는지 확인하세요.

@@ -2,15 +2,17 @@ import os
 import json
 import uvicorn
 import time
-from fastapi import FastAPI, UploadFile, File, HTTPException
+import shutil
+import glob
+from fastapi import FastAPI, UploadFile, File, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file, overriding existing ones
+load_dotenv(override=True)
 
 app = FastAPI(title="Security Audit API")
 @app.get("/")
@@ -64,60 +66,85 @@ class BatchFixRequest(BaseModel):
 class CreateCopyRequest(BaseModel):
     base_path: str
 
+class ChecklistItem(BaseModel):
+    name: str # e.g. "Security.txt"
+    text: str
+
+class AuditBatchRequest(BaseModel):
+    selected_checklists: List[str] # List of filenames
+
 def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
     """
-    Attempts to find the file and replace the original code with suggested code.
-    Prioritizes the '_fixed' directory if it exists.
+    Finds the correct file path (handling selective _fixed copy),
+    copies it if necessary, and applies the fix.
     """
-    current_dir = os.getcwd()
-    
-    # Identify if a fixed version of the base directory already exists
-    # If the file_path starts with 'test_cases/', we should check if 'test_cases_fixed/' exists.
-    path_parts = file_path.replace("\\", "/").split("/")
-    base_folder = path_parts[0] if len(path_parts) > 1 else ""
-    
-    fixed_base_folder = f"{base_folder}_fixed" if base_folder else ""
-    fixed_file_path = file_path.replace(base_folder, fixed_base_folder, 1) if fixed_base_folder else file_path
-
-    potential_paths = [
-        os.path.abspath(os.path.join(current_dir, fixed_file_path)),
-        os.path.abspath(os.path.join(current_dir, file_path)),
-        os.path.abspath(fixed_file_path),
-        os.path.abspath(file_path)
-    ]
-    
     if ".." in file_path:
         return False
-
-    target_full_path = None
-    for p in potential_paths:
-        if os.path.exists(p) and os.path.isfile(p):
-            target_full_path = p
-            break
-    
-    # Fallback to recursively searching in _fixed first, then original
-    if not target_full_path:
-        base_name = os.path.basename(file_path)
-        # Search in _fixed directories first
-        for root, dirs, files in os.walk(current_dir):
-            if "_fixed" in root and base_name in files:
-                target_full_path = os.path.join(root, base_name)
-                break
         
-        if not target_full_path:
-            for root, dirs, files in os.walk(current_dir):
-                if ".git" in root or "node_modules" in root or "_fixed" in root: continue
-                if base_name in files:
-                    target_full_path = os.path.join(root, base_name)
-                    break
+    current_dir = os.path.abspath(os.getcwd())
+    src_abs_path = os.path.abspath(file_path)
+    
+    # 1. Determine the source and destination paths
+    # If we find a '_fixed' suffix in any part of the path, we might already be in a fixed directory.
+    # Otherwise, we map 'Project' -> 'Project_fixed'
+    
+    parts = src_abs_path.replace("\\", "/").split("/")
+    target_abs_path = None
+    
+    # Search for the base directory that we copied
+    # Logic: If '보안취약점검사' is in the path, it should be '보안취약점검사_fixed'
+    # We find which part of the path is our current working directory
+    workspace_name = os.path.basename(current_dir)
+    
+    if workspace_name in parts:
+        # Create the fixed path by replacing workspace_name with workspace_name_fixed
+        fixed_parts = []
+        replaced = False
+        for p in parts:
+            if not replaced and p == workspace_name:
+                fixed_parts.append(p + "_fixed")
+                replaced = True
+            else:
+                fixed_parts.append(p)
+        
+        target_abs_path = os.path.sep.join(fixed_parts)
+    else:
+        # fallback for relative paths or different structures
+        target_abs_path = src_abs_path
 
-    if not target_full_path:
-        print(f"File not found for fix: {file_path}")
+    # 2. Ensure the destination file exists (Selective Copy)
+    if workspace_name + "_fixed" in target_abs_path:
+        if not os.path.exists(target_abs_path):
+            if os.path.exists(src_abs_path):
+                try:
+                    os.makedirs(os.path.dirname(target_abs_path), exist_ok=True)
+                    import shutil
+                    shutil.copy2(src_abs_path, target_abs_path)
+                    print(f"DEBUG: Selective Copy Applied: {src_abs_path} -> {target_abs_path}")
+                except Exception as e:
+                    print(f"Error copying file for selective fix: {e}")
+                    return False
+            else:
+                print(f"Source file not found for copy: {src_abs_path}")
+                return False
+
+    # 3. Apply the fix to the target file
+    return apply_fix_internal(target_abs_path, original, suggested)
+
+def apply_fix_internal(target_full_path: str, original: str, suggested: str) -> bool:
+    """
+    Actual file write operation.
+    """
+    if not target_full_path or not os.path.exists(target_full_path):
+        print(f"Target file not found for write: {target_full_path}")
         return False
 
     try:
-        with open(target_full_path, "r", encoding="utf-8") as f:
-            content = f.read()
+        # We need to handle encodings here as well
+        with open(target_full_path, "rb") as f:
+            raw_content = f.read()
+        
+        content = decode_content(raw_content)
         
         # Exact match check
         if original in content:
@@ -127,15 +154,26 @@ def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
             print(f"Successfully applied fix to: {target_full_path}")
             return True
         else:
-            # Fallback: check if content already matches suggested (already applied)
             if suggested in content:
-                print(f"Fix already applied or exists in: {target_full_path}")
+                print(f"Fix already applied in: {target_full_path}")
                 return True
             print(f"Original content mismatch in {target_full_path}")
             return False
     except Exception as e:
-        print(f"Error applying fix to {target_full_path}: {e}")
+        print(f"Error writing fix to {target_full_path}: {e}")
         return False
+
+def decode_content(content: bytes) -> str:
+    """
+    Attempts to decode bytes using UTF-8, then CP949 if it fails.
+    """
+    try:
+        return content.decode("utf-8")
+    except UnicodeDecodeError:
+        try:
+            return content.decode("cp949")
+        except UnicodeDecodeError:
+            return content.decode("utf-8", errors="ignore")
 
 import shutil
 
@@ -143,6 +181,7 @@ import shutil
 AUDIT_PROMPT = """
 당신은 전문 보안 시큐어 코딩 및 개인정보보호 감사관입니다.
 다음 제공된 '체크리스트 가이드'의 규칙을 최우선으로 적용하여, 입력된 소스 코드에서 보안 취약점과 개인정보 노출 위험을 찾아내세요.
+모든 분석 결과(취약점명, 상세 설명 등)는 반드시 한국어로 작성해야 합니다.
 
 [체크리스트 가이드]
 {checklist}
@@ -168,6 +207,7 @@ AUDIT_PROMPT = """
 BATCH_AUDIT_PROMPT = """
 당신은 전문 보안 시큐어 코딩 및 개인정보보호 감사관입니다.
 제공된 '체크리스트 가이드'를 기반으로 여러 소스 파일들을 한꺼번에 분석하여 보안 취약점을 찾아내세요.
+모든 분석 결과(취약점명, 상세 설명 등)는 반드시 한국어로 작성해야 합니다.
 
 [체크리스트 가이드]
 {checklist}
@@ -226,8 +266,8 @@ async def perform_audit(filename: str, code: str) -> List[Issue]:
                     action_type="INFO"
                 )]
 
-            # Call Gemini
-            model = genai.GenerativeModel("gemini-flash-latest")
+            # Call Gemini (Using stable 2.5 Flash as confirmed by ListModels)
+            model = genai.GenerativeModel("gemini-2.5-flash")
             prompt = AUDIT_PROMPT.format(
                 checklist=checklist,
                 filename=filename,
@@ -274,7 +314,7 @@ async def audit_single_file(file: UploadFile = File(...)):
     
     try:
         content = await file.read()
-        code = content.decode("utf-8")
+        code = decode_content(content)
         issues = await perform_audit(file.filename, code)
         return {"file_path": file.filename, "issues": issues}
     except Exception as e:
@@ -282,73 +322,109 @@ async def audit_single_file(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/audit-batch", response_model=List[AuditResult])
-async def audit_batch(files: List[UploadFile] = File(...)):
+async def audit_batch(
+    files: List[UploadFile] = File(...),
+    checklists: List[str] = Query([]) # Selected checklist names
+):
     supported_extensions = ('.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.hxx', '.php')
     valid_files = [f for f in files if f.filename.lower().endswith(supported_extensions)]
     
     if not valid_files:
         return []
 
-    # Read checklist
+    # Read selected checklists
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    checklist_path = os.path.join(current_dir, "보안성체크리스트.txt")
-    checklist = ""
-    if os.path.exists(checklist_path):
-        with open(checklist_path, "r", encoding="utf-8") as f:
-            checklist = f.read()
+    checklist_dir = os.path.join(current_dir, "checklists")
+    combined_checklist = ""
+    
+    # Auto-migration and directory check
+    if not os.path.exists(checklist_dir):
+        os.makedirs(checklist_dir, exist_ok=True)
+        old_file = os.path.join(current_dir, "보안성체크리스트.txt")
+        if os.path.exists(old_file):
+            shutil.copy2(old_file, os.path.join(checklist_dir, "Default.txt"))
+
+    if not checklists:
+        # If none selected, try to use Default.txt as fallback
+        fallback = os.path.join(checklist_dir, "Default.txt")
+        if os.path.exists(fallback):
+            with open(fallback, "r", encoding="utf-8") as f:
+                combined_checklist = f.read()
+    else:
+        for c_name in checklists:
+            c_path = os.path.join(checklist_dir, c_name)
+            if os.path.exists(c_path):
+                with open(c_path, "r", encoding="utf-8") as f:
+                    combined_checklist += f"\n--- CHECKLIST: {c_name} ---\n"
+                    combined_checklist += f.read() + "\n"
 
     # Prepare files content for a single prompt
     files_text_block = ""
     for file in valid_files:
         content = await file.read()
-        code = content.decode("utf-8")
+        code = decode_content(content)
         files_text_block += f"\n--- FILE: {file.filename} ---\n{code}\n"
 
-    try:
-        if not GOOGLE_API_KEY:
-            return [AuditResult(file_path=f.filename, issues=[
-                Issue(line=1, vulnerability="API Configuration Missing", severity="High", 
-                      description="GOOGLE_API_KEY가 설정되지 않았습니다. 프로젝트 루트의 .env 파일에 키를 설정해주세요.", 
-                      original_code="config error", suggested_code="GOOGLE_API_KEY=YOUR_KEY_HERE", action_type="INFO")
-            ]) for f in valid_files]
-
-        model = genai.GenerativeModel("gemini-flash-latest")
-        prompt = BATCH_AUDIT_PROMPT.format(
-            checklist=checklist,
-            files_content=files_text_block
-        )
-        
-        response = model.generate_content(prompt)
-        resp_text = response.text.strip()
-        if resp_text.startswith("```json"):
-            resp_text = resp_text[7:-3].strip()
-        elif resp_text.startswith("```"):
-            resp_text = resp_text[3:-3].strip()
-            
-        batch_data = json.loads(resp_text)
-        results = []
-        for res in batch_data.get("results", []):
-            results.append(AuditResult(
-                file_path=res["file_path"],
-                issues=[Issue(**issue) for issue in res["issues"]]
-            ))
-        
-        # Ensure all requested files are in the result even if AI missed them
-        received_paths = {r.file_path for r in results}
-        for f in valid_files:
-            if f.filename not in received_paths:
-                results.append(AuditResult(file_path=f.filename, issues=[]))
-                
-        return results
-        
-    except Exception as e:
-        print(f"Batch Audit Error: {e}")
-        # Fallback: if batch fails, return empty issues for all files with the error
+    if not GOOGLE_API_KEY:
         return [AuditResult(file_path=f.filename, issues=[
-            Issue(line=1, vulnerability="Batch Audit Error", severity="Low", 
-                  description=f"배치 분석 중 오류가 발생했습니다: {str(e)}", 
-                  original_code="", suggested_code="", action_type="INFO")
+            Issue(line=1, vulnerability="API Configuration Missing", severity="High", 
+                  description="GOOGLE_API_KEY가 설정되지 않았습니다. 프로젝트 루트의 .env 파일에 키를 설정해주세요.", 
+                  original_code="config error", suggested_code="GOOGLE_API_KEY=YOUR_KEY_HERE", action_type="INFO")
         ]) for f in valid_files]
+
+    max_retries = 3
+    retry_delay = 10  # Start with 10 seconds for batch
+
+    for attempt in range(max_retries):
+        try:
+            model = genai.GenerativeModel("gemini-2.5-flash")
+            prompt = BATCH_AUDIT_PROMPT.format(
+                checklist=combined_checklist,
+                files_content=files_text_block
+            )
+            
+            response = model.generate_content(prompt)
+            resp_text = response.text.strip()
+            if resp_text.startswith("```json"):
+                resp_text = resp_text[7:-3].strip()
+            elif resp_text.startswith("```"):
+                resp_text = resp_text[3:-3].strip()
+                
+            batch_data = json.loads(resp_text)
+            results = []
+            for res in batch_data.get("results", []):
+                results.append(AuditResult(
+                    file_path=res["file_path"],
+                    issues=[Issue(**issue) for issue in res["issues"]]
+                ))
+            
+            # Ensure all requested files are in the result even if AI missed them
+            received_paths = {r.file_path for r in results}
+            for f in valid_files:
+                if f.filename not in received_paths:
+                    results.append(AuditResult(file_path=f.filename, issues=[]))
+                    
+            return results
+            
+        except Exception as e:
+            print(f"Batch Audit Error (Attempt {attempt + 1}/{max_retries}): {e}")
+            
+            if "429" in str(e) and attempt < max_retries - 1:
+                print(f"Rate limit hit in batch. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+                retry_delay *= 2
+                continue
+
+            # Final fall through or error return
+            error_msg = str(e)
+            if "429" in error_msg:
+                error_msg = "Gemini API의 분당 요청 제한(RPM) 또는 토큰 제한(TPM)을 초과했습니다. 잠시 후 상단 '새로고침' 또는 '검사 시작'을 다시 눌러주세요."
+
+            return [AuditResult(file_path=f.filename, issues=[
+                Issue(line=1, vulnerability="Batch Audit Error", severity="Low", 
+                    description=f"배치 분석 중 오류가 발생했습니다: {error_msg}", 
+                    original_code="", suggested_code="API 쿼터 설정을 확인하거나 잠시 대기 후 시도하세요.", action_type="INFO")
+            ]) for f in valid_files]
 
 @app.post("/api/apply-fix")
 async def apply_fix(fix: FixRequest):
@@ -372,45 +448,102 @@ async def create_fix_copy(request: CreateCopyRequest):
     Creates a copy of the specified directory with a '_fixed' suffix.
     """
     current_dir = os.getcwd()
-    base_path = request.base_path.replace("\\", "/").split("/")[0] if "/" in request.base_path or "\\" in request.base_path else request.base_path
+    current_dir_abs = os.path.abspath(current_dir)
+    current_dir_name = os.path.basename(current_dir_abs)
     
-    if ".." in base_path or not base_path:
+    # Normalize path separators
+    raw_base_path = request.base_path.replace("\\", "/")
+    path_parts = raw_base_path.split("/")
+    base_path_from_request = path_parts[0] if path_parts else ""
+    
+    print(f"DEBUG: create_fix_copy request.base_path={request.base_path}")
+    print(f"DEBUG: current_dir={current_dir}")
+    print(f"DEBUG: current_dir_name={current_dir_name}, base_path_from_request={base_path_from_request}")
+
+    if ".." in raw_base_path or not base_path_from_request:
         raise HTTPException(status_code=400, detail="Invalid base path.")
 
-    src_path = os.path.abspath(os.path.join(current_dir, base_path))
+    # Case-insensitive comparison for Windows
+    if base_path_from_request.lower() == current_dir_name.lower():
+        src_path = current_dir_abs
+    else:
+        # Try joining with current_dir
+        src_path = os.path.abspath(os.path.join(current_dir, base_path_from_request))
+        
+        # If not exists, maybe the path is relative to current_dir's parent? 
+        # (Though usually it should be within the workspace)
+        if not os.path.exists(src_path):
+             print(f"DEBUG: src_path {src_path} not found. checking if it exists as is...")
+             if os.path.exists(base_path_from_request):
+                 src_path = os.path.abspath(base_path_from_request)
+
+    src_path = os.path.normpath(src_path)
+    print(f"DEBUG: Final src_path to copy: {src_path}")
+
+    if not os.path.exists(src_path) or not os.path.isdir(src_path):
+        print(f"ERROR: Source directory not found: {src_path}")
+        raise HTTPException(status_code=404, detail=f"Source directory not found: {src_path}")
+
     dst_path = f"{src_path}_fixed"
+    print(f"DEBUG: dst_path (directory only): {dst_path}")
 
-    if os.path.exists(dst_path):
-        return {"status": "exists", "message": "Fixed version already exists.", "path": dst_path}
-
-    try:
-        shutil.copytree(src_path, dst_path)
-        return {"status": "success", "message": "Created fixed project copy.", "path": dst_path}
-    except Exception as e:
-        print(f"Error creating project copy: {e}")
-        raise HTTPException(status_code=500, detail=f"Failed to create copy: {str(e)}")
-
-@app.get("/api/checklist")
-async def get_checklist():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    checklist_path = os.path.join(current_dir, "보안성체크리스트.txt")
-    if not os.path.exists(checklist_path):
-        return {"text": ""}
+    if not os.path.exists(dst_path):
+        try:
+            os.makedirs(dst_path, exist_ok=True)
+            print(f"SUCCESS: Created fixed project root at {dst_path}")
+            return {"status": "success", "message": "Created fixed project structure (Selective Copy mode).", "path": dst_path}
+        except Exception as e:
+            print(f"ERROR creating project directory: {e}")
+            raise HTTPException(status_code=500, detail=f"Failed to create directory: {str(e)}")
     
-    with open(checklist_path, "r", encoding="utf-8") as f:
-        content = f.read()
-    return {"text": content}
+    return {"status": "exists", "message": "Fixed version directory already exists.", "path": dst_path}
 
-@app.post("/api/checklist")
-async def update_checklist(update: ChecklistUpdate):
+@app.get("/api/checklists")
+async def list_checklists():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    checklist_path = os.path.join(current_dir, "보안성체크리스트.txt")
-    try:
-        with open(checklist_path, "w", encoding="utf-8") as f:
-            f.write(update.text)
+    checklist_dir = os.path.join(current_dir, "checklists")
+    if not os.path.exists(checklist_dir):
+        os.makedirs(checklist_dir, exist_ok=True)
+        # Migration
+        old_file = os.path.join(current_dir, "보안성체크리스트.txt")
+        if os.path.exists(old_file):
+            shutil.copy2(old_file, os.path.join(checklist_dir, "Default.txt"))
+            
+    files = glob.glob(os.path.join(checklist_dir, "*.txt"))
+    return [os.path.basename(f) for f in files]
+
+@app.get("/api/checklists/{filename}")
+async def get_checklist(filename: str):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(current_dir, "checklists", filename)
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="Checklist not found")
+    with open(path, "r", encoding="utf-8") as f:
+        return {"name": filename, "text": f.read()}
+
+@app.post("/api/checklists")
+async def save_checklist(item: ChecklistItem):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    checklist_dir = os.path.join(current_dir, "checklists")
+    os.makedirs(checklist_dir, exist_ok=True)
+    
+    filename = item.name
+    if not filename.endswith(".txt"):
+        filename += ".txt"
+        
+    path = os.path.join(checklist_dir, filename)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(item.text)
+    return {"status": "success"}
+
+@app.delete("/api/checklists/{filename}")
+async def delete_checklist(filename: str):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(current_dir, "checklists", filename)
+    if os.path.exists(path):
+        os.remove(path)
         return {"status": "success"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    raise HTTPException(status_code=404, detail="Checklist not found")
 
 if __name__ == "__main__":
     print("Starting server on http://0.0.0.0:8005")

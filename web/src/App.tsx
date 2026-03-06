@@ -28,13 +28,61 @@ function App() {
   const [fixedPath, setFixedPath] = useState<string | null>(null);
   const [diffModalData, setDiffModalData] = useState<{ issue: Issue, filePath: string } | null>(null);
   const [severityFilter, setSeverityFilter] = useState<string | null>(null);
+  const [availableChecklists, setAvailableChecklists] = useState<string[]>([]);
+  const [selectedChecklists, setSelectedChecklists] = useState<string[]>([]);
   const folderInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    fetchChecklists();
+  }, []);
+
+  const fetchChecklists = async () => {
+    try {
+      const response = await fetch('http://localhost:8005/api/checklists');
+      if (response.ok) {
+        const data = await response.json();
+        setAvailableChecklists(data);
+        // Default selection: all if nothing selected yet or just Default.txt
+        if (selectedChecklists.length === 0 && data.includes('Default.txt')) {
+          setSelectedChecklists(['Default.txt']);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching checklists:', error);
+    }
+  };
+
   const stats = {
-    total: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
+    // 필터링된 이슈 리스트 (APPLIED/INFO 제외)
+    get filteredIssues() {
+      return audits.flatMap(f => f.issues.filter(i =>
+        i.action_type !== 'APPLIED' && i.action_type !== 'INFO' &&
+        (!severityFilter || i.severity === severityFilter)
+      ));
+    },
+    // 필터링된 파일 리스트
+    get filteredFiles() {
+      return audits.filter(file => {
+        const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
+        if (remainingIssues.length === 0) return false;
+        if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
+        return true;
+      });
+    },
+    totalIssues: 0, // Getter에서 계산됨
+    vulnerableFiles: 0,
     critical: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Critical' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
     high: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'High' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
     medium: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Medium' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
+  };
+
+  // Getter가 지원되지 않는 환경을 고려하여 명시적 계산 (또는 객체 구조 유지)
+  const displayStats = {
+    totalIssues: stats.filteredIssues.length,
+    vulnerableFiles: stats.filteredFiles.length,
+    critical: stats.critical,
+    high: stats.high,
+    medium: stats.medium
   };
 
   useEffect(() => {
@@ -122,26 +170,34 @@ function App() {
 
     setIsAuditing(true);
     setAuditProgress({ current: 0, total: validFiles.length });
-    setAudits([]); // Clear previous results for a fresh start
+    setAudits([]);
     setSelectedFile(null);
 
-    const results: FileAudit[] = [];
-    const batchSize = 5;
+    // 알림 추가: 전체 탐색 파일 중 지원되는 파일 개수 안내
+    console.log(`[File Selection] Total: ${files.length}, Valid: ${validFiles.length}`);
 
+    const results: FileAudit[] = [];
+    const batchSize = 3; // Reduced for safety with Free Tier limits
     for (let i = 0; i < validFiles.length; i += batchSize) {
       const batch = validFiles.slice(i, i + batchSize);
 
-      // Update progress immediately when batch starts to show activity
-      setAuditProgress({
-        current: Math.min(i + 1, validFiles.length),
-        total: validFiles.length
+      const formData = new FormData();
+      batch.forEach((file, batchIdx) => {
+        formData.append('files', file, file.webkitRelativePath || file.name);
+        // 진행률 시각적 업데이트 최적화
+        setTimeout(() => {
+          setAuditProgress(prev => ({
+            ...prev,
+            current: Math.min(i + batchIdx + 1, validFiles.length)
+          }));
+        }, batchIdx * 300);
       });
 
-      const formData = new FormData();
-      batch.forEach(file => formData.append('files', file, file.webkitRelativePath || file.name));
-
       try {
-        const response = await fetch('http://localhost:8005/api/audit-batch', {
+        const checklistQuery = selectedChecklists.map(c => `checklists=${encodeURIComponent(c)}`).join('&');
+        const url = `http://localhost:8005/api/audit-batch?${checklistQuery}`;
+
+        const response = await fetch(url, {
           method: 'POST',
           body: formData,
         });
@@ -154,15 +210,15 @@ function App() {
           if (results.length === batchResults.length) setSelectedFile(batchResults[0]);
 
           // Update progress upon batch completion
-          setAuditProgress({
-            current: Math.min(i + batch.length, validFiles.length),
-            total: validFiles.length
-          });
+          setAuditProgress(prev => ({
+            ...prev,
+            current: Math.min(i + batch.length, validFiles.length)
+          }));
         }
 
-        // Add a delay between batches to respect free tier RPM
+        // Increased delay to 10s to respect free tier RPM/TPM more conservatively
         if (i + batchSize < validFiles.length) {
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          await new Promise(resolve => setTimeout(resolve, 10000));
         }
       } catch (error) {
         console.error(`Error auditing batch starting at ${i}:`, error);
@@ -408,10 +464,26 @@ function App() {
             style={{
               background: 'transparent',
               border: '1px solid var(--border-color)',
+              position: 'relative'
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
             체크리스트 관리
+            {selectedChecklists.length > 0 && (
+              <span style={{
+                position: 'absolute',
+                top: '-8px',
+                right: '-8px',
+                background: 'var(--accent-color)',
+                color: 'white',
+                fontSize: '0.7rem',
+                padding: '2px 6px',
+                borderRadius: '10px',
+                fontWeight: 800
+              }}>
+                {selectedChecklists.length}
+              </span>
+            )}
           </button>
         </div>
       </header>
@@ -435,7 +507,13 @@ function App() {
       )}
 
       {showChecklistModal && (
-        <ChecklistModal onClose={() => setShowChecklistModal(false)} />
+        <ChecklistModal
+          onClose={() => setShowChecklistModal(false)}
+          availableChecklists={availableChecklists}
+          selectedChecklists={selectedChecklists}
+          setSelectedChecklists={setSelectedChecklists}
+          fetchChecklists={fetchChecklists}
+        />
       )}
 
       {diffModalData && (
@@ -455,8 +533,8 @@ function App() {
               </div>
             </div>
             <div className="scanning-text">보안 취약점 감사 분석 중...</div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-              총 {auditProgress.total}개 파일 중 <span style={{ color: 'white', fontWeight: 700 }}>{auditProgress.current}</span>번째 파일 분석 중
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '1rem' }}>
+              <span style={{ color: 'white', fontWeight: 700 }}>{auditProgress.current}</span> / {auditProgress.total} 개 파일 분석 완료
             </p>
             <div className="progress-bar-container">
               <div
@@ -483,19 +561,23 @@ function App() {
         <>
           <section className="stats-grid">
             <div className="glass-card stat-item">
-              <div className="stat-value" style={{ color: 'var(--text-main)' }}>{stats.total}</div>
-              <div className="stat-label">전체 취약점</div>
+              <div className="stat-value" style={{ color: 'var(--text-main)' }}>{displayStats.totalIssues}</div>
+              <div className="stat-label">{severityFilter ? `${severityFilter} 이슈` : '전체 취약점'}</div>
+            </div>
+            <div className="glass-card stat-item">
+              <div className="stat-value" style={{ color: 'var(--text-main)' }}>{displayStats.vulnerableFiles}</div>
+              <div className="stat-label">대상 파일 수</div>
             </div>
             <div className={`glass-card stat-item ${severityFilter === 'Critical' ? 'active-filter' : ''}`} style={{ borderLeft: '4px solid var(--severity-critical)', cursor: 'pointer' }} onClick={() => setSeverityFilter(prev => prev === 'Critical' ? null : 'Critical')}>
-              <div className="stat-value" style={{ color: 'var(--severity-critical)' }}>{stats.critical}</div>
+              <div className="stat-value" style={{ color: 'var(--severity-critical)' }}>{displayStats.critical}</div>
               <div className="stat-label">Critical</div>
             </div>
             <div className={`glass-card stat-item ${severityFilter === 'High' ? 'active-filter' : ''}`} style={{ borderLeft: '4px solid var(--severity-high)', cursor: 'pointer' }} onClick={() => setSeverityFilter(prev => prev === 'High' ? null : 'High')}>
-              <div className="stat-value" style={{ color: 'var(--severity-high)' }}>{stats.high}</div>
+              <div className="stat-value" style={{ color: 'var(--severity-high)' }}>{displayStats.high}</div>
               <div className="stat-label">High</div>
             </div>
             <div className={`glass-card stat-item ${severityFilter === 'Medium' ? 'active-filter' : ''}`} style={{ borderLeft: '4px solid var(--severity-medium)', cursor: 'pointer' }} onClick={() => setSeverityFilter(prev => prev === 'Medium' ? null : 'Medium')}>
-              <div className="stat-value" style={{ color: 'var(--severity-medium)' }}>{stats.medium}</div>
+              <div className="stat-value" style={{ color: 'var(--severity-medium)' }}>{displayStats.medium}</div>
               <div className="stat-label">Medium</div>
             </div>
             <div className="glass-card stat-item" style={{ borderLeft: '2px solid #10b981', cursor: 'pointer', transition: 'all 0.2s' }} onClick={handleApplySelectedFixes}>
@@ -517,7 +599,7 @@ function App() {
           <main className="grid-dashboard">
             <aside className="sidebar">
               <div className="flex-between" style={{ marginBottom: '1rem', padding: '0 0.5rem' }}>
-                <h3 style={{ margin: 0 }}>검사된 파일</h3>
+                <h3 style={{ margin: 0 }}>검사된 파일 ({displayStats.vulnerableFiles})</h3>
                 {severityFilter && (
                   <span
                     onClick={() => setSeverityFilter(null)}
@@ -527,6 +609,57 @@ function App() {
                   </span>
                 )}
               </div>
+
+              {/* Select All Checkbox */}
+              {audits.length > 0 && (
+                <div style={{
+                  padding: '0 0.5rem 0.8rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  marginBottom: '1rem'
+                }}>
+                  <input
+                    type="checkbox"
+                    id="select-all-checkbox"
+                    style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                    checked={
+                      audits.filter(file => {
+                        const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
+                        if (remainingIssues.length === 0) return false;
+                        if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
+                        return true;
+                      }).length > 0 &&
+                      audits.filter(file => {
+                        const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
+                        if (remainingIssues.length === 0) return false;
+                        if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
+                        return true;
+                      }).every(file => selectedPaths.has(file.file_path))
+                    }
+                    onChange={(e) => {
+                      const filteredFiles = audits.filter(file => {
+                        const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
+                        if (remainingIssues.length === 0) return false;
+                        if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
+                        return true;
+                      });
+
+                      const newSelection = new Set(selectedPaths);
+                      if (e.target.checked) {
+                        filteredFiles.forEach(f => newSelection.add(f.file_path));
+                      } else {
+                        filteredFiles.forEach(f => newSelection.delete(f.file_path));
+                      }
+                      setSelectedPaths(newSelection);
+                    }}
+                  />
+                  <label htmlFor="select-all-checkbox" style={{ fontSize: '0.85rem', cursor: 'pointer', color: 'var(--text-muted)' }}>
+                    현재 리스트 전체 선택
+                  </label>
+                </div>
+              )}
               {audits
                 .filter(file => {
                   const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
@@ -567,19 +700,21 @@ function App() {
                     {selectedFile.file_path}
                   </div>
 
-                  {selectedFile.issues.length === 0 ? (
+                  {selectedFile.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO' && (!severityFilter || i.severity === severityFilter)).length === 0 ? (
                     <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--severity-low)' }}>
-                      취약점이 발견되지 않았습니다. 안전한 코드입니다.
+                      해당 조건의 취약점이 발견되지 않았습니다.
                     </div>
                   ) : (
-                    selectedFile.issues.map((issue, idx) => (
-                      <IssueCard
-                        key={idx}
-                        issue={issue}
-                        onApplyFix={() => handleApplyFix(selectedFile.file_path, issue)}
-                        onShowDiff={() => setDiffModalData({ issue, filePath: selectedFile.file_path })}
-                      />
-                    ))
+                    selectedFile.issues
+                      .filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO' && (!severityFilter || i.severity === severityFilter))
+                      .map((issue, idx) => (
+                        <IssueCard
+                          key={idx}
+                          issue={issue}
+                          onApplyFix={() => handleApplyFix(selectedFile.file_path, issue)}
+                          onShowDiff={() => setDiffModalData({ issue, filePath: selectedFile.file_path })}
+                        />
+                      ))
                   )}
                 </>
               ) : (
@@ -691,40 +826,57 @@ function DiffModal({ data, onClose }: { data: { issue: Issue, filePath: string }
   );
 }
 
-function ChecklistModal({ onClose }: { onClose: () => void }) {
+function ChecklistModal({
+  onClose,
+  availableChecklists,
+  selectedChecklists,
+  setSelectedChecklists,
+  fetchChecklists
+}: {
+  onClose: () => void,
+  availableChecklists: string[],
+  selectedChecklists: string[],
+  setSelectedChecklists: React.Dispatch<React.SetStateAction<string[]>>,
+  fetchChecklists: () => Promise<void>
+}) {
+  const [editingFile, setEditingFile] = useState<string | null>(null);
   const [text, setText] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  const [newChecklistName, setNewChecklistName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    fetchChecklist();
-  }, []);
+    if (editingFile) {
+      fetchChecklistContent(editingFile);
+    }
+  }, [editingFile]);
 
-  const fetchChecklist = async () => {
+  const fetchChecklistContent = async (filename: string) => {
+    setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8005/api/checklist');
+      const response = await fetch(`http://localhost:8005/api/checklists/${encodeURIComponent(filename)}`);
       if (response.ok) {
         const data = await response.json();
         setText(data.text);
       }
     } catch (error) {
-      console.error('Error fetching checklist:', error);
+      console.error('Error fetching checklist content:', error);
     } finally {
-      setIsLoading(false); // Corrected from setIsAuditing(false)
+      setIsLoading(false);
     }
   };
 
   const handleSave = async () => {
+    if (!editingFile) return;
     setIsSaving(true);
     try {
-      const response = await fetch('http://localhost:8005/api/checklist', {
+      const response = await fetch('http://localhost:8005/api/checklists', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ name: editingFile, text }),
       });
       if (response.ok) {
-        alert('체크리스트 파일이 성공적으로 저장되었습니다.');
-        onClose();
+        alert('저장되었습니다.');
       }
     } catch (error) {
       console.error('Error saving checklist:', error);
@@ -734,38 +886,150 @@ function ChecklistModal({ onClose }: { onClose: () => void }) {
     }
   };
 
+  const handleAddNew = async () => {
+    if (!newChecklistName.trim()) return;
+    const filename = newChecklistName.endsWith('.txt') ? newChecklistName : `${newChecklistName}.txt`;
+
+    try {
+      const response = await fetch('http://localhost:8005/api/checklists', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: filename, text: '# 새 체크리스트 가이드' }),
+      });
+      if (response.ok) {
+        setNewChecklistName('');
+        await fetchChecklists();
+        setEditingFile(filename);
+        // Automatically select the new one
+        if (!selectedChecklists.includes(filename)) {
+          setSelectedChecklists(prev => [...prev, filename]);
+        }
+      }
+    } catch (error) {
+      console.error('Error adding checklist:', error);
+    }
+  };
+
+  const handleDelete = async (filename: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!confirm(`'${filename}' 체크리스트를 삭제하시겠습니까?`)) return;
+
+    try {
+      const response = await fetch(`http://localhost:8005/api/checklists/${encodeURIComponent(filename)}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        if (editingFile === filename) {
+          setEditingFile(null);
+          setText('');
+        }
+        setSelectedChecklists(prev => prev.filter(c => c !== filename));
+        await fetchChecklists();
+      }
+    } catch (error) {
+      console.error('Error deleting checklist:', error);
+    }
+  };
+
+  const toggleSelection = (filename: string) => {
+    setSelectedChecklists(prev =>
+      prev.includes(filename) ? prev.filter(c => c !== filename) : [...prev, filename]
+    );
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="glass-card modal-content" onClick={e => e.stopPropagation()} style={{ padding: '2rem', height: '80vh', maxWidth: '800px' }}>
-        <div className="flex-between" style={{ marginBottom: '1rem' }}>
+      <div className="glass-card modal-content wide" onClick={e => e.stopPropagation()} style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+        <div className="flex-between" style={{ marginBottom: '1.5rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.5rem', marginBottom: '4px' }}>보안성 체크리스트 관리</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-              `보안성체크리스트.txt` 파일의 내용을 직접 편집합니다.
-            </p>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 800 }}>체크리스트 통합 관리</h2>
+            <p style={{ color: 'var(--text-muted)' }}>감사에 사용할 체크리스트를 선택하거나 내용을 편집하세요.</p>
           </div>
-          <button onClick={onClose} style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+          <button onClick={onClose} className="btn-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
           </button>
         </div>
 
-        {isLoading ? (
-          <div style={{ textAlign: 'center', padding: '5rem', flex: 1 }}>로딩 중...</div>
-        ) : (
-          <textarea
-            className="checklist-editor"
-            value={text}
-            onChange={e => setText(e.target.value)}
-            placeholder="보안 체크리스트 내용을 입력하세요..."
-            spellCheck={false}
-          />
-        )}
+        <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '2rem', flex: 1, minHeight: 0 }}>
+          {/* Left Side: List */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', borderRight: '1px solid var(--border-color)', paddingRight: '1.5rem' }}>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <input
+                className="checklist-input"
+                value={newChecklistName}
+                onChange={e => setNewChecklistName(e.target.value)}
+                placeholder="새 파일 이름 (예: SQL보안)"
+                onKeyDown={e => e.key === 'Enter' && handleAddNew()}
+              />
+              <button className="btn-primary" style={{ padding: '8px 12px' }} onClick={handleAddNew}>추가</button>
+            </div>
 
-        <div className="flex-between" style={{ marginTop: '1rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          <button className="btn-primary" onClick={onClose} style={{ background: 'rgba(255,255,255,0.1)', color: 'white' }}>취소</button>
-          <button className="btn-primary" onClick={handleSave} disabled={isSaving}>
-            {isSaving ? '저장 중...' : '파일 내용 저장'}
-          </button>
+            <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {availableChecklists.map(name => (
+                <div
+                  key={name}
+                  className={`checklist-item ${editingFile === name ? 'active' : ''}`}
+                  onClick={() => setEditingFile(name)}
+                  style={{
+                    cursor: 'pointer',
+                    background: editingFile === name ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255,255,255,0.03)',
+                    borderColor: editingFile === name ? 'var(--primary)' : 'rgba(255,255,255,0.1)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <input
+                      type="checkbox"
+                      checked={selectedChecklists.includes(name)}
+                      onChange={() => toggleSelection(name)}
+                      onClick={e => e.stopPropagation()}
+                      style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                    />
+                    <span style={{ fontWeight: editingFile === name ? 700 : 400 }}>{name}</span>
+                  </div>
+                  <button
+                    className="btn-icon-danger"
+                    onClick={(e) => handleDelete(name, e)}
+                    title="삭제"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Editor */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {editingFile ? (
+              <>
+                <div className="flex-between" style={{ marginBottom: '1rem' }}>
+                  <h3 style={{ fontSize: '1.2rem', color: 'var(--primary)' }}>{editingFile} 편집 중</h3>
+                  <button className="btn-primary" onClick={handleSave} disabled={isSaving}>
+                    {isSaving ? '저장 중...' : '변경사항 저장'}
+                  </button>
+                </div>
+                {isLoading ? (
+                  <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>내용 로딩 중...</div>
+                ) : (
+                  <textarea
+                    className="checklist-editor"
+                    style={{ flex: 1, margin: 0 }}
+                    value={text}
+                    onChange={e => setText(e.target.value)}
+                    spellCheck={false}
+                  />
+                )}
+              </>
+            ) : (
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '1.1rem', background: 'rgba(0,0,0,0.1)', borderRadius: '12px' }}>
+                왼쪽 목록에서 편집할 체크리스트 파일을 선택하세요.
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div style={{ marginTop: '1.5rem', textAlign: 'right' }}>
+          <button className="btn-primary" style={{ background: 'var(--text-muted)' }} onClick={onClose}>닫기</button>
         </div>
       </div>
     </div>
