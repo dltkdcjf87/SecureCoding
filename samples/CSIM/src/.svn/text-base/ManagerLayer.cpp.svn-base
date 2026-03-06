@@ -1,0 +1,270 @@
+// ManagerLayer.cpp: implementation of the CManagementLayer class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "Environment.h"
+#include "ManagerLayer.h"
+#include "DivisionLayer.h"
+
+#include "SRManager.h"
+
+#include "Global.h"
+#include "Logger.h"
+#include "Utility.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CManagerLayer& theMgrLayer(void)
+{
+	static CManagerLayer managerLayer;
+
+	return managerLayer;
+}
+
+
+CManagerLayer::CManagerLayer() : m_bInit(false)
+{
+
+}
+
+CManagerLayer::~CManagerLayer()
+{
+
+}
+
+
+bool CManagerLayer::initialize(void)
+{
+	if(m_bInit == true) {
+		LOGGER(TRACE_INFO, "management layer : already initialized.");
+		return true;
+	}
+
+	m_msgQueue.initialize();
+
+	theDivisionLayer().initialize();
+
+	theDivisionLayer().setCallBack(MGM_MSG_ID, CManagerLayer::callBack_MGMEvent);
+	theDivisionLayer().setCallBack(STS_MSG_ID, CManagerLayer::callBack_STSEvent);
+	
+	m_bInit = true;
+
+	start();
+
+	LOGGER(TRACE_LEVEL2, "management layer : initialized.");
+
+	return true;
+}
+
+void CManagerLayer::uninitialize(void)
+{
+	theDivisionLayer().uninitialize();
+
+	m_bInit = false;
+
+	LOGGER(TRACE_LEVEL2, "management layer : uninitialized.");
+}
+
+
+bool CManagerLayer::start(void)
+{
+	u_long ulThreadID = 0;
+
+	if(m_hThread != 0) return true;
+
+	_CreateThread(m_hThread, NULL, 0, (LPTHREAD_START_ROUTINE) CManagerLayer::eventProcessThread, (LPVOID)this, 0, &ulThreadID);
+
+	if(m_hThread == null) {
+		LOGGER(TRACE_ERROR, "management layer : create thread 1 fail. [%ld]", GetLastError());
+	
+		return false;
+	}
+
+	return true;
+}
+
+bool CManagerLayer::stop(void)
+{
+	THREAD_HANDLE handle;
+
+	if(m_hThread) {
+		handle = m_hThread;
+		m_hThread = 0x00;
+		m_msgQueue.clearAll();
+		_EndThread(handle);
+	}
+
+	LOGGER(TRACE_LEVEL1, "management layer : destory thread OK.");
+
+	return true;
+}
+
+u_long WINAPI CManagerLayer::eventProcessThread(LPVOID param)
+{
+	CManagerLayer* pMMManager = (CManagerLayer*)param;
+
+	(*pMMManager).mainEventLoop();	//## 메인 루프 실행 ##//
+
+	return 0;
+}
+
+bool CManagerLayer::mainEventLoop(void)
+{
+	MAP_MMCCMD2FUNC::iterator mmccmd_lt;
+	MAP_STSCMD2FUNC::iterator stscmd_lt;
+	TypeMMCCmdFunc pMMCFunc;
+	TypeSTSCmdFunc pSTSFunc;
+	bool bResult;
+
+	CMsgQueue::_MSG_ msg;
+
+	unsigned short int nCmdID;
+	
+	while(true) 
+	{
+		//## Queue에서 메세지를 읽어 온다. ##//
+		bResult = m_msgQueue.getMsg(msg);
+		if(m_hThread == 0x00) return false;
+		if(bResult == false) continue;	//## 수신 메세지 없음. ##//
+
+		switch(msg.id)
+		{
+		case MGM_MSG_ID :
+			nCmdID = ((MMC_HEAD*)msg.pData)->usCmdNo;
+
+			mmccmd_lt = m_mapMMCCMD2FuncList.find(nCmdID);
+
+			if(mmccmd_lt != m_mapMMCCMD2FuncList.end()) {
+				pMMCFunc = (*mmccmd_lt).second;
+				pMMCFunc(msg.nParam, (MMC_HEAD*)msg.pData, (unsigned char*)msg.pData + sizeof(MMC_HEAD));
+			} else {
+				LOGGER(TRACE_WARNNING, "MMC : UNKNOW COMMAND : %04d", nCmdID);
+			}
+			break;
+		case STS_MSG_ID :
+			nCmdID = ((STS_HEAD*)msg.pData)->reserv;
+
+			stscmd_lt = m_mapSTSCMD2FuncList.find(nCmdID);
+
+			if(stscmd_lt != m_mapSTSCMD2FuncList.end()) {
+				pSTSFunc = (*stscmd_lt).second;
+				pSTSFunc(msg.nParam, (STS_HEAD*)msg.pData, (unsigned char*)msg.pData + sizeof(STS_HEAD));
+			} else {
+				LOGGER(TRACE_WARNNING, "STS : UNKNOW COMMAND : %04d", nCmdID);
+			}
+			break;
+		}
+
+		msg.clear();
+	}
+
+	return true;
+}
+
+int CManagerLayer::callBack_MGMEvent(int nLength, unsigned short int nID /*xbus id*/, unsigned char nFrom, unsigned char* pData)
+{
+	char* pMsg = (char*) theUtility().clon(pData, nLength);
+	theMgrLayer().m_msgQueue.addMsg(nID, pMsg, nLength, nFrom);
+
+	return 0;
+}
+
+int CManagerLayer::callBack_STSEvent(int nLength, unsigned short int nID /*xbus id*/, unsigned char nFrom, unsigned char* pData)
+{
+	char* pMsg = (char*) theUtility().clon(pData, nLength);
+	theMgrLayer().m_msgQueue.addMsg(nID, pMsg, nLength, nFrom);
+
+	return 0;
+}
+
+int CManagerLayer::sendToMGM(MMC_HEAD* pHead, unsigned short length, unsigned char* pMessage, int opt)
+{
+	char szBuff[1024];
+	int nTotalLen;
+	MMC_HEAD* pHd = (MMC_HEAD*)szBuff;
+
+	memcpy(pHd, pHead, MGM_HEAD_SIZE);
+
+	nTotalLen = MGM_HEAD_SIZE + length;
+
+	(*pHd).usMsgID = MMC_CMD_ID;
+	(*pHd).ucFrom = (theGlobal().getEMSIdx()==0)?CSIM_A:CSIM_B;
+	(*pHd).ucTo   = (*pHead).ucFrom; 
+	(*pHd).arg1   = (*pHead).arg1; 
+	(*pHd).arg2   = (*pHead).arg2; 
+	(*pHd).ulTime = (unsigned long) time(NULL); 
+	(*pHd).usiLen = nTotalLen;
+	(*pHd).ucType = opt;
+
+	memcpy(szBuff + MGM_HEAD_SIZE, pMessage, length);
+
+	LOGGER_HEX(szBuff, nTotalLen);
+
+	return CDivisionLayer::send(nTotalLen, MMCM, MGM_MSG_ID, (u_char*)szBuff);
+}
+
+int CManagerLayer::sendToMGMAlarm(int nID, unsigned short length, unsigned char* pMessage, int nFrom)
+{
+	char szBuff[1024];
+	int nTotalLen;
+	MMC_HEAD* pHd = (MMC_HEAD*)szBuff;
+
+	memset(pHd, 0x00, MGM_HEAD_SIZE);
+
+	nTotalLen = sizeof(MMC_HEAD) + length;
+
+	(*pHd).usMsgID = MMC_ALARM_ID;
+	(*pHd).usCmdNo = nID;
+	(*pHd).ucFrom  = nFrom; 
+	(*pHd).ucTo    = MGM; 
+	(*pHd).ulTime  = (unsigned long) time(NULL); 
+	(*pHd).usiLen  = nTotalLen;
+	(*pHd).ucType  = MMC_MSGTYPE_END;
+
+	memcpy(szBuff + MGM_HEAD_SIZE, pMessage, length);
+
+	return CDivisionLayer::send(nTotalLen, MMCM, MGM_MSG_ID, (u_char*)szBuff);
+}
+
+int CManagerLayer::sendToMGMState(int nID, unsigned short length, unsigned char* pMessage, int nFrom)
+{
+	char szBuff[1024];
+	int nTotalLen;
+	MMC_HEAD* pHd = (MMC_HEAD*)szBuff;
+
+	memset(pHd, 0x00, MGM_HEAD_SIZE);
+
+	nTotalLen = sizeof(MMC_HEAD) + length;
+
+	(*pHd).usMsgID = MMC_STATE_ID;
+	(*pHd).usCmdNo = nID;
+	(*pHd).ucFrom  = nFrom; 
+	(*pHd).ucTo    = MGM; 
+	(*pHd).ulTime  = (unsigned long) time(NULL); 
+	(*pHd).usiLen  = nTotalLen;
+	(*pHd).ucType  = MMC_MSGTYPE_END;
+
+	memcpy(szBuff + MGM_HEAD_SIZE, pMessage, length);
+
+	return CDivisionLayer::send(nTotalLen, MMCM, MGM_MSG_ID, (u_char*)szBuff);
+}
+
+
+int CManagerLayer::sendToSGM(STS_HEAD* pHead, unsigned short length, unsigned char* pMessage, int nFlag)
+{
+	char szBuff[1024];
+	int nTotalLen;
+	STS_HEAD* pHd = (STS_HEAD*)szBuff;
+
+	nTotalLen = STS_HEAD_SIZE + length;
+
+	(*pHd).reserv = (*pHead).reserv;
+	(*pHd).len = nTotalLen;
+	(*pHd).rstFlag = nFlag;
+
+	memcpy(szBuff + STS_HEAD_SIZE, pMessage, length);
+
+	return CDivisionLayer::send(nTotalLen, SGM, STS_MSG_ID, (u_char*)szBuff);
+}

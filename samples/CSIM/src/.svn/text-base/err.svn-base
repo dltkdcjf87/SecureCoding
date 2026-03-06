@@ -1,0 +1,2 @@
+gcc: -rpath: linker input file unused because linking not done
+gcc: ../lib: linker input file unused because linking not done

@@ -1,5 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './index.css'
+
+// API Base URL configuration
+const API_BASE_URL = import.meta.env.DEV ? 'http://localhost:8005' : '';
 
 export interface Issue {
   line: number;
@@ -38,7 +41,7 @@ function App() {
 
   const fetchChecklists = async () => {
     try {
-      const response = await fetch('http://localhost:8005/api/checklists');
+      const response = await fetch(`${API_BASE_URL}/api/checklists`);
       if (response.ok) {
         const data = await response.json();
         setAvailableChecklists(data);
@@ -131,7 +134,7 @@ function App() {
     // Filter supported files
     const supportedExtensions = ['.py', '.js', '.ts', '.tsx', '.java', '.jsp', '.html', '.css', '.c', '.cpp', '.cc', '.cxx', '.h', '.hpp', '.hxx', '.php'];
 
-    console.log(`[File Selection] Total files found in folder: ${files.length}`);
+    console.log(`[File Selection]Total files found in folder: ${files.length}`);
 
     const validFiles = Array.from(files).filter(file => {
       const fileName = file.name.toLowerCase();
@@ -157,7 +160,7 @@ function App() {
       return isSupported && !isIgnored;
     });
 
-    console.log(`[File Selection] Filtered to ${validFiles.length} valid source files.`);
+    console.log(`[File Selection]Filtered to ${validFiles.length} valid source files.`);
     if (validFiles.length > 0) {
       console.log('Sample files:', validFiles.slice(0, 5).map(f => f.webkitRelativePath || f.name));
     }
@@ -172,7 +175,7 @@ function App() {
     setAudits([]);
     setSelectedFile(null);
 
-    console.log(`[Security Audit] Target: ${validFiles.length} source files (Excluding ${files.length - validFiles.length} internal/unsupported files)`);
+    console.log(`[Security Audit]Target: ${validFiles.length} source files(Excluding ${files.length - validFiles.length} internal / unsupported files)`);
 
     const results: FileAudit[] = [];
     const batchSize = 3; // Reduced for safety with Free Tier limits
@@ -192,8 +195,8 @@ function App() {
       });
 
       try {
-        const checklistQuery = selectedChecklists.map(c => `checklists=${encodeURIComponent(c)}`).join('&');
-        const url = `http://localhost:8005/api/audit-batch?${checklistQuery}`;
+        const checklistQuery = selectedChecklists.map(c => `checklists = ${encodeURIComponent(c)}`).join('&');
+        const url = `${API_BASE_URL}/api/audit-batch?${checklistQuery}`;
 
         const response = await fetch(url, {
           method: 'POST',
@@ -243,7 +246,7 @@ function App() {
   const ensureProjectCopy = async (basePath: string) => {
     if (isCopyCreated) return true;
     try {
-      const response = await fetch('http://localhost:8005/api/create-fix-copy', {
+      const response = await fetch(`${API_BASE_URL}/api/create-fix-copy`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ base_path: basePath })
@@ -273,7 +276,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:8005/api/apply-fix', {
+      const response = await fetch(`${API_BASE_URL}/api/apply-fix`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -347,7 +350,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:8005/api/apply-fix-batch', {
+      const response = await fetch(`${API_BASE_URL}/api/apply-fix-batch`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fixes: fixesToApply })
@@ -408,7 +411,7 @@ function App() {
 
       if (allFixes.length === 0) return;
 
-      const response = await fetch('http://localhost:8005/api/apply-fix-batch', {
+      const response = await fetch(`${API_BASE_URL}/api/apply-fix-batch`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fixes: allFixes })
@@ -854,7 +857,7 @@ function ChecklistModal({
   const fetchChecklistContent = async (filename: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8005/api/checklists/${encodeURIComponent(filename)}`);
+      const response = await fetch(`${API_BASE_URL}/api/checklists/${encodeURIComponent(filename)}`);
       if (response.ok) {
         const data = await response.json();
         setText(data.text);
@@ -870,7 +873,7 @@ function ChecklistModal({
     if (!editingFile) return;
     setIsSaving(true);
     try {
-      const response = await fetch('http://localhost:8005/api/checklists', {
+      const response = await fetch(`${API_BASE_URL}/api/checklists`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: editingFile, text }),
@@ -891,7 +894,7 @@ function ChecklistModal({
     const filename = newChecklistName.endsWith('.txt') ? newChecklistName : `${newChecklistName}.txt`;
 
     try {
-      const response = await fetch('http://localhost:8005/api/checklists', {
+      const response = await fetch(`${API_BASE_URL}/api/checklists`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: filename, text: '# 새 체크리스트 가이드' }),
@@ -912,10 +915,10 @@ function ChecklistModal({
 
   const handleDelete = async (filename: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!confirm(`'${filename}' 체크리스트를 삭제하시겠습니까?`)) return;
+    if (!confirm(`'${filename}' 체크리스트를 삭제하시겠습니까 ? `)) return;
 
     try {
-      const response = await fetch(`http://localhost:8005/api/checklists/${encodeURIComponent(filename)}`, {
+      const response = await fetch(`${API_BASE_URL}/api/checklists/${encodeURIComponent(filename)}`, {
         method: 'DELETE',
       });
       if (response.ok) {

@@ -6,6 +6,8 @@ import shutil
 import glob
 from fastapi import FastAPI, UploadFile, File, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import google.generativeai as genai
 from pydantic import BaseModel
 from typing import List, Optional
@@ -82,50 +84,52 @@ def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
         return False
         
     current_dir = os.path.abspath(os.getcwd())
-    src_abs_path = os.path.abspath(file_path)
-    
-    # 1. Determine the source and destination paths
-    # If we find a '_fixed' suffix in any part of the path, we might already be in a fixed directory.
-    # Otherwise, we map 'Project' -> 'Project_fixed'
-    
-    parts = src_abs_path.replace("\\", "/").split("/")
-    target_abs_path = None
-    
-    # Search for the base directory that we copied
-    # Logic: If '보안취약점검사' is in the path, it should be '보안취약점검사_fixed'
-    # We find which part of the path is our current working directory
-    workspace_name = os.path.basename(current_dir)
-    
-    if workspace_name in parts:
-        # Create the fixed path by replacing workspace_name with workspace_name_fixed
-        fixed_parts = []
-        replaced = False
-        for p in parts:
-            if not replaced and p == workspace_name:
-                fixed_parts.append(p + "_fixed")
-                replaced = True
-            else:
-                fixed_parts.append(p)
+    raw_path = file_path.replace("\\", "/")
+    parts = raw_path.split("/")
+    if not parts:
+        return False
         
-        target_abs_path = os.path.sep.join(fixed_parts)
+    base_seg = parts[0]
+    fixed_base_seg = base_seg + "_fixed"
+    
+    # 1. Determine the target_abs_path by finding where fixed_base_seg exists
+    target_abs_path = None
+    src_abs_path = None
+    
+    # Try current directory first (subdirectory fix like 'audit_test_samples_fixed')
+    sub_fixed_path = os.path.join(current_dir, fixed_base_seg)
+    # Try parent directory (workspace-level fix like '보안취약점검사_fixed')
+    sibling_fixed_path = os.path.join(os.path.dirname(current_dir), fixed_base_seg)
+    
+    if os.path.exists(sub_fixed_path):
+        target_abs_path = os.path.abspath(os.path.join(sub_fixed_path, *parts[1:]))
+        src_abs_path = os.path.abspath(os.path.join(current_dir, *parts))
+        print(f"DEBUG: Mapping to SUBFIXED: {target_abs_path}")
+    elif os.path.exists(sibling_fixed_path):
+        target_abs_path = os.path.abspath(os.path.join(sibling_fixed_path, *parts[1:]))
+        src_abs_path = os.path.abspath(os.path.join(os.path.dirname(current_dir), *parts))
+        print(f"DEBUG: Mapping to SIBLING FIXED: {target_abs_path}")
     else:
-        # fallback for relative paths or different structures
-        target_abs_path = src_abs_path
+        # Fallback: maybe the path is already absolute or relative to cwd
+        src_abs_path = os.path.abspath(file_path)
+        target_abs_path = src_abs_path # Default to same file if no _fixed found
+        print(f"DEBUG: No _fixed found, using: {target_abs_path}")
 
     # 2. Ensure the destination file exists (Selective Copy)
-    if workspace_name + "_fixed" in target_abs_path:
-        if not os.path.exists(target_abs_path):
-            if os.path.exists(src_abs_path):
-                try:
-                    os.makedirs(os.path.dirname(target_abs_path), exist_ok=True)
-                    import shutil
-                    shutil.copy2(src_abs_path, target_abs_path)
-                    print(f"DEBUG: Selective Copy Applied: {src_abs_path} -> {target_abs_path}")
-                except Exception as e:
-                    print(f"Error copying file for selective fix: {e}")
-                    return False
-            else:
-                print(f"Source file not found for copy: {src_abs_path}")
+    if "_fixed" in target_abs_path and not os.path.exists(target_abs_path):
+        if os.path.exists(src_abs_path):
+            try:
+                os.makedirs(os.path.dirname(target_abs_path), exist_ok=True)
+                import shutil
+                shutil.copy2(src_abs_path, target_abs_path)
+                print(f"DEBUG: Selective Copy Applied: {src_abs_path} -> {target_abs_path}")
+            except Exception as e:
+                print(f"Error copying file for selective fix: {e}")
+                return False
+        else:
+            print(f"Source file not found for copy: {src_abs_path}")
+            # If src not found, maybe it's already an absolute path that exists
+            if not os.path.exists(target_abs_path):
                 return False
 
     # 3. Apply the fix to the target file
@@ -551,6 +555,26 @@ async def delete_checklist(filename: str):
         return {"status": "success"}
     raise HTTPException(status_code=404, detail="Checklist not found")
 
+# Serve static files from React build
+# IMPORTANT: API routes must be defined BEFORE mounting StaticFiles or catch-all route
+dist_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "web", "dist")
+
+if os.path.exists(dist_path):
+    app.mount("/assets", StaticFiles(directory=os.path.join(dist_path, "assets")), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_react_app(full_path: str):
+        # API requests should not be handled here (they are matched by earlier routes)
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404)
+        
+        # Serve index.html for all other routes to support SPA
+        index_file = os.path.join(dist_path, "index.html")
+        if os.path.exists(index_file):
+            return FileResponse(index_file)
+        return {"status": "error", "message": "Frontend build not found"}
+
 if __name__ == "__main__":
-    print("Starting server on http://0.0.0.0:8005")
-    uvicorn.run(app, host="0.0.0.0", port=8005)
+    port = int(os.environ.get("PORT", 8005))
+    print(f"Starting server on http://0.0.0.0:{port}")
+    uvicorn.run(app, host="0.0.0.0", port=port)

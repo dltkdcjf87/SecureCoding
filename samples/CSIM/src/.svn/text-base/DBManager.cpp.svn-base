@@ -1,0 +1,189 @@
+// DBManager.cpp: implementation of the CDBManager class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "Environment.h"
+#include "ServiceLayer.h"
+#include "DBManager.h"
+#include "QueueManager.h"
+#include "ServiceDaemon.h"
+
+#include "CSIMDef.h"
+#include "Global.h"
+
+#include "Logger.h"
+#include "XBusDef3.h"
+#include "Utility.h"
+
+#include "SessionUtility.h"
+using namespace chiwoo;
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CDBManager::CDBManager(int nIdx)
+{
+	m_hThread = 0;
+	m_nIndex = nIdx;
+}
+
+CDBManager::~CDBManager()
+{
+
+}
+
+void CDBManager::initialize(void)
+{
+	char szUserID[32];
+	char szPasswd[32];
+	char szConnStr[32];
+
+	GetPrivateProfileString("CSIM", "ORACLE_USERID", "sysdba", szUserID, sizeof(szUserID), theGlobal().getCSIMConfigFile()); 
+	GetPrivateProfileString("CSIM", "ORACLE_PASSWD", "oracle", szPasswd, sizeof(szPasswd), theGlobal().getCSIMConfigFile()); 
+	GetPrivateProfileString("CSIM", "ORACLE_CONNSTR", "", szConnStr, sizeof(szConnStr), theGlobal().getCSIMConfigFile()); 
+
+	m_occi.initialize(szUserID, szPasswd, szConnStr);
+
+}
+
+void CDBManager::start(void)
+{
+	u_long ulThreadID = 0;
+
+	if(m_hThread != 0) return;
+
+	_CreateThread(m_hThread, NULL, 0, (LPTHREAD_START_ROUTINE) CDBManager::executeThread, (LPVOID)this, 0, &ulThreadID);
+
+	if(m_hThread == null) {
+		LOGGER(TRACE_ERROR, "db manager : create thread 1 fail. [%ld]", GetLastError());
+	
+		return;
+	}
+}
+
+
+unsigned long CDBManager::executeThread(LPVOID param)
+{
+	CDBManager* pThis = (CDBManager*) param;
+
+	(*pThis).main();
+
+	return 0;
+}
+
+void CDBManager::main(void)
+{
+	IFString streamBuff('\1', '\2', 6, 2048);
+	SessionStream stmClient(false);
+
+	CMsgQueue::_MSG_ msg;
+	std::string sResultQuery;
+	char* pQuery;
+	bool bOk;
+
+	SESSION_INFO session;
+
+	while(true)
+	{
+		if(theQueueMgr().getMsg(msg) == false) continue;
+
+		if(msg.id == 0) { /* tcp */
+
+			pQuery = msg.pData + CSIM_BOOMERANG_LEN;
+
+			CSIM_TCP_HEAD csimHead;
+
+			if(!theServiceDaemon().findSessionInfo(msg.nParam, &session))
+			{
+				msg.clear();
+				LOGGER(TRACE_LEVEL3, "db manager[%d] : CSIM <---- TCP : unknow session handle(%d)", m_nIndex, msg.nParam);
+				continue;
+			}
+
+			LOGGER(TRACE_LEVEL3, "db manager[%d] : CSIM <---- TCP(as:%d, m-id:0x%02x)", m_nIndex, session.nAS, session.nModule);
+			LOGGER(TRACE_LEVEL2, "db manager[%d] : %s", m_nIndex, pQuery);
+
+			stmClient.set(session.handle, sessionTypeTCP);
+
+			csimHead.nAsCode = session.nAS;
+			csimHead.nModule = 0;
+			csimHead.nMsgId = msg.id;
+
+			if(m_occi.isConnect()) {
+				
+				if(*pQuery == 's' || *pQuery == 'S') {
+					bOk = m_occi.sqlSelect(pQuery, sResultQuery);
+				} else {
+					bOk = m_occi.sqlExecute(pQuery, sResultQuery);
+				}
+
+				if(bOk) {
+					m_occi.commit();
+					csimHead.result = successCode;
+					csimHead.reason = reasonOk;
+				} else {
+					if(m_occi.isConnect()) csimHead.result = csimDataWrong;
+					else csimHead.result = dbmsDisconnect;
+					csimHead.reason = reasonOk;
+				}
+			} else {
+				csimHead.result = failCode;
+				csimHead.reason = dbmsDisconnect;
+			}
+
+			streamBuff.clear();
+			streamBuff.append(sizeof(CSIM_TCP_HEAD), (char*)&csimHead);
+			streamBuff.append(CSIM_BOOMERANG_LEN, msg.pData);
+			streamBuff.append(sResultQuery.size(), sResultQuery.c_str());
+
+			try {
+				stmClient.send(&streamBuff);
+				LOGGER(TRACE_LEVEL3, "db manager[%d] : CSIM ----> TCP(as:%d, m-id:0x%02x)", m_nIndex, session.nAS, session.nModule);
+			} catch(const char* errMsg) {
+				stmClient.disconnect();
+				LOGGER(TRACE_ERROR, "db manager[%d] : CSIM ----> TCP(as:%d, m-id:0x%02x) : fail %s", m_nIndex, session.nAS, session.nModule, errMsg);
+			}
+
+		} else if(msg.id == 1) { /* xbus */
+			pQuery = msg.pData + sizeof(CSIM_DB_HEAD);
+
+			LOGGER(TRACE_LEVEL3, "db manager[%d] : CSIM <---- XBUS(0x%02x:local=00)", m_nIndex, msg.nParam);
+
+			LOGGER(TRACE_LEVEL2, "db manager[%d] : %s", m_nIndex, pQuery);
+
+			CSIM_DB_HEAD csimDBHead;
+
+			memcpy(&csimDBHead, msg.pData, sizeof(CSIM_DB_HEAD));
+
+			if(m_occi.isConnect()) {
+
+				pQuery = msg.pData + CSIM_BOOMERANG_LEN;
+				
+				if(*pQuery == 's' || *pQuery == 'S') {
+					m_occi.sqlSelect(pQuery, sResultQuery);
+				} else {
+					m_occi.sqlExecute(pQuery, sResultQuery);
+				}
+
+			} else {
+				sResultQuery = "0005:SERVER DISCONNECTED";
+			}
+
+			if(msg.nParam != 0)
+			{
+				streamBuff.clear();
+				streamBuff.append(sizeof(CSIM_DB_HEAD), (char*)&csimDBHead);
+				streamBuff.append(sResultQuery.size(), sResultQuery.c_str());
+
+				theServiceLayer().sendToANY(msg.nParam, CSIM_MSG_ID, streamBuff.length(), streamBuff.getBuff());
+
+				LOGGER(TRACE_LEVEL3, "db manager[%d] : CSIM ----> XBUS(0x%02x)", m_nIndex, msg.nParam);
+			} 
+		}
+
+		msg.clear();
+	}
+}
+
+

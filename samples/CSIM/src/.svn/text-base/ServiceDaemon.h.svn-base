@@ -1,0 +1,83 @@
+// ServiceDaemon.h: interface for the CServiceDaemon class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_SERVICEDAEMON_H__6746A40F_6C35_43DA_8AC0_F13CC83FC6D6__INCLUDED_)
+#define AFX_SERVICEDAEMON_H__6746A40F_6C35_43DA_8AC0_F13CC83FC6D6__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+#include "MessageQueue.h"
+
+#include "SessionUtility.h"
+using namespace chiwoo;
+
+
+typedef struct {
+	int nAS;
+	int nGroupCode;
+	int nModule;
+	SESSION_HANDLER handle;
+	char szIP[20];
+	time_t tConnectTime;
+	unsigned long lReqCount;
+	unsigned long lRespCount;
+	unsigned long lFailCount;
+} SESSION_INFO;
+
+typedef struct {
+	SESSION_HANDLER a_side;
+	SESSION_HANDLER b_side;
+} DUALSESSION_INFO;
+
+
+class CServiceDaemon : public SessionServer  
+{
+protected:
+	CMsgQueue m_messageQueue;
+
+	typedef std::map<SESSION_HANDLER, SESSION_INFO *> SessionMap;	// 핸들별 세션정보
+	typedef std::map<std::string, DUALSESSION_INFO> SessionMapModule;	// 모듈별 A,B 사이드 정보
+
+	SessionMap m_mapSessions;
+	SessionMapModule m_mapModuleSessions;
+
+	CRITICAL_SECTION m_CriticalSection;
+
+	inline void lock(void) { EnterCriticalSection(&m_CriticalSection); };
+	inline void unlock(void) { LeaveCriticalSection(&m_CriticalSection); };
+
+public:
+	CServiceDaemon(SessionType type);
+	virtual ~CServiceDaemon();
+
+	virtual bool OnConnect(SESSION_HANDLER handler, const char* ip);
+	virtual bool OnDisconnect(SESSION_HANDLER handler, const char* ip);
+	virtual bool OnReceive(SESSION_HANDLER handler, const char* ip);
+
+	bool getSessionInfo(int nIdx, int &nAS, unsigned char &cMoID, char *szIP, time_t &tConnected, unsigned long &lReqCnt, unsigned long &lRespCnt, unsigned long &lErrCnt);
+
+	void incFailCount(SESSION_HANDLER handle);
+	void incAckCount(SESSION_HANDLER handle);
+	void incRequestCount(SESSION_HANDLER handle);
+
+	bool daemonStart(int nPort);
+	bool daemonStop(void);
+
+	bool init(void);
+
+	bool sessionRegist(SESSION_HANDLER handle, int nAS, int nModule, const char* szIP);
+	bool sessionUnRegist(SESSION_HANDLER handle);
+	void putEvent(SESSION_HANDLER handle, int nCmdID, const char* szData, int nLength);
+
+	bool findSessionInfo(SESSION_HANDLER handle, SESSION_INFO* pSessionInfo);
+	inline bool getMsg(CMsgQueue::_MSG_& msg) { return m_messageQueue.getMsg(msg); };
+
+	friend CServiceDaemon& theServiceDaemon(void);
+};
+
+extern CServiceDaemon& theServiceDaemon(void);
+
+#endif // !defined(AFX_SERVICEDAEMON_H__6746A40F_6C35_43DA_8AC0_F13CC83FC6D6__INCLUDED_)
