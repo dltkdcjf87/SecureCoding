@@ -150,74 +150,141 @@ def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
     # 3. Apply the fix to the target file
     return apply_fix_internal(target_abs_path, original, suggested)
 
+def get_comment_style(file_path: str):
+    """Returns (start_tag, end_tag, line_prefix, line_suffix) based on file extension."""
+    ext = os.path.splitext(file_path)[1].lower()
+    if ext in ['.py', '.sh', '.yaml', '.yml', '.dockerfile', '.conf', '.env']:
+        return "# AI_FIX_START", "# AI_FIX_END", "# [ORIGINAL] ", ""
+    elif ext in ['.html', '.xml', '.jsp']:
+        return "<!-- AI_FIX_START -->", "<!-- AI_FIX_END -->", "<!-- [ORIGINAL] ", " -->"
+    elif ext in ['.css']:
+        return "/* AI_FIX_START */", "/* AI_FIX_END */", "/* [ORIGINAL] ", " */"
+    else: # Default for JS, TS, C++, Java, C#, etc.
+        return "// AI_FIX_START", "// AI_FIX_END", "// [ORIGINAL] ", ""
+
 def apply_fix_internal(target_full_path: str, original: str, suggested: str) -> bool:
     """
-    Actual file write operation with indentation preservation.
+    Actual file write operation with indentation preservation, AI fix comments,
+    and ROBUST matching (Fuzzy/Failsafe).
     """
     if not target_full_path or not os.path.exists(target_full_path):
-        print(f"Target file not found for write: {target_full_path}")
+        print(f"ERROR: Target file not found for write: {target_full_path}")
         return False
 
     try:
+        import re
         with open(target_full_path, "rb") as f:
             raw_content = f.read()
         
-        content = decode_content(raw_content)
+        raw_content_str = decode_content(raw_content)
+        # 1. Normalize line endings to LF for internal processing
+        content = raw_content_str.replace('\r\n', '\n')
         
-        # Exact match check
-        # Exact match check
-        if original in content:
-            # 1. Detect base indentation from the 'original' snippet itself
-            # This is reliable because 'original' is an exact match from the file
-            orig_lines = original.splitlines()
-            if not orig_lines: return False
-            
-            first_orig_line = orig_lines[0]
-            indent_len = len(first_orig_line) - len(first_orig_line.lstrip())
-            base_indent = first_orig_line[:indent_len]
-            
-            # 2. Adjust indentation for 'suggested'
-            suggested_lines = suggested.splitlines()
-            if suggested_lines and base_indent:
-                # Check if the first line of suggested already has indentation
-                first_s_line = suggested_lines[0]
-                s_indent_len = len(first_s_line) - len(first_s_line.lstrip())
-                
-                # If suggested is not indented but original is, apply the base_indent
-                if s_indent_len == 0:
-                    adjusted_suggested = "\n".join([base_indent + line if line.strip() else line for line in suggested_lines])
-                    # Ensure we handle the exact newline style (keep original trailing newlines if any)
-                    if original.endswith('\n') and not adjusted_suggested.endswith('\n'):
-                        adjusted_suggested += '\n'
-                    new_content = content.replace(original, adjusted_suggested)
-                else:
-                    new_content = content.replace(original, suggested)
-            else:
-                new_content = content.replace(original, suggested)
+        # 2. Detect newline style of the original content for later reconstruction
+        actual_newline = "\n"
+        if "\r\n" in raw_content_str:
+            actual_newline = "\r\n"
 
-            with open(target_full_path, "w", encoding="utf-8") as f:
-                f.write(new_content)
-            print(f"Successfully applied fix and preserved indentation in: {target_full_path}")
-            return True
+        # 3. Normalize original/suggested blocks for consistent matching
+        def normalize_ws(s):
+            # Replace all newline variants with \n and strip each line
+            lines = [l.rstrip() for l in s.replace('\r\n', '\n').splitlines()]
+            return "\n".join(lines).strip()
 
+        norm_content = normalize_ws(content)
+        norm_original = normalize_ws(original)
 
-        else:
-            # Try a slightly looser match (ignoring leading/trailing whitespace of the whole block)
-            stripped_original = original.strip()
-            if stripped_original and stripped_original in content:
-                # Find where it is
-                new_content = content.replace(original, suggested) # Fallback to original
-                # Actually, better to just use replace if it contains it.
-                # If it doesn't match exactly, the UI might be sending slightly different whitespace.
-                pass
+        # We will try to find the match in the original content using several strategies
+        found_original = None
+        
+        # Strategy A: Exact match (handles normalized whitespace)
+        # Note: 'original' might have CRLF from AI, so normalize it to match 'content'
+        clean_original = original.replace('\r\n', '\n')
+        if clean_original in content:
+            found_original = clean_original
+            print("DEBUG: Exact match found.")
+        
+        # Strategy B: Regex-based loose match (whitespace insensitive)
+        if not found_original:
+            target_pattern = re.escape(clean_original.strip())
+            target_pattern = re.sub(r'\\s+', r'\\s+', target_pattern)
+            target_pattern = re.sub(r'\\n', r'\\s*', target_pattern)
             
-            if suggested in content:
-                print(f"Fix already applied in: {target_full_path}")
+            match = re.search(target_pattern, content, re.MULTILINE)
+            if match:
+                found_original = match.group(0)
+                print(f"DEBUG: Fuzzy match found via regex: {len(found_original)} chars")
+
+        if not found_original:
+            clean_suggested = suggested.replace('\r\n', '\n')
+            if clean_suggested in content:
+                print(f"INFO: Fix already applied in: {target_full_path}")
                 return True
-            print(f"Original content mismatch in {target_full_path}")
+            print(f"ERROR: Code mismatch in {target_full_path}")
             return False
+
+        # --- Proceed with replacement in 'content' ---
+        start_idx = content.find(found_original)
+        preceding_content = content[:start_idx]
+        last_newline_idx = preceding_content.rfind('\n')
+        
+        # Extract the base indentation
+        line_start_content = preceding_content[last_newline_idx + 1:]
+        base_indent = ""
+        if line_start_content.strip() == "":
+            base_indent = line_start_content
+
+        # Adjust suggested code indentation (using LF)
+        s_lines = suggested.replace('\r\n', '\n').splitlines(keepends=True)
+        if len(s_lines) > 0 and base_indent:
+            adjusted_lines = []
+            for i, line in enumerate(s_lines):
+                if i == 0:
+                    adjusted_lines.append(line)
+                else:
+                    if line.strip():
+                        adjusted_lines.append(base_indent + line if not line.startswith(base_indent) else line)
+                    else:
+                        adjusted_lines.append(line)
+            final_suggested_raw = "".join(adjusted_lines)
+        else:
+            final_suggested_raw = suggested.replace('\r\n', '\n')
+
+        # Comment out the ORIGINAL source instead of deleting it
+        start_tag, end_tag, line_prefix, line_suffix = get_comment_style(target_full_path)
+        
+        orig_lines = found_original.splitlines()
+        commented_orig_lines = []
+        for line in orig_lines:
+            commented_orig_lines.append(f"{line_prefix}{line}{line_suffix}")
+        
+        commented_original_block = "\n".join(commented_orig_lines)
+
+        # Construct the final block: START -> Suggested -> Commented Original -> END
+        flagged_suggested = (
+            f"{start_tag}\n"
+            f"{base_indent}{final_suggested_raw.strip()}\n"
+            f"{base_indent}{commented_original_block}\n"
+            f"{base_indent}{end_tag}"
+        )
+        
+        if found_original.endswith('\n'):
+            flagged_suggested += '\n'
+
+        new_content = content.replace(found_original, flagged_suggested)
+
+        # 4. Write to file translating all LF to the detected style
+        with open(target_full_path, "w", encoding="utf-8", newline=actual_newline) as f:
+            f.write(new_content)
+        
+        print(f"SUCCESS: Applied fix with newline preservation: {target_full_path}")
+        return True
+
+
     except Exception as e:
-        print(f"Error writing fix to {target_full_path}: {e}")
+        import traceback
+        print(f"EXCEPTION in apply_fix_internal: {e}")
+        traceback.print_exc()
         return False
 
 
@@ -574,6 +641,25 @@ async def create_fix_copy(request: CreateCopyRequest):
             raise HTTPException(status_code=500, detail=f"Failed to create directory: {str(e)}")
     
     return {"status": "exists", "message": "Fixed version directory already exists.", "path": dst_path}
+
+@app.post("/api/open-folder")
+async def open_folder(data: dict):
+    path = data.get("path")
+    print(f"DEBUG: Received request to open folder: {path}")
+    if not path or not os.path.exists(path):
+        print(f"ERROR: Folder not found or path empty: {path}")
+        raise HTTPException(status_code=404, detail="Directory not found")
+    
+    try:
+        # Popen is non-blocking, which is better for explorer
+        import subprocess
+        norm_path = os.path.normpath(path)
+        subprocess.Popen(['explorer', norm_path])
+        print(f"SUCCESS: Triggered explorer for {norm_path}")
+        return {"status": "success"}
+    except Exception as e:
+        print(f"Error opening folder: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/checklists")
 async def list_checklists():

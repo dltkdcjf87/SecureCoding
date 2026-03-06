@@ -56,38 +56,28 @@ function App() {
     }
   };
 
-  const stats = {
-    // 필터링된 이슈 리스트 (APPLIED/INFO 제외)
-    get filteredIssues() {
-      return audits.flatMap(f => f.issues.filter(i =>
-        i.action_type !== 'APPLIED' && i.action_type !== 'INFO' &&
-        (!severityFilter || i.severity === severityFilter)
-      ));
-    },
-    // 필터링된 파일 리스트
-    get filteredFiles() {
-      return audits.filter(file => {
-        const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
-        if (remainingIssues.length === 0) return false;
-        if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
-        return true;
-      });
-    },
-    totalIssues: 0, // Getter에서 계산됨
-    vulnerableFiles: 0,
-    critical: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Critical' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
-    high: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'High' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
-    medium: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Medium' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
-  };
+  const displayStats = React.useMemo(() => {
+    const filteredIssues = audits.flatMap(f => f.issues.filter(i =>
+      i.action_type !== 'APPLIED' && i.action_type !== 'INFO' &&
+      (!severityFilter || i.severity === severityFilter)
+    ));
 
-  // Getter가 지원되지 않는 환경을 고려하여 명시적 계산 (또는 객체 구조 유지)
-  const displayStats = {
-    totalIssues: stats.filteredIssues.length,
-    vulnerableFiles: stats.filteredFiles.length,
-    critical: stats.critical,
-    high: stats.high,
-    medium: stats.medium
-  };
+    const filteredFiles = audits.filter(file => {
+      const remainingIssues = file.issues.filter(i => i.action_type !== 'APPLIED' && i.action_type !== 'INFO');
+      if (remainingIssues.length === 0) return false;
+      if (severityFilter && !remainingIssues.some(i => i.severity === severityFilter)) return false;
+      return true;
+    });
+
+    return {
+      totalIssues: filteredIssues.length,
+      vulnerableFiles: filteredFiles.length,
+      critical: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Critical' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
+      high: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'High' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
+      medium: audits.reduce((acc, curr) => acc + curr.issues.filter(i => i.severity === 'Medium' && i.action_type !== 'APPLIED' && i.action_type !== 'INFO').length, 0),
+    };
+  }, [audits, severityFilter]);
+
 
   useEffect(() => {
     // 1. Sync Selected File (Find next if current is hidden)
@@ -440,6 +430,23 @@ function App() {
     }
   };
 
+  const handleOpenFixedFolder = async () => {
+    if (!fixedPath) return;
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/open-folder`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: fixedPath })
+      });
+      if (response.ok) {
+        alert('탐색기가 실행되었습니다.');
+      }
+    } catch (error) {
+      console.error('Error opening folder:', error);
+      alert('폴더를 여는 중 오류가 발생했습니다.');
+    }
+  };
+
   return (
     <div className="container">
       <header className="flex-between" style={{ marginBottom: '3rem' }}>
@@ -502,10 +509,24 @@ function App() {
           gap: '12px'
         }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-          <div>
+          <div style={{ flex: 1 }}>
             <span style={{ fontWeight: 600, color: '#34d399', marginRight: '8px' }}>수정본 생성됨:</span>
             <code style={{ fontSize: '0.9rem', color: 'var(--text-main)', opacity: 0.9 }}>{fixedPath}</code>
           </div>
+          <button
+            className="btn-primary"
+            onClick={handleOpenFixedFolder}
+            style={{
+              padding: '6px 12px',
+              fontSize: '0.8rem',
+              background: 'rgba(16, 185, 129, 0.2)',
+              border: '1px solid #10b981',
+              color: '#34d399'
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" /></svg>
+            폴더 열기
+          </button>
         </div>
       )}
 
