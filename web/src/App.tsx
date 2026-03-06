@@ -26,7 +26,8 @@ function App() {
   const [auditProgress, setAuditProgress] = useState({ current: 0, total: 0 });
   const [selectedPaths, setSelectedPaths] = useState<Set<string>>(new Set());
   const [showChecklistModal, setShowChecklistModal] = useState(false);
-  const [isApplyingFix, setIsApplyingFix] = useState(false); // Added state for applying fixes
+  const [isApplyingFix, setIsApplyingFix] = useState(false); // For All/Single fixes
+  const [isApplyingSelected, setIsApplyingSelected] = useState(false); // Added for selected fixes
   const [isCopyCreated, setIsCopyCreated] = useState(false);
   const [fixedPath, setFixedPath] = useState<string | null>(null);
   const [diffModalData, setDiffModalData] = useState<{ issue: Issue, filePath: string } | null>(null);
@@ -341,11 +342,11 @@ function App() {
 
     if (!confirm(`${selectedPaths.size}개의 파일에 대해 프로젝트 복사본을 생성하고 수정을 일괄 적용하시겠습니까?`)) return;
 
-    setIsApplyingFix(true);
+    setIsApplyingSelected(true);
     const copyOk = await ensureProjectCopy(targetAudits[0].file_path);
     if (!copyOk) {
       alert('프로젝트 복사본 생성 중 오류가 발생했습니다.');
-      setIsApplyingFix(false);
+      setIsApplyingSelected(false);
       return;
     }
 
@@ -375,8 +376,9 @@ function App() {
     } catch (error) {
       console.error('Error applying selected fixes:', error);
     } finally {
-      setIsApplyingFix(false);
+      setIsApplyingSelected(false);
     }
+
   };
 
   const handleApplyAllFixes = async () => {
@@ -581,13 +583,14 @@ function App() {
               <div className="stat-value" style={{ color: 'var(--severity-medium)' }}>{displayStats.medium}</div>
               <div className="stat-label">Medium</div>
             </div>
-            <div className="glass-card stat-item" style={{ borderLeft: '2px solid #10b981', cursor: 'pointer', transition: 'all 0.2s' }} onClick={handleApplySelectedFixes}>
+            <div className="glass-card stat-item" style={{ borderLeft: '2px solid #10b981', cursor: 'pointer', transition: 'all 0.2s', opacity: isApplyingSelected ? 0.7 : 1 }} onClick={isApplyingSelected ? undefined : handleApplySelectedFixes}>
               <div className="stat-value" style={{ color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="m9 12 2 2 4-4" /></svg>
-                {selectedPaths.size} Files
+                {isApplyingSelected ? '적용 중...' : `${selectedPaths.size} Files`}
               </div>
               <div className="stat-label" style={{ fontWeight: 700 }}>선택 항목 적용</div>
             </div>
+
             <div className="glass-card stat-item" style={{ borderLeft: '2px solid #4f46e5', cursor: 'pointer', transition: 'all 0.2s' }} onClick={handleApplyAllFixes}>
               <div className="stat-value" style={{ color: '#818cf8', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="m9 12 2 2 4-4" /></svg>

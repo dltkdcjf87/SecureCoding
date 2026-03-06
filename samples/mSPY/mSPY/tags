@@ -1,0 +1,1862 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACK_Counts	SPY_mmc.h	/^	int	ACK_Counts;$/;"	m	struct:dis_stat_spy
+ACK_Counts	SPY_mmc2.h	/^    int     ACK_Counts;$/;"	m	struct:__anon64
+ACK_OutCounts	SPY_mmc.h	/^	int	ACK_OutCounts;$/;"	m	struct:dis_stat_spy
+ACK_OutCounts	SPY_mmc2.h	/^    int     ACK_OutCounts;$/;"	m	struct:__anon64
+ACT_BLACK_LIST_RP	SPY_mmc.h	/^} ACT_BLACK_LIST_RP;$/;"	t	typeref:struct:__anon16
+ACT_BLACK_LIST_RQ	SPY_mmc.h	/^} ACT_BLACK_LIST_RQ;$/;"	t	typeref:struct:__anon15
+ADD_Fault_FLCM	flcm_manager.cpp	/^bool FLCM_MANAGER::ADD_Fault_FLCM(char* key, int value)$/;"	f	class:FLCM_MANAGER
+ADD_TRACE_SPY_R	SPY_mmc2.h	/^} ADD_TRACE_SPY_R;$/;"	t	typeref:struct:__anon68
+ADD_TRACE_SPY_S	SPY_mmc2.h	/^} ADD_TRACE_SPY_S;$/;"	t	typeref:struct:__anon69
+ALARM_OFF	SPY_extlist.cpp	28;"	d	file:
+ALARM_ON	SPY_extlist.cpp	29;"	d	file:
+ALLOCATION_SUCCESS	SPY_scm.h	27;"	d
+ALM_REG_Q_FULL_ALARM	SPY_alm.h	11;"	d
+ALM_REG_Q_FULL_ALARM	SPY_alm.h	15;"	d
+ALM_SPY_AS_BLOCK	SPY_alm.h	13;"	d
+ALM_SPY_AS_BLOCK	SPY_alm.h	9;"	d
+ALM_SPY_SSW_DISCONNECT	SPY_alm.h	10;"	d
+ALM_SPY_SSW_DISCONNECT	SPY_alm.h	14;"	d
+ASCII_CRLF	SPY_def.h	38;"	d
+ASCII_SPACE	SPY_def.h	37;"	d
+ASSIGN_MODE	flcm_manager.h	17;"	d
+AUTHOR	VersionHistory.h	16;"	d
+AlarmSendThread	SPY_alm.cpp	/^void *AlarmSendThread(void* arg)$/;"	f
+BLACKLIST_ACT_REP	SPY_xbus.h	/^} BLACKLIST_ACT_REP;    \/\/ add by SMCHO 20140918 - Respose for BLACKLIST_REQ$/;"	t	typeref:struct:__anon100
+BLACKLIST_ACT_REQ	SPY_xbus.h	/^} BLACKLIST_ACT_REQ;    \/\/ add by SMCHO 20140918 - Black List Update Requst$/;"	t	typeref:struct:__anon99
+BLACKLIST_UPD_REP	SPY_xbus.h	/^} BLACKLIST_UPD_REP;    \/\/ add by SMCHO 20140918 - Respose for BLACKLIST_REQ$/;"	t	typeref:struct:__anon98
+BLACKLIST_UPD_REQ	SPY_xbus.h	/^} BLACKLIST_UPD_REQ;    \/\/ add by SMCHO 20140918 - Black List Update Requst$/;"	t	typeref:struct:__anon97
+BLIST_FILENAME_ERR	SPY_blist.h	40;"	d
+BLIST_FILENAME_ERR	SPY_blist_v6.h	42;"	d
+BLIST_FILEOPEN_ERR	SPY_blist.h	39;"	d
+BLIST_FILEOPEN_ERR	SPY_blist_v6.h	41;"	d
+BLIST_IP_NOT_EXIST	SPY_blist.h	41;"	d
+BLIST_IP_NOT_EXIST	SPY_blist_v6.h	43;"	d
+BLIST_OK	SPY_blist.h	38;"	d
+BLIST_OK	SPY_blist_v6.h	40;"	d
+BLIST_TBL	SPY_blist.cpp	/^BLIST_TBL::BLIST_TBL(void)$/;"	f	class:BLIST_TBL
+BLIST_TBL	SPY_blist.h	/^class BLIST_TBL$/;"	c
+BLIST_TBL_V6	SPY_blist_v6.cpp	/^BLIST_TBL_V6::BLIST_TBL_V6(void)$/;"	f	class:BLIST_TBL_V6
+BLIST_TBL_V6	SPY_blist_v6.h	/^class BLIST_TBL_V6$/;"	c
+BLIST_UNDEFINED_ERR	SPY_blist.h	42;"	d
+BLIST_UNDEFINED_ERR	SPY_blist_v6.h	44;"	d
+BLOCKED_TAS_CSFB	SPY_scm.h	37;"	d
+BLOCKED_TAS_CSRN	SPY_scm.h	38;"	d
+BUILD_DATE	VersionHistory.h	15;"	d
+BYE_Counts	SPY_mmc.h	/^	int	BYE_Counts;$/;"	m	struct:dis_stat_spy
+BYE_Counts	SPY_mmc2.h	/^    int     BYE_Counts;$/;"	m	struct:__anon64
+BYE_OutCounts	SPY_mmc.h	/^	int	BYE_OutCounts;$/;"	m	struct:dis_stat_spy
+BYE_OutCounts	SPY_mmc2.h	/^    int     BYE_OutCounts;$/;"	m	struct:__anon64
+BYTE	flcm_manager.h	/^typedef unsigned char   BYTE;$/;"	t
+BoardNo	SPY_hash.h	/^    int     BoardNo;			\/\/ SRM Board ¹øÈ£$/;"	m	struct:__anon115
+BoardNo	SPY_hash.h	/^    uint8_t BoardNo;			\/\/ SRM Board ¹øÈ£$/;"	m	struct:__anon114
+CANCEL_Counts	SPY_mmc.h	/^	int	CANCEL_Counts;$/;"	m	struct:dis_stat_spy
+CANCEL_Counts	SPY_mmc2.h	/^    int     CANCEL_Counts;$/;"	m	struct:__anon64
+CANCEL_OutCounts	SPY_mmc.h	/^	int	CANCEL_OutCounts;$/;"	m	struct:dis_stat_spy
+CANCEL_OutCounts	SPY_mmc2.h	/^    int     CANCEL_OutCounts;$/;"	m	struct:__anon64
+CC	Makefile	/^CC       = gcc$/;"	m
+CFG_DEBUG	SPY_cfg.h	/^} CFG_DEBUG;$/;"	t	typeref:struct:__anon121
+CFG_ETC	SPY_cfg.h	/^} CFG_ETC;$/;"	t	typeref:struct:__anon125
+CFG_MEM	libnsmcfg.h	/^} CFG_MEM;$/;"	t	typeref:struct:__anon102
+CFG_MODULE	SPY_cfg.h	/^} CFG_MODULE;$/;"	t	typeref:struct:__anon122
+CFG_SES	SPY_cfg.h	/^} CFG_SES;$/;"	t	typeref:struct:__anon124
+CFG_THREAD	SPY_cfg.h	/^} CFG_THREAD;$/;"	t	typeref:struct:__anon123
+CFLAGS	Makefile	/^CFLAGS   = -g3 $(OPT) $(INCS)$/;"	m
+CHG_REPORT_SPY_R	SPY_mmc2.h	/^} CHG_REPORT_SPY_R;$/;"	t	typeref:struct:__anon56
+CHG_REPORT_SPY_S	SPY_mmc2.h	/^} CHG_REPORT_SPY_S;$/;"	t	typeref:struct:__anon57
+CLR_CALL_SPY_R	SPY_mmc2.h	/^} CLR_CALL_SPY_R;$/;"	t	typeref:struct:__anon53
+CLR_CALL_SPY_S	SPY_mmc2.h	/^} CLR_CALL_SPY_S;$/;"	t	typeref:struct:__anon54
+CLR_SCM_MAP_R	SPY_mmc2.h	/^} CLR_SCM_MAP_R;$/;"	t	typeref:struct:__anon43
+CLR_SCM_MAP_S	SPY_mmc2.h	/^} CLR_SCM_MAP_S;$/;"	t	typeref:struct:__anon44
+CLR_STAT_SPY_R	SPY_mmc2.h	/^} CLR_STAT_SPY_R;$/;"	t	typeref:struct:__anon51
+CLR_STAT_SPY_S	SPY_mmc2.h	/^} CLR_STAT_SPY_S;$/;"	t	typeref:struct:__anon52
+CMD_SCM_CH_FREE_RP	SPY_scm.h	13;"	d
+CMD_SCM_CH_FREE_RQ	SPY_scm.h	12;"	d
+CMD_STA_RESET_ONLY	SPY_stat.h	10;"	d
+CMD_STA_RESULT	SPY_stat.h	11;"	d
+CMD_STA_SEND_AND_RESET	SPY_stat.h	9;"	d
+CMD_STA_SEND_ONLY	SPY_stat.h	8;"	d
+CMS_SCM_CH_ALLOC_RP	SPY_scm.h	15;"	d
+CMS_SCM_CH_ALLOC_RQ	SPY_scm.h	14;"	d
+CMS_SCM_OPTION_REPORT	SPY_scm.h	17;"	d
+CNM_BlackListAct	SPY_mmc.h	22;"	d
+CNM_BlackListUpdate	SPY_mmc.h	21;"	d
+CNM_BlackListUpdate_V6	SPY_mmc.h	26;"	d
+CNM_ClrCallSPY	SPY_mmc.h	15;"	d
+CNM_ClrStatSPY	SPY_mmc.h	14;"	d
+CNM_DisBlockSPY	SPY_mmc.h	12;"	d
+CNM_DisCfgSPY	SPY_mmc.h	7;"	d
+CNM_DisStatSPY	SPY_mmc.h	8;"	d
+CNM_ExtListUpdate	SPY_mmc.h	23;"	d
+CNM_ExtListUpdate_V6	SPY_mmc.h	27;"	d
+CNM_ReloadCfgSPY	SPY_mmc.h	10;"	d
+CNM_SetBlockSPY	SPY_mmc.h	11;"	d
+CNM_SetCfgSPY	SPY_mmc.h	9;"	d
+CNM_SetProxySPY	SPY_mmc.h	29;"	d
+CNM_TraceListSPY	SPY_mmc.h	19;"	d
+CNM_TraceOffSPY	SPY_mmc.h	18;"	d
+CNM_TraceOnSPY	SPY_mmc.h	17;"	d
+CNS_DisOverResp	SPY_mmc.h	32;"	d
+CNS_SaveCfgSPY	SPY_mmc.h	31;"	d
+CNS_SetOverResp	SPY_mmc.h	33;"	d
+CODE	SPY_alm.h	/^	char	CODE[2];$/;"	m	struct:__anon117
+COLOR_BLUE	libnsmlog.h	37;"	d
+COLOR_CYAN	libnsmlog.h	39;"	d
+COLOR_GRAY	libnsmlog.h	33;"	d
+COLOR_GREEN	libnsmlog.h	35;"	d
+COLOR_MAGENTA	libnsmlog.h	38;"	d
+COLOR_RED	libnsmlog.h	34;"	d
+COLOR_RESET	libnsmlog.h	52;"	d
+COLOR_R_BLUE	libnsmlog.h	47;"	d
+COLOR_R_CYAN	libnsmlog.h	49;"	d
+COLOR_R_GRAY	libnsmlog.h	43;"	d
+COLOR_R_GREEN	libnsmlog.h	45;"	d
+COLOR_R_MAGENTA	libnsmlog.h	48;"	d
+COLOR_R_RED	libnsmlog.h	44;"	d
+COLOR_R_WHITE	libnsmlog.h	50;"	d
+COLOR_R_YELLOW	libnsmlog.h	46;"	d
+COLOR_WHITE	libnsmlog.h	40;"	d
+COLOR_YELLOW	libnsmlog.h	36;"	d
+CR_AUDIT	SPY_cr.h	/^} CR_AUDIT;$/;"	t	typeref:struct:__anon119
+CR_DATA	SPY_cr.h	/^} CR_DATA;$/;"	t	typeref:struct:__anon120
+CXXFLAGS	Makefile	/^CXXFLAGS = $(CFLAGS)$/;"	m
+C_ADD_200_INVITE_TIMER	SPY_cfg.h	175;"	d
+C_ADD_200_UPDATE_TIMER	SPY_cfg.h	174;"	d
+C_ADD_UPDATE_TIMER	SPY_cfg.h	173;"	d
+C_ALARM_SEND_TIME	SPY_cfg.h	129;"	d
+C_AS_BLOCK	SPY_cfg.h	114;"	d
+C_BLACK_LIST_NAME	SPY_cfg.h	170;"	d
+C_BLACK_LIST_NAME_V6	SPY_cfg.h	141;"	d
+C_BLACK_LIST_USE	SPY_cfg.h	172;"	d
+C_BYE_NO_HASH_200	SPY_cfg.h	125;"	d
+C_DEL_18X_SUPPORTED_FLAG	SPY_cfg.h	168;"	d
+C_DIAL_IN_PREFIX	SPY_cfg.h	165;"	d
+C_DIAL_IN_PREFIX_LEN	SPY_cfg.h	166;"	d
+C_ECS_UPDATE	SPY_cfg.h	150;"	d
+C_HASH_FAIL_ROUTE	SPY_cfg.h	124;"	d
+C_IN6_SPY	SPY_cfg.h	138;"	d
+C_IP_MODE_V6	SPY_cfg.h	139;"	d
+C_LOG_LEVEL	SPY_cfg.h	107;"	d
+C_LOG_MAX_SIZE	SPY_cfg.h	108;"	d
+C_LOG_OPTIONS	SPY_cfg.h	109;"	d
+C_LOG_REGISTER	SPY_cfg.h	110;"	d
+C_MAX_REG_Q_SIZE	SPY_cfg.h	130;"	d
+C_MAX_RSAM_SES_THREAD	SPY_cfg.h	158;"	d
+C_MAX_RSSW_OPT_THREAD	SPY_cfg.h	157;"	d
+C_MAX_RSSW_ORIG_THREAD	SPY_cfg.h	154;"	d
+C_MAX_RSSW_REG_THREAD	SPY_cfg.h	156;"	d
+C_MAX_RSSW_TERM_THREAD	SPY_cfg.h	155;"	d
+C_NETWORK_QOS	SPY_cfg.h	115;"	d
+C_ORIG_STACK_IP	SPY_cfg.h	117;"	d
+C_ORIG_STACK_IP_PORT	SPY_cfg.h	119;"	d
+C_ORIG_STACK_IP_PORT_V6	SPY_cfg.h	135;"	d
+C_ORIG_STACK_IP_V6	SPY_cfg.h	134;"	d
+C_ORIG_STACK_PORT	SPY_cfg.h	118;"	d
+C_OUTBOUND_IP	SPY_cfg.h	112;"	d
+C_OUTBOUND_PROXY	SPY_cfg.h	111;"	d
+C_OVERLOAD_RESP_CODE	SPY_cfg.h	177;"	d
+C_REFER_405	SPY_cfg.h	169;"	d
+C_REG_Q_ALM_LIMIT	SPY_cfg.h	131;"	d
+C_REPORT_TIME	SPY_cfg.h	128;"	d
+C_SAM_PORT	SPY_cfg.h	147;"	d
+C_SCM_MAP_AUDIT_TIME	SPY_cfg.h	127;"	d
+C_SES_BOARD	SPY_cfg.h	160;"	d
+C_SES_INET_ADDR	SPY_cfg.h	163;"	d
+C_SES_IP	SPY_cfg.h	162;"	d
+C_SES_PORT	SPY_cfg.h	161;"	d
+C_SSW_PORT	SPY_cfg.h	146;"	d
+C_SYNTAX_CHECK	SPY_cfg.h	148;"	d
+C_TAS_BLOCK_480_FLAG	SPY_cfg.h	167;"	d
+C_TAS_REGISTER_SKEY	SPY_cfg.h	176;"	d
+C_TERM_STACK_IP	SPY_cfg.h	121;"	d
+C_TERM_STACK_IP_PORT	SPY_cfg.h	123;"	d
+C_TERM_STACK_IP_PORT_V6	SPY_cfg.h	137;"	d
+C_TERM_STACK_IP_V6	SPY_cfg.h	136;"	d
+C_TERM_STACK_PORT	SPY_cfg.h	122;"	d
+C_USE_MESSAGE	SPY_cfg.h	178;"	d
+C_USE_REGI_API4	SPY_cfg.h	179;"	d
+C_WEB_EXTLIST_NAME	SPY_cfg.h	171;"	d
+C_WEB_EXTLIST_NAME_V6	SPY_cfg.h	142;"	d
+Call_ID	SPY_hash.h	/^    string  Call_ID;			\/\/ Call ´ÜÀ§ ±¸ºÐµÇ´Â °ª$/;"	m	struct:__anon114
+ChannelNo	SPY_hash.h	/^    int     ChannelNo;			\/\/ SRM Channel ¹øÈ£$/;"	m	struct:__anon114
+ChannelNo	SPY_hash.h	/^    int     ChannelNo;			\/\/ SRM Channel ¹øÈ£$/;"	m	struct:__anon115
+CheckBlackList	SPY_rssw.cpp	/^bool CheckBlackList(CR_DATA *pCR)$/;"	f
+CheckTimer	flcm_manager.cpp	/^void* FLCM_MANAGER::CheckTimer(void* aThis)$/;"	f	class:FLCM_MANAGER
+Check_Configure_File	SPY_xbus.cpp	/^void Check_Configure_File(char* _fileName, char* _returnResult, int _smallestSize=0)$/;"	f
+CreateAlarmSendTherad	SPY_alm.cpp	/^void CreateAlarmSendTherad(void)$/;"	f
+DBM_HEAD	SPY_regi.cpp	/^} DBM_HEAD;$/;"	t	typeref:struct:__anon72	file:
+DBM_MSG	SPY_extlist.cpp	32;"	d	file:
+DBM_MSG_ID	SPY_regi.cpp	42;"	d	file:
+DBM_QUERY	SPY_regi.cpp	/^} DBM_QUERY;$/;"	t	typeref:struct:__anon73	file:
+DEALLOCATION_SUCCESS	SPY_scm.h	34;"	d
+DEALLOC_NOT_FOUND	SPY_scm.h	35;"	d
+DEFAULT_TTL	SPY_udp.h	21;"	d
+DEL_TRACE_SPY_R	SPY_mmc2.h	/^} DEL_TRACE_SPY_R;$/;"	t	typeref:struct:__anon70
+DEL_TRACE_SPY_S	SPY_mmc2.h	/^} DEL_TRACE_SPY_S;$/;"	t	typeref:struct:__anon71
+DGM_HDR	SPY_xbus.h	/^} DGM_HDR;$/;"	t	typeref:struct:__anon86
+DIS_BLOCK_SPY_R	SPY_mmc2.h	/^} DIS_BLOCK_SPY_R;$/;"	t	typeref:struct:__anon25
+DIS_BLOCK_SPY_S	SPY_mmc2.h	/^} DIS_BLOCK_SPY_S;$/;"	t	typeref:struct:__anon26
+DIS_CALL_SPY_R	SPY_mmc2.h	/^} DIS_CALL_SPY_R;$/;"	t	typeref:struct:__anon55
+DIS_CALL_SPY_S	SPY_mmc2.h	/^} DIS_CALL_SPY_S;$/;"	t	typeref:struct:__anon62
+DIS_CFG_SPY_R	SPY_mmc2.h	/^} DIS_CFG_SPY_R;$/;"	t	typeref:struct:__anon19
+DIS_CFG_SPY_S	SPY_mmc2.h	/^} DIS_CFG_SPY_S;    \/\/ M04500$/;"	t	typeref:struct:__anon20
+DIS_OVER_RESP_R	SPY_mmc2.h	/^} DIS_OVER_RESP_R;$/;"	t	typeref:struct:__anon37
+DIS_OVER_RESP_S	SPY_mmc2.h	/^} DIS_OVER_RESP_S;$/;"	t	typeref:struct:__anon38
+DIS_REPORT_SPY_R	SPY_mmc2.h	/^} DIS_REPORT_SPY_R;$/;"	t	typeref:struct:__anon58
+DIS_REPORT_SPY_S	SPY_mmc2.h	/^} DIS_REPORT_SPY_S;$/;"	t	typeref:struct:__anon59
+DIS_SCM_AUDIT_R	SPY_mmc2.h	/^} DIS_SCM_AUDIT_R;$/;"	t	typeref:struct:__anon45
+DIS_SCM_AUDIT_S	SPY_mmc2.h	/^} DIS_SCM_AUDIT_S;$/;"	t	typeref:struct:__anon46
+DIS_SCM_MAP_R	SPY_mmc2.h	/^} DIS_SCM_MAP_R;$/;"	t	typeref:struct:__anon39
+DIS_SCM_MAP_S	SPY_mmc2.h	/^} DIS_SCM_MAP_S;$/;"	t	typeref:struct:__anon40
+DIS_STAT_SPY	SPY_mmc.h	/^} DIS_STAT_SPY;$/;"	t	typeref:struct:dis_stat_spy
+DIS_STAT_SPY_R	SPY_mmc2.h	/^} DIS_STAT_SPY_R;$/;"	t	typeref:struct:__anon63
+DIS_STAT_SPY_S	SPY_mmc2.h	/^} DIS_STAT_SPY_S;$/;"	t	typeref:struct:__anon64
+DIS_TRACE_ITEM	SPY_mmc.h	/^} DIS_TRACE_ITEM;$/;"	t	typeref:struct:dis_trace_item
+DIS_TRACE_SPY	SPY_mmc.h	/^} DIS_TRACE_SPY;$/;"	t	typeref:struct:dis_trace_spy
+DIS_TRACE_SPY_R	SPY_mmc2.h	/^} DIS_TRACE_SPY_R;$/;"	t	typeref:struct:__anon65
+DIS_TRACE_SPY_S	SPY_mmc2.h	/^} DIS_TRACE_SPY_S;$/;"	t	typeref:struct:__anon67
+DebugLevel	SPY_mmc.h	/^	uint8_t     DebugLevel;$/;"	m	struct:__anon10
+DebugLevel	SPY_mmc.h	/^	uint8_t     DebugLevel;$/;"	m	struct:__anon3
+ERRSVR_LIST	SPY_extlist.h	/^} ERRSVR_LIST;$/;"	t	typeref:struct:__anon2
+ERRSVR_TBL	SPY_extlist.cpp	/^ERRSVR_TBL::ERRSVR_TBL(void)$/;"	f	class:ERRSVR_TBL
+ERRSVR_TBL	SPY_extlist.h	/^class ERRSVR_TBL$/;"	c
+EXE_NAME	Makefile	/^EXE_NAME=mSPY-${LBITS}-${BUILD_INFO}$/;"	m
+EXTLIST_TBL	SPY_extlist.cpp	/^EXTLIST_TBL::EXTLIST_TBL(void)$/;"	f	class:EXTLIST_TBL
+EXTLIST_TBL	SPY_extlist.h	/^class EXTLIST_TBL$/;"	c
+EXTLIST_TBL_V6	SPY_extlist.cpp	/^EXTLIST_TBL_V6::EXTLIST_TBL_V6(void)$/;"	f	class:EXTLIST_TBL_V6
+EXTLIST_TBL_V6	SPY_extlist.h	/^class EXTLIST_TBL_V6$/;"	c
+EXTSVR_LIST	SPY_extlist.h	/^} EXTSVR_LIST;$/;"	t	typeref:struct:__anon1
+FLCM_DATA	flcm_manager.h	/^} FLCM_DATA;$/;"	t	typeref:struct:__anon101
+FLCM_MANAGER	flcm_manager.cpp	/^FLCM_MANAGER::FLCM_MANAGER()$/;"	f	class:FLCM_MANAGER
+FLCM_MANAGER	flcm_manager.h	/^class FLCM_MANAGER$/;"	c
+FLT_SPY_RSAM_UDP_SERVER	SPY_alm.h	5;"	d
+FLT_SPY_RSSW_UDP_SERVER	SPY_alm.h	6;"	d
+Fault_Clear	flcm_manager.cpp	/^void FLCM_MANAGER::Fault_Clear()$/;"	f	class:FLCM_MANAGER
+Fault_Init	flcm_manager.cpp	/^void FLCM_MANAGER::Fault_Init(BYTE ID, int fault_type, char *category, char *faultLog, int set_sec)$/;"	f	class:FLCM_MANAGER
+Fault_STS	flcm_manager.h	/^		map<string, int> Fault_STS;$/;"	m	class:FLCM_MANAGER
+FlcmFaultLog	flcm_manager.h	/^    char FlcmFaultLog[MAX_FAULTLOG_SIZE];$/;"	m	struct:__anon101
+Flcm_Send_Info	flcm_manager.h	/^		FLCM_DATA Flcm_Send_Info;$/;"	m	class:FLCM_MANAGER
+GetBool	LIB_nsmcfg.cpp	/^bool NSM_CFG::GetBool(const char *strSection, const char *strName, bool *bValue)$/;"	f	class:NSM_CFG
+GetInt	LIB_nsmcfg.cpp	/^bool NSM_CFG::GetInt(const char *strSection, const char *strName, int *nValue)$/;"	f	class:NSM_CFG
+GetPsInfo_VmRSS	SPY_stat.cpp	/^int GetPsInfo_VmRSS(void)$/;"	f
+GetStr	LIB_nsmcfg.cpp	/^bool NSM_CFG::GetStr(const char *strSection, const char *strName, char *strValue, int MAX_LEN)$/;"	f	class:NSM_CFG
+HASH_HaUpdateRQ	SPY_ha.cpp	/^void HASH_HaUpdateRQ(XBUS_MSG *rXBUS)$/;"	f
+HASH_ITEM	SPY_hash.h	/^} HASH_ITEM;$/;"	t	typeref:struct:__anon114
+HASH_InsertAndSync	SPY_ha.cpp	/^bool HASH_InsertAndSync(CR_DATA *pCR, time_t t_now)$/;"	f
+HASH_InsertTable	SPY_ha.cpp	/^bool HASH_InsertTable(XBUS_MSG *rXBUS) \/\/ 20241202 kdh chg$/;"	f
+HASH_InsertTableRQ	SPY_ha.cpp	/^bool HASH_InsertTableRQ(XBUS_MSG *rXBUS)$/;"	f
+HASH_InsertTableThread	SPY_ha.cpp	/^void* HASH_InsertTableThread(void* arg)$/;"	f
+HASH_SendHaUpdateRQ	SPY_ha.cpp	/^void HASH_SendHaUpdateRQ(CR_DATA *pCR, bool bIsReceiveACK)$/;"	f
+HASH_SyncAllTableRQ	SPY_ha.cpp	/^void HASH_SyncAllTableRQ(void)$/;"	f
+HA_HASH_SYNC	SPY_hash.h	/^} HA_HASH_SYNC;$/;"	t	typeref:struct:__anon115
+HA_HASH_UPDATE	SPY_hash.h	/^} HA_HASH_UPDATE;$/;"	t	typeref:struct:__anon116
+HEADS	Makefile	/^HEADS  = $/;"	m
+HOST_TYPE	SPY_libv6.h	/^enum HOST_TYPE$/;"	g
+HOST_TYPE_HOSTNAME	SPY_libv6.h	/^    HOST_TYPE_UNDEFINED = -1, HOST_TYPE_IPV4, HOST_TYPE_IPV6, HOST_TYPE_HOSTNAME$/;"	e	enum:HOST_TYPE
+HOST_TYPE_IPV4	SPY_libv6.h	/^    HOST_TYPE_UNDEFINED = -1, HOST_TYPE_IPV4, HOST_TYPE_IPV6, HOST_TYPE_HOSTNAME$/;"	e	enum:HOST_TYPE
+HOST_TYPE_IPV6	SPY_libv6.h	/^    HOST_TYPE_UNDEFINED = -1, HOST_TYPE_IPV4, HOST_TYPE_IPV6, HOST_TYPE_HOSTNAME$/;"	e	enum:HOST_TYPE
+HOST_TYPE_UNDEFINED	SPY_libv6.h	/^    HOST_TYPE_UNDEFINED = -1, HOST_TYPE_IPV4, HOST_TYPE_IPV6, HOST_TYPE_HOSTNAME$/;"	e	enum:HOST_TYPE
+HashFailCounts	SPY_mmc.h	/^	int	HashFailCounts;$/;"	m	struct:dis_stat_spy
+HashFailCounts	SPY_mmc2.h	/^    int     HashFailCounts;$/;"	m	struct:__anon64
+INCS	Makefile	/^INCS   = -I. -I\/home\/mcpas\/include$/;"	m
+INFO_Counts	SPY_mmc.h	/^	int	INFO_Counts;$/;"	m	struct:dis_stat_spy
+INFO_Counts	SPY_mmc2.h	/^    int     INFO_Counts;$/;"	m	struct:__anon64
+INFO_OutCounts	SPY_mmc.h	/^	int	INFO_OutCounts;$/;"	m	struct:dis_stat_spy
+INFO_OutCounts	SPY_mmc2.h	/^    int     INFO_OutCounts;$/;"	m	struct:__anon64
+INIT_ALL_SPY_R	SPY_mmc2.h	/^} INIT_ALL_SPY_R;$/;"	t	typeref:struct:__anon60
+INIT_ALL_SPY_S	SPY_mmc2.h	/^} INIT_ALL_SPY_S;$/;"	t	typeref:struct:__anon61
+INVITE_Counts	SPY_mmc.h	/^	int	INVITE_Counts;$/;"	m	struct:dis_stat_spy
+INVITE_Counts	SPY_mmc2.h	/^    int     INVITE_Counts;$/;"	m	struct:__anon64
+INVITE_OutCounts	SPY_mmc.h	/^	int	INVITE_OutCounts;$/;"	m	struct:dis_stat_spy
+INVITE_OutCounts	SPY_mmc2.h	/^    int     INVITE_OutCounts;$/;"	m	struct:__anon64
+IN_ADDR	SPY_udp.h	/^typedef struct in_addr	IN_ADDR;$/;"	t	typeref:struct:in_addr
+IPTYPE_V4	SPY_libv6.h	27;"	d
+IPTYPE_V6	SPY_libv6.h	28;"	d
+IP_HEADER_LEN	SPY_udp.h	24;"	d
+IP_HEADER_LEN	SPY_udp.h	27;"	d
+IP_TYPE	SPY_libv6.h	/^enum IP_TYPE$/;"	g
+IP_TYPE_UNDEFINED	SPY_libv6.h	/^    IP_TYPE_UNDEFINED = -1, IP_TYPE_V4, IP_TYPE_V6$/;"	e	enum:IP_TYPE
+IP_TYPE_V4	SPY_libv6.h	/^    IP_TYPE_UNDEFINED = -1, IP_TYPE_V4, IP_TYPE_V6$/;"	e	enum:IP_TYPE
+IP_TYPE_V6	SPY_libv6.h	/^    IP_TYPE_UNDEFINED = -1, IP_TYPE_V4, IP_TYPE_V6$/;"	e	enum:IP_TYPE
+InMsgCounts_O	SPY_mmc.h	/^	int	InMsgCounts_O;$/;"	m	struct:dis_stat_spy
+InMsgCounts_O	SPY_mmc2.h	/^    int     InMsgCounts_O;$/;"	m	struct:__anon64
+InMsgCounts_T	SPY_mmc.h	/^	int	InMsgCounts_T;$/;"	m	struct:dis_stat_spy
+InMsgCounts_T	SPY_mmc2.h	/^    int     InMsgCounts_T;$/;"	m	struct:__anon64
+InThreadCounts	SPY_mmc.h	/^	int         InThreadCounts;$/;"	m	struct:__anon3
+InitRegiCPScnt	SPY_stat.cpp	/^void InitRegiCPScnt(void)   {   pthread_mutex_init(&m_regiMutex, NULL); }$/;"	f
+LBITS	Makefile	/^LBITS := $(shell getconf LONG_BIT)$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS  = $(LIBS)$/;"	m
+LIBS	Makefile	/^LIBS   = $(LIB_PATH) -lresolv -lm -lrt -lstdc++ -lnet -lpthread -lbtxbus3$/;"	m
+LIBS	Makefile	/^LIBS   = $(LIB_PATH) -lresolv -lm -lrt -lstdc++ -lnet64 -lpthread -lbtxbus3-64$/;"	m
+LIB_AppendHeader	SPY_lib.cpp	/^bool LIB_AppendHeader(char *strSendBuf, int *nSendLen, const char *strRcvBuf, const char *strHeader)$/;"	f
+LIB_DelSipHeaderNameAndValue	SPY_lib.cpp	/^bool LIB_DelSipHeaderNameAndValue(char *strBuf, const char *strHeaderName)$/;"	f
+LIB_DelSpyViaHeader	SPY_lib.cpp	/^bool LIB_DelSpyViaHeader(CR_DATA *pCR, char *strSendBuf)$/;"	f
+LIB_DelSpyViaHeaderV4	SPY_lib.cpp	/^bool LIB_DelSpyViaHeaderV4(CR_DATA *pCR, char *strSendBuf)$/;"	f
+LIB_DelSpyViaHeaderV6	SPY_libv6.cpp	/^bool LIB_DelSpyViaHeaderV6(CR_DATA *pCR, char *strSendBuf)$/;"	f
+LIB_DeleteHeader	SPY_lib.cpp	/^bool LIB_DeleteHeader(char *strSendBuf, int *nSendLen, const char *strHeader)$/;"	f
+LIB_DeleteStartSpace	SPY_lib.cpp	/^void LIB_DeleteStartSpace(char *str)$/;"	f
+LIB_ExtendResourceLimit	LIB_nsmcom.cpp	/^int LIB_ExtendResourceLimit(int resource)$/;"	f
+LIB_GetAddrFromFromToHeader	SPY_lib.cpp	/^int LIB_GetAddrFromFromToHeader(const char *strHeader, char *strAddr, int MAX_LEN)$/;"	f
+LIB_GetAddrFromURI	SPY_lib.cpp	/^bool LIB_GetAddrFromURI(const char *strURI, char *strAddr, int MAX_LEN, char *strUser, int MAX_USER_LEN, char *strHost)$/;"	f
+LIB_GetAddrFromViaHeader	SPY_lib.cpp	/^int LIB_GetAddrFromViaHeader(const char *strBuf, char *ip, int MAX_LEN, int *port)$/;"	f
+LIB_GetAddrFromViaHeaderV6	SPY_libv6.cpp	/^bool LIB_GetAddrFromViaHeaderV6(const char *strSipBuf, char *strIpAddr, int MAX_LEN, int *nPort)$/;"	f
+LIB_GetAndDelHeader	SPY_lib.cpp	/^bool LIB_GetAndDelHeader(char *strBuf, const char *strHeaderName, char *strValue, int MAX_VALUE_LEN)$/;"	f
+LIB_GetHeaderCount	SPY_lib.cpp	/^int LIB_GetHeaderCount(const char *strBuf, const char *strHeader)$/;"	f
+LIB_GetHostFromHeader	SPY_lib.cpp	/^bool LIB_GetHostFromHeader(const char *strHeader, char *strHost, int MAX_HOST_LEN)$/;"	f
+LIB_GetIntUntilCRLF	SPY_lib.cpp	/^bool LIB_GetIntUntilCRLF(const char *strBuf, const char *strHeader, int *intOut)$/;"	f
+LIB_GetIpAddrInContactHeader	SPY_lib.cpp	/^bool LIB_GetIpAddrInContactHeader(const char *strHeader, char *strIpAddr, int MAX_LEN, int *nPort)$/;"	f
+LIB_GetIpAddrInContactHeaderV4	SPY_libv6.cpp	/^bool LIB_GetIpAddrInContactHeaderV4(const char *strHeader, char *strIpAddr, int MAX_LEN, int *nPort)$/;"	f
+LIB_GetIpAddrInContactHeaderV6	SPY_libv6.cpp	/^bool LIB_GetIpAddrInContactHeaderV6(const char *strHeader, char *strIpAddr, int MAX_LEN, int *nPort, IP_TYPE *IpType)$/;"	f
+LIB_GetSipHeaderValue	SPY_lib.cpp	/^int LIB_GetSipHeaderValue(const char *strSipMsg, const char *strHeader, char *strValue, int MAX_LEN)$/;"	f
+LIB_GetSipRequestMethod	SPY_lib.cpp	/^int LIB_GetSipRequestMethod(char *strRcvBuf)$/;"	f
+LIB_GetSipResponseCode	SPY_lib.cpp	/^int LIB_GetSipResponseCode(char *strRcvBuf)$/;"	f
+LIB_GetSipTypeAndMethod	SPY_lib.cpp	/^bool LIB_GetSipTypeAndMethod(char *strRcvBuf, int *type, int *method)$/;"	f
+LIB_GetStrFromAToB	SPY_lib.cpp	/^int LIB_GetStrFromAToB(const char *strBuf, const char *strA, const char *strB, char *strResult, int MAX_LEN)$/;"	f
+LIB_GetStrUntilCRLF	SPY_lib.cpp	/^bool LIB_GetStrUntilCRLF(const char *strBuf, const char *strHeader, char *strOut, int MAX_LEN)$/;"	f
+LIB_GetUriAndUserAndHostFromHeader	SPY_lib.cpp	/^bool LIB_GetUriAndUserAndHostFromHeader(const char *strHeader, URI_TYPE *nUriType, char *strURI, int MAX_LEN, char *strUser, int MAX_USER_LEN, char *strHost, int MAX_HOST_LEN)$/;"	f
+LIB_GetUriFromHeader	SPY_lib.cpp	/^bool LIB_GetUriFromHeader(const char *strHeader, URI_TYPE *nUriType, char *strURI, int MAX_LEN)$/;"	f
+LIB_GetUriFromHeader2	SPY_lib.cpp	/^bool LIB_GetUriFromHeader2(const char *strHeader, char *strURI, int MAX_LEN)$/;"	f
+LIB_GetUserAndHostFromHeader	SPY_lib.cpp	/^bool LIB_GetUserAndHostFromHeader(const char *strHeader, char *strUser, int MAX_USER_LEN, char *strHost, int MAX_HOST_LEN)$/;"	f
+LIB_GetUserFromHeader	SPY_lib.cpp	/^bool LIB_GetUserFromHeader(const char *strHeader, char *strUser, int MAX_USER_LEN)$/;"	f
+LIB_OpenMMAP	LIB_nsmcom.cpp	/^char *LIB_OpenMMAP(char *filename, int *size)$/;"	f
+LIB_PATH	Makefile	/^LIB_PATH = -L\/home\/mcpas\/lib$/;"	m
+LIB_atoi	LIB_nsmcom.cpp	/^int LIB_atoi(char *str, int length)$/;"	f
+LIB_change_space_to_null	SPY_lib.cpp	/^void LIB_change_space_to_null(char *str, int len)$/;"	f
+LIB_delete_comment	LIB_nsmcom.cpp	/^void LIB_delete_comment(char *str, int comment_var)$/;"	f
+LIB_delete_doamin	SPY_rsam.cpp	/^void LIB_delete_doamin(char *str)$/;"	f
+LIB_delete_special_character	SPY_lib.cpp	/^void LIB_delete_special_character(char *str, int value)$/;"	f
+LIB_delete_special_character	SPY_lib.cpp	/^void LIB_delete_special_character(char *str, int value, int value2)$/;"	f
+LIB_delete_white_space	LIB_nsmcom.cpp	/^void LIB_delete_white_space(char *str)$/;"	f
+LIB_get_as_id	LIB_nsmcom.cpp	/^int LIB_get_as_id(uint8_t *id)$/;"	f
+LIB_get_host_type	SPY_libv6.cpp	/^void LIB_get_host_type(const char *strAddr, HOST_TYPE *hostType)$/;"	f
+LIB_get_ip_type	SPY_libv6.cpp	/^IP_TYPE LIB_get_ip_type(struct in6_addr addr, char *strIP, int MAX_LEN)$/;"	f
+LIB_get_server_side_id	LIB_nsmcom.cpp	/^int LIB_get_server_side_id(const char *name, uint8_t *id)$/;"	f
+LIB_hex2int	LIB_nsmcom.cpp	/^int LIB_hex2int(const char hex)$/;"	f
+LIB_ipv6cmp	SPY_libv6.cpp	/^bool LIB_ipv6cmp(const char *strIP_A, const char *strIP_B)$/;"	f
+LIB_ipv6cmp	SPY_libv6.cpp	/^bool LIB_ipv6cmp(const char *strIP_A, struct in6_addr in6_B)$/;"	f
+LIB_isIPv6	SPY_libv6.cpp	/^int LIB_isIPv6(const char *strIP)$/;"	f
+LIB_is_running_process	LIB_nsmcom.cpp	/^int LIB_is_running_process(const char *name, int *ps_id)$/;"	f
+LIB_isbcd	LIB_nsmcom.cpp	/^int LIB_isbcd(int bcd)$/;"	f
+LIB_isdigit	LIB_nsmcom.cpp	/^int LIB_isdigit(char *str, int length)$/;"	f
+LIB_isxdigit	LIB_nsmcom.cpp	/^int LIB_isxdigit(char *str, int length)$/;"	f
+LIB_set_run_pid	LIB_nsmcom.cpp	/^int LIB_set_run_pid(const char *name)$/;"	f
+LIB_split_const_string	LIB_nsmcom.cpp	/^void LIB_split_const_string(const char *instr, int split, STRs *param)$/;"	f
+LIB_split_const_string_into_2	LIB_nsmcom.cpp	/^int LIB_split_const_string_into_2(const char *instr, int split, char *var1, char *var2)$/;"	f
+LIB_split_string	LIB_nsmcom.cpp	/^void LIB_split_string(char *str, int split, STRs *parms)$/;"	f
+LIB_split_string_into_2	LIB_nsmcom.cpp	/^int LIB_split_string_into_2(char *str, int split, char *var1, char *var2)$/;"	f
+LIB_str2int	LIB_nsmcom.cpp	/^int LIB_str2int(char *str)$/;"	f
+LIB_strcpy	LIB_nsmcom.cpp	/^void LIB_strcpy(char* dst, char* src)$/;"	f
+LIB_toupper	LIB_nsmcom.cpp	/^void LIB_toupper(char *str)$/;"	f
+LIB_unset_run_pid	LIB_nsmcom.cpp	/^int LIB_unset_run_pid(const char *name)$/;"	f
+LOG_ERR	libnsmlog.h	26;"	d
+LOG_INF	libnsmlog.h	25;"	d
+LOG_LEVEL_STR	LIB_nsmlog.cpp	/^const char LOG_LEVEL_STR[6][6] = { "", "LV1  ", "LV2  ", "LV3  ", "ERROR", "INFO " };$/;"	v
+LOG_LV1	libnsmlog.h	30;"	d
+LOG_LV2	libnsmlog.h	29;"	d
+LOG_LV3	libnsmlog.h	28;"	d
+LOG_OFF	libnsmlog.h	27;"	d
+LoadFile	LIB_nsmcfg.cpp	/^bool NSM_CFG::LoadFile(const char *filename)$/;"	f	class:NSM_CFG
+Log	SPY_data.cpp	/^NSM_LOG     Log;                \/\/ LIB SM LOG LOG class$/;"	v
+LogFile	SPY_mmc.h	/^	uint8_t     LogFile;$/;"	m	struct:__anon10
+LogFile	SPY_mmc.h	/^	uint8_t     LogFile;$/;"	m	struct:__anon3
+MAX_BLACK_LIST	SPY_blist.h	36;"	d
+MAX_BLACK_LIST	SPY_blist_v6.h	38;"	d
+MAX_BUF_SIZE	SPY_cr.h	12;"	d
+MAX_BUF_SIZE	libnsmcom.h	8;"	d
+MAX_CFG_LINE	libnsmcfg.h	32;"	d
+MAX_CFG_NAME_LEN	libnsmcfg.h	35;"	d
+MAX_CR_ALLOC_ERR	SPY_cr.h	14;"	d
+MAX_DEQUEUE_COUNT_OPT	SPY_opt.cpp	25;"	d	file:
+MAX_DEQUEUE_COUNT_REG	SPY_regi.cpp	582;"	d	file:
+MAX_DEQUEUE_COUNT_SAM	SPY_cfg.h	183;"	d
+MAX_DEQUEUE_COUNT_SSW	SPY_cfg.h	181;"	d
+MAX_DN_LEN	SPY_def.h	47;"	d
+MAX_ERRSVR_LIST	SPY_extlist.h	39;"	d
+MAX_EXTSVR_IP_LEN	SPY_extlist.h	21;"	d
+MAX_EXTSVR_LIST	SPY_extlist.h	20;"	d
+MAX_FNAME_LEN	SPY_def.h	48;"	d
+MAX_IPADDR_LEN	SPY_def.h	50;"	d
+MAX_IPADDR_LEN	SPY_def.h	52;"	d
+MAX_LINE_LEN	SPY_def.h	56;"	d
+MAX_LOG_NAME_LEN	libnsmlog.h	56;"	d
+MAX_SES_BOARD	SPY_def.h	44;"	d
+MAX_SES_CH	SPY_def.h	46;"	d
+MAX_SES_THREAD	SPY_def.h	45;"	d
+MAX_SSW_THREAD	SPY_cfg.cpp	179;"	d	file:
+MAX_STA_REQUEST_CDDE	SPY_stat.h	58;"	d
+MAX_STA_RESPONSE_CODE	SPY_stat.h	57;"	d
+MAX_STRs_CNT	libnsmcom.h	11;"	d
+MAX_STRs_LEN	libnsmcom.h	12;"	d
+MAX_SVCKEY_LEN	SPY_scm.h	19;"	d
+MAX_SVCKEY_LIST	SPY_svckey.h	20;"	d
+MAX_TIMER_COUNT	libnsmtimer.h	70;"	d
+MAX_TIMER_TABLE	SPY_timer.cpp	35;"	d	file:
+MAX_TIME_VALUE	libnsmtimer.h	69;"	d
+MAX_TRACE_LIST	SPY_trace.h	24;"	d
+MAX_USER_ID_LEN	SPY_scm.h	20;"	d
+MBUS_MsgFromDGM	SPY_xbus.cpp	/^int MBUS_MsgFromDGM(int len, XBUS_MSG *xbus_msg)$/;"	f
+MBUS_MsgFromMGM	SPY_mmc.cpp	/^int MBUS_MsgFromMGM(int len, XBUS_MSG *rXBUS)$/;"	f
+MBUS_MsgFromMGM2	SPY_mmc2.cpp	/^void MBUS_MsgFromMGM2(int len, XBUS_MSG *rXBUS)$/;"	f
+MBUS_MsgFromSCM	SPY_scm.cpp	/^int MBUS_MsgFromSCM(int len, XBUS_MSG *rXBUS)$/;"	f
+MBUS_MsgFromSGM	SPY_stat.cpp	/^int MBUS_MsgFromSGM(int len, XBUS_MSG *xbus_msg)$/;"	f
+MBUS_callback	SPY_xbus.cpp	/^int MBUS_callback(int len, uint8_t *msg_ptr)$/;"	f
+MESSAGE_Counts	SPY_mmc.h	/^	int	MESSAGE_Counts;$/;"	m	struct:dis_stat_spy
+MESSAGE_OutCounts	SPY_mmc.h	/^	int	MESSAGE_OutCounts;$/;"	m	struct:dis_stat_spy
+METHOD_ACK	SPY_cr.h	/^    METHOD_INVITE    = 0,   METHOD_ACK,         METHOD_CANCEL,      METHOD_BYE,         METHOD_MESSAGE,$/;"	e	enum:SIP_METHOD
+METHOD_BYE	SPY_cr.h	/^    METHOD_INVITE    = 0,   METHOD_ACK,         METHOD_CANCEL,      METHOD_BYE,         METHOD_MESSAGE,$/;"	e	enum:SIP_METHOD
+METHOD_CANCEL	SPY_cr.h	/^    METHOD_INVITE    = 0,   METHOD_ACK,         METHOD_CANCEL,      METHOD_BYE,         METHOD_MESSAGE,$/;"	e	enum:SIP_METHOD
+METHOD_END	SPY_cr.h	/^    METHOD_SUBSCRIBE = 10,  METHOD_NOTIFY,      METHOD_REFER,       METHOD_END$/;"	e	enum:SIP_METHOD
+METHOD_INFO	SPY_cr.h	/^    METHOD_REGISTER  = 5,   METHOD_OPTIONS,     METHOD_INFO,        METHOD_PRACK,       METHOD_UPDATE,$/;"	e	enum:SIP_METHOD
+METHOD_INVITE	SPY_cr.h	/^    METHOD_INVITE    = 0,   METHOD_ACK,         METHOD_CANCEL,      METHOD_BYE,         METHOD_MESSAGE,$/;"	e	enum:SIP_METHOD
+METHOD_MESSAGE	SPY_cr.h	/^    METHOD_INVITE    = 0,   METHOD_ACK,         METHOD_CANCEL,      METHOD_BYE,         METHOD_MESSAGE,$/;"	e	enum:SIP_METHOD
+METHOD_NOTIFY	SPY_cr.h	/^    METHOD_SUBSCRIBE = 10,  METHOD_NOTIFY,      METHOD_REFER,       METHOD_END$/;"	e	enum:SIP_METHOD
+METHOD_OPTIONS	SPY_cr.h	/^    METHOD_REGISTER  = 5,   METHOD_OPTIONS,     METHOD_INFO,        METHOD_PRACK,       METHOD_UPDATE,$/;"	e	enum:SIP_METHOD
+METHOD_PRACK	SPY_cr.h	/^    METHOD_REGISTER  = 5,   METHOD_OPTIONS,     METHOD_INFO,        METHOD_PRACK,       METHOD_UPDATE,$/;"	e	enum:SIP_METHOD
+METHOD_REFER	SPY_cr.h	/^    METHOD_SUBSCRIBE = 10,  METHOD_NOTIFY,      METHOD_REFER,       METHOD_END$/;"	e	enum:SIP_METHOD
+METHOD_REGISTER	SPY_cr.h	/^    METHOD_REGISTER  = 5,   METHOD_OPTIONS,     METHOD_INFO,        METHOD_PRACK,       METHOD_UPDATE,$/;"	e	enum:SIP_METHOD
+METHOD_SUBSCRIBE	SPY_cr.h	/^    METHOD_SUBSCRIBE = 10,  METHOD_NOTIFY,      METHOD_REFER,       METHOD_END$/;"	e	enum:SIP_METHOD
+METHOD_UNDEF	SPY_cr.h	/^    METHOD_UNDEF     = -1,$/;"	e	enum:SIP_METHOD
+METHOD_UPDATE	SPY_cr.h	/^    METHOD_REGISTER  = 5,   METHOD_OPTIONS,     METHOD_INFO,        METHOD_PRACK,       METHOD_UPDATE,$/;"	e	enum:SIP_METHOD
+MMC2_AddTraceSpy	SPY_mmc2.cpp	/^void MMC2_AddTraceSpy(ADD_TRACE_SPY_R *rMMC)$/;"	f
+MMC2_ChgReportSPY	SPY_mmc2.cpp	/^void MMC2_ChgReportSPY(CHG_REPORT_SPY_R *rMMC)$/;"	f
+MMC2_ClrCallSpy	SPY_mmc2.cpp	/^void MMC2_ClrCallSpy(CLR_CALL_SPY_R *rMMC)$/;"	f
+MMC2_ClrScmMap	SPY_mmc2.cpp	/^void MMC2_ClrScmMap(CLR_SCM_MAP_R *rMMC)$/;"	f
+MMC2_ClrStatSpy	SPY_mmc2.cpp	/^void MMC2_ClrStatSpy(CLR_STAT_SPY_R *rMMC)$/;"	f
+MMC2_DelTraceSpy	SPY_mmc2.cpp	/^void MMC2_DelTraceSpy(DEL_TRACE_SPY_R *rMMC)$/;"	f
+MMC2_DisBlockSpy	SPY_mmc2.cpp	/^void MMC2_DisBlockSpy(DIS_BLOCK_SPY_R *rMMC)$/;"	f
+MMC2_DisCallSpy	SPY_mmc2.cpp	/^void MMC2_DisCallSpy(DIS_CALL_SPY_R *rMMC)$/;"	f
+MMC2_DisCfgSpy	SPY_mmc2.cpp	/^void MMC2_DisCfgSpy(DIS_CFG_SPY_R *rMMC)$/;"	f
+MMC2_DisOverResp	SPY_mmc2.cpp	/^void MMC2_DisOverResp(DIS_OVER_RESP_R *rMMC)$/;"	f
+MMC2_DisReportSPY	SPY_mmc2.cpp	/^void MMC2_DisReportSPY(DIS_REPORT_SPY_R *rMMC)$/;"	f
+MMC2_DisScmAudit	SPY_mmc2.cpp	/^void MMC2_DisScmAudit(DIS_SCM_AUDIT_R *rMMC)$/;"	f
+MMC2_DisScmMap	SPY_mmc2.cpp	/^void MMC2_DisScmMap(DIS_SCM_MAP_R *rMMC)$/;"	f
+MMC2_DisStatSpy	SPY_mmc2.cpp	/^void MMC2_DisStatSpy(DIS_STAT_SPY_R *rMMC)$/;"	f
+MMC2_DisTraceSpy	SPY_mmc2.cpp	/^void MMC2_DisTraceSpy(DIS_TRACE_SPY_R *rMMC)$/;"	f
+MMC2_InitAllSpy	SPY_mmc2.cpp	/^void MMC2_InitAllSpy(INIT_ALL_SPY_R *rMMC)$/;"	f
+MMC2_RESULT_FAIL	SPY_mmc2.h	15;"	d
+MMC2_RESULT_OK	SPY_mmc2.h	14;"	d
+MMC2_SaveCfgSpy	SPY_mmc2.cpp	/^void MMC2_SaveCfgSpy(SAVE_CFG_SPY_R *rMMC)$/;"	f
+MMC2_SetBlistSpy	SPY_mmc2.cpp	/^void MMC2_SetBlistSpy(SET_BLIST_SPY_R *rMMC)$/;"	f
+MMC2_SetBlockSpy	SPY_mmc2.cpp	/^void MMC2_SetBlockSpy(SET_BLOCK_SPY_R *rMMC)$/;"	f
+MMC2_SetLogSpy	SPY_mmc2.cpp	/^void MMC2_SetLogSpy(SET_LOG_SPY_R *rMMC)$/;"	f
+MMC2_SetOverResp	SPY_mmc2.cpp	/^void MMC2_SetOverResp(SET_OVER_RESP_R *rMMC)$/;"	f
+MMC2_SetQosSpy	SPY_mmc2.cpp	/^void MMC2_SetQosSpy(SET_QOS_SPY_R *rMMC)$/;"	f
+MMC2_SetScmAudit	SPY_mmc2.cpp	/^void MMC2_SetScmAudit(SET_SCM_AUDIT_R *rMMC)$/;"	f
+MMC2_SetScmMap	SPY_mmc2.cpp	/^void MMC2_SetScmMap(SET_SCM_MAP_R *rMMC)$/;"	f
+MMC2_UpdBlistSpy	SPY_mmc2.cpp	/^void MMC2_UpdBlistSpy(UPD_BLIST_SPY_R *rMMC)$/;"	f
+MMC2_UpdBlistSpy_V6	SPY_mmc2.cpp	/^void MMC2_UpdBlistSpy_V6(UPD_BLIST_SPY_R *rMMC)$/;"	f
+MMC2_UpdExtlistSpy	SPY_mmc2.cpp	/^void MMC2_UpdExtlistSpy(UPD_EXTLIST_SPY_R *rMMC)$/;"	f
+MMC2_UpdExtlistSpy_V6	SPY_mmc2.cpp	/^void MMC2_UpdExtlistSpy_V6(UPD_EXTLIST_SPY_R *rMMC)$/;"	f
+MMC_ADD_TRACE_SPY	SPY_mmc2.h	/^    MMC_ADD_TRACE_SPY = 4520,$/;"	e	enum:__anon18
+MMC_BlackListActivateRQ	SPY_mmc.cpp	/^int MMC_BlackListActivateRQ(MMCPDU *rmmc)$/;"	f
+MMC_BlackListUpdateRQ	SPY_mmc.cpp	/^int MMC_BlackListUpdateRQ(MMCPDU *rmmc)$/;"	f
+MMC_BlackListUpdateRQ_V6	SPY_mmc.cpp	/^int MMC_BlackListUpdateRQ_V6(MMCPDU *rmmc)$/;"	f
+MMC_CHG_REPORT_SPY	SPY_mmc2.h	/^    MMC_CHG_REPORT_SPY,$/;"	e	enum:__anon18
+MMC_CLR_CALL_SPY	SPY_mmc2.h	/^    MMC_CLR_CALL_SPY = 4590,$/;"	e	enum:__anon18
+MMC_CLR_SCM_MAP	SPY_mmc2.h	/^    MMC_CLR_SCM_MAP,$/;"	e	enum:__anon18
+MMC_CLR_STAT_SPY	SPY_mmc2.h	/^    MMC_CLR_STAT_SPY,$/;"	e	enum:__anon18
+MMC_ClrCallSpy	SPY_stat.cpp	/^void MMC_ClrCallSpy(MMCPDU *rMMC)$/;"	f
+MMC_ClrCallSpy_V6	SPY_stat.cpp	/^void MMC_ClrCallSpy_V6(MMCPDU *rMMC)$/;"	f
+MMC_ClrStatSpy	SPY_stat.cpp	/^void MMC_ClrStatSpy(MMCPDU *rMMC)$/;"	f
+MMC_ClrStatSpy_V6	SPY_stat.cpp	/^void MMC_ClrStatSpy_V6(MMCPDU *rMMC)$/;"	f
+MMC_DEL_TRACE_SPY	SPY_mmc2.h	/^    MMC_DEL_TRACE_SPY,$/;"	e	enum:__anon18
+MMC_DIS_BLOCK_SPY	SPY_mmc2.h	/^    MMC_DIS_BLOCK_SPY = 4510,$/;"	e	enum:__anon18
+MMC_DIS_CALL_SPY	SPY_mmc2.h	/^    MMC_DIS_CALL_SPY,$/;"	e	enum:__anon18
+MMC_DIS_CFG_SPY	SPY_mmc2.h	/^    MMC_DIS_CFG_SPY = 4500,$/;"	e	enum:__anon18
+MMC_DIS_OVER_RESP	SPY_mmc2.h	/^    MMC_DIS_OVER_RESP = 4540,$/;"	e	enum:__anon18
+MMC_DIS_REPORT_SPY	SPY_mmc2.h	/^    MMC_DIS_REPORT_SPY,$/;"	e	enum:__anon18
+MMC_DIS_SCM_AUDIT	SPY_mmc2.h	/^    MMC_DIS_SCM_AUDIT,$/;"	e	enum:__anon18
+MMC_DIS_SCM_MAP	SPY_mmc2.h	/^    MMC_DIS_SCM_MAP,$/;"	e	enum:__anon18
+MMC_DIS_STAT_SPY	SPY_mmc2.h	/^    MMC_DIS_STAT_SPY,$/;"	e	enum:__anon18
+MMC_DIS_TRACE_SPY	SPY_mmc2.h	/^    MMC_DIS_TRACE_SPY,$/;"	e	enum:__anon18
+MMC_DisBlockSpy	SPY_mmc.cpp	/^void MMC_DisBlockSpy(MMCPDU *msg_MMC)$/;"	f
+MMC_DisCfgSpy	SPY_mmc.cpp	/^void MMC_DisCfgSpy(MMCPDU *rMMC)$/;"	f
+MMC_DisOverResp	SPY_mmc.cpp	/^void MMC_DisOverResp(MMCPDU *rMMC)$/;"	f
+MMC_DisStatSpy	SPY_stat.cpp	/^void MMC_DisStatSpy(MMCPDU *rMMC)$/;"	f
+MMC_DisStatSpy_V6	SPY_stat.cpp	/^void MMC_DisStatSpy_V6(MMCPDU *rMMC)$/;"	f
+MMC_ExtListUpdateRQ	SPY_mmc.cpp	/^int MMC_ExtListUpdateRQ(MMCPDU *rmmc)$/;"	f
+MMC_ExtListUpdateRQ_V6	SPY_mmc.cpp	/^int MMC_ExtListUpdateRQ_V6(MMCPDU *rmmc)$/;"	f
+MMC_INIT_ALL_SPY	SPY_mmc2.h	/^    MMC_INIT_ALL_SPY = 4999$/;"	e	enum:__anon18
+MMC_ReloadCfgSpy	SPY_mmc.cpp	/^void MMC_ReloadCfgSpy(MMCPDU *msg_MMC)$/;"	f
+MMC_SAVE_CFG_SPY	SPY_mmc2.h	/^    MMC_SAVE_CFG_SPY,$/;"	e	enum:__anon18
+MMC_SET_BLLIST_SPY	SPY_mmc2.h	/^    MMC_SET_BLLIST_SPY = 4530,$/;"	e	enum:__anon18
+MMC_SET_BLOCK_SPY	SPY_mmc2.h	/^    MMC_SET_BLOCK_SPY,$/;"	e	enum:__anon18
+MMC_SET_LOG_SPY	SPY_mmc2.h	/^    MMC_SET_LOG_SPY,$/;"	e	enum:__anon18
+MMC_SET_OVER_RESP	SPY_mmc2.h	/^    MMC_SET_OVER_RESP,$/;"	e	enum:__anon18
+MMC_SET_QOS_SPY	SPY_mmc2.h	/^    MMC_SET_QOS_SPY,$/;"	e	enum:__anon18
+MMC_SET_SCM_AUDIT	SPY_mmc2.h	/^    MMC_SET_SCM_AUDIT,$/;"	e	enum:__anon18
+MMC_SET_SCM_MAP	SPY_mmc2.h	/^    MMC_SET_SCM_MAP,$/;"	e	enum:__anon18
+MMC_SaveCfgSPY	SPY_mmc.cpp	/^void MMC_SaveCfgSPY(MMCPDU *rMMC)$/;"	f
+MMC_SetBlockSpy	SPY_mmc.cpp	/^void MMC_SetBlockSpy(MMCPDU *rMMC)$/;"	f
+MMC_SetCfgSpy	SPY_mmc.cpp	/^void MMC_SetCfgSpy(MMCPDU *rMMC)$/;"	f
+MMC_SetOverResp	SPY_mmc.cpp	/^void MMC_SetOverResp(MMCPDU *rMMC)$/;"	f
+MMC_SetProxySpy	SPY_mmc.cpp	/^void MMC_SetProxySpy(MMCPDU *rMMC)$/;"	f
+MMC_TraceListSpy	SPY_mmc.cpp	/^void MMC_TraceListSpy(MMCPDU *rMMC)$/;"	f
+MMC_TraceOffSpy	SPY_mmc.cpp	/^void MMC_TraceOffSpy(MMCPDU *rMMC)$/;"	f
+MMC_TraceOnSpy	SPY_mmc.cpp	/^void MMC_TraceOnSpy(MMCPDU *rMMC)$/;"	f
+MMC_UPD_BLIST_SPY	SPY_mmc2.h	/^    MMC_UPD_BLIST_SPY,$/;"	e	enum:__anon18
+MMC_UPD_BLIST_SPY_6	SPY_mmc2.h	/^    MMC_UPD_BLIST_SPY_6,$/;"	e	enum:__anon18
+MMC_UPD_EXTLIST_SPY	SPY_mmc2.h	/^    MMC_UPD_EXTLIST_SPY,$/;"	e	enum:__anon18
+MMC_UPD_EXTLIST_SPY_6	SPY_mmc2.h	/^    MMC_UPD_EXTLIST_SPY_6,$/;"	e	enum:__anon18
+MMC_set_header	SPY_mmc2.cpp	/^void MMC_set_header(MMCHD *send, MMCHD *recv, int len, bool bContinue)$/;"	f
+MSG_ID_DBM	SPY_xbus.h	14;"	d
+MSG_ID_SCM	SPY_xbus.h	13;"	d
+MSG_ID_SES_HA_START	SPY_def.h	61;"	d
+MSG_ID_SGM_QUERY	SPY_extlist.cpp	33;"	d	file:
+MTU_SIZE	SPY_udp.h	31;"	d
+MVER1	VersionHistory.h	11;"	d
+MVER2	VersionHistory.h	12;"	d
+MVER3	VersionHistory.h	13;"	d
+MY_AS_ID	SPY_data.cpp	/^uint8_t MY_AS_ID;               \/\/ MY AS_INDEX (0 ~ 7)$/;"	v
+MY_BLK_ID	SPY_data.cpp	/^uint8_t MY_BLK_ID;              \/\/ My(SPY) XBUS_ID$/;"	v
+MY_ID	flcm_manager.h	/^		BYTE			MY_ID;$/;"	m	class:FLCM_MANAGER
+MY_PS_NAME	SPY_main.cpp	25;"	d	file:
+MY_SIDE	SPY_data.cpp	/^uint8_t MY_SIDE;                \/\/ My SIDE Info. A(0)\/B(1)$/;"	v
+M_ACK_TIMEOUT	flcm_manager.h	23;"	d
+M_BAD_SYNTAX	flcm_manager.h	25;"	d
+M_CDR_AVP_FAIL	flcm_manager.h	30;"	d
+M_CDR_FILE_FAIL	flcm_manager.h	29;"	d
+M_INGW_FAIL	flcm_manager.h	28;"	d
+M_INVALID_MSG	flcm_manager.h	21;"	d
+M_NOTIFY_FAIL	flcm_manager.h	22;"	d
+M_OFCS_FAIL	flcm_manager.h	31;"	d
+M_RSP_TIMEOUT	flcm_manager.h	24;"	d
+M_SCENARIO_LOOP_FAIL	flcm_manager.h	27;"	d
+M_SCENARIO_UPLOAD_FAIL	flcm_manager.h	26;"	d
+MakeVersionHeader	build_info.sh	/^function MakeVersionHeader()$/;"	f
+MakeVersionHeader	build_info_asv5.sh	/^function MakeVersionHeader()$/;"	f
+MakeVersionHeader	build_info_sb.sh	/^function MakeVersionHeader()$/;"	f
+MakeVersionHeader	build_info_ses_noha.sh	/^function MakeVersionHeader()$/;"	f
+MakeVersionHeader	build_info_ses_noha_fault.sh	/^function MakeVersionHeader()$/;"	f
+MakeVersionHeader	build_info_tas.sh	/^function MakeVersionHeader()$/;"	f
+NSM_CFG	LIB_nsmcfg.cpp	/^NSM_CFG::NSM_CFG()$/;"	f	class:NSM_CFG
+NSM_CFG	libnsmcfg.h	/^class NSM_CFG$/;"	c
+NSM_LOG	LIB_nsmlog.cpp	/^NSM_LOG::NSM_LOG(void)$/;"	f	class:NSM_LOG
+NSM_LOG	libnsmlog.h	/^class NSM_LOG$/;"	c
+NSM_PTR_Q	LIB_nsmptrq.cpp	/^NSM_PTR_Q::NSM_PTR_Q()$/;"	f	class:NSM_PTR_Q
+NSM_PTR_Q	libnsmptrq.h	/^class NSM_PTR_Q$/;"	c
+NSM_RESULT	libnsmtimer.h	/^} NSM_RESULT;$/;"	t	typeref:enum:__anon103
+NSM_SEC_TIMER	LIB_nsmtimer.cpp	/^NSM_SEC_TIMER::NSM_SEC_TIMER()$/;"	f	class:NSM_SEC_TIMER
+NSM_SEC_TIMER	libnsmtimer.h	/^class NSM_SEC_TIMER$/;"	c
+OBJS	Makefile	/^OBJS   = SPY_alm.o    SPY_extlist.o  SPY_main.o  SPY_rssw.o     SPY_svckey.o \\$/;"	m
+OPT	Makefile	/^OPT      = -DLINUX -DMULTI_THREAD -DSES_HA_MODE -DUSE_GODRM $/;"	m
+OPTIONS_Counts	SPY_mmc.h	/^	int	OPTIONS_Counts;$/;"	m	struct:dis_stat_spy
+OPTIONS_OutCounts	SPY_mmc.h	/^	int	OPTIONS_OutCounts;$/;"	m	struct:dis_stat_spy
+OT_TYPE_ORIG	SPY_def.h	32;"	d
+OT_TYPE_ORIG	SPY_trace.h	20;"	d
+OT_TYPE_TERM	SPY_def.h	33;"	d
+OT_TYPE_TERM	SPY_trace.h	21;"	d
+OVERLOAD_DENY	SPY_scm.h	31;"	d
+OutMsgCounts_O	SPY_mmc.h	/^	int	OutMsgCounts_O;$/;"	m	struct:dis_stat_spy
+OutMsgCounts_O	SPY_mmc2.h	/^    int     OutMsgCounts_O;$/;"	m	struct:__anon64
+OutMsgCounts_T	SPY_mmc.h	/^	int	OutMsgCounts_T;$/;"	m	struct:dis_stat_spy
+OutMsgCounts_T	SPY_mmc2.h	/^    int     OutMsgCounts_T;$/;"	m	struct:__anon64
+OutThreadCounts	SPY_mmc.h	/^	int         OutThreadCounts;$/;"	m	struct:__anon3
+PARAM_ETX	libnsmcom.h	20;"	d
+PARAM_STX	libnsmcom.h	19;"	d
+PEER_BLK_ID	SPY_data.cpp	/^uint8_t PEER_BLK_ID;            \/\/ 상대편 SPY XBUS_ID$/;"	v
+PKGNAME	VersionHistory.h	7;"	d
+PKGVER	VersionHistory.h	5;"	d
+PRACK_Counts	SPY_mmc2.h	/^    int     PRACK_Counts;$/;"	m	struct:__anon64
+PRACK_OutCounts	SPY_mmc2.h	/^    int     PRACK_OutCounts;$/;"	m	struct:__anon64
+PRINT_COLUMN	LIB_nsmlog.cpp	443;"	d	file:
+PRODUCT	VersionHistory.h	6;"	d
+PVER1	VersionHistory.h	8;"	d
+PVER2	VersionHistory.h	9;"	d
+PVER3	VersionHistory.h	10;"	d
+ParseVersion	build_info.sh	/^function ParseVersion()$/;"	f
+ParseVersion	build_info_asv5.sh	/^function ParseVersion()$/;"	f
+ParseVersion	build_info_sb.sh	/^function ParseVersion()$/;"	f
+ParseVersion	build_info_ses_noha.sh	/^function ParseVersion()$/;"	f
+ParseVersion	build_info_ses_noha_fault.sh	/^function ParseVersion()$/;"	f
+ParseVersion	build_info_tas.sh	/^function ParseVersion()$/;"	f
+PeerBoardNo	SPY_hash.h	/^    uint8_t PeerBoardNo;        \/\/ SES°¡ HA ÀýÃ¼°¡ µÇ¸é º¸³»¾ßÇÒ Board$/;"	m	struct:__anon114
+PrintMemory	LIB_nsmcfg.cpp	/^void NSM_CFG::PrintMemory(void)$/;"	f	class:NSM_CFG
+ProessDownInSES	SPY_xbus.cpp	/^void ProessDownInSES(uint8_t moId, int nBoardNo)$/;"	f
+Q_Opt	SPY_data.cpp	/^NSM_PTR_Q       Q_Opt;              \/\/ SSW(CSCF)에서 수신한 OPTIONS 메세지를 저장하는 Queue$/;"	v
+Q_PTR	libnsmptrq.h	/^} Q_PTR;$/;"	t	typeref:struct:_Q_PTR
+Q_Reg	SPY_data.cpp	/^NSM_PTR_Q       Q_Reg;              \/\/ SSW(CSCF)에서 수신한 REGISTER 메세지를 저장하는 Queue$/;"	v
+Q_Sam	SPY_data.cpp	/^NSM_PTR_Q       Q_Sam[MAX_SES_BOARD];              \/\/ SAM에서 수신한 SIP 메세지를 저장하는 Queue$/;"	v
+Q_Sam	SPY_data.cpp	/^NSM_PTR_Q       Q_Sam[MAX_SES_BOARD][MAX_SES_THREAD];$/;"	v
+Q_Ssw_ORIG	SPY_data.cpp	/^NSM_PTR_Q       Q_Ssw_ORIG;         \/\/ SSW(CSCF)에서 수신한 SIP 메세지를 저장하는 Queue (ORIG STACK)$/;"	v
+Q_Ssw_TERM	SPY_data.cpp	/^NSM_PTR_Q       Q_Ssw_TERM;         \/\/ SSW(CSCF)에서 수신한 SIP 메세지를 저장하는 Queue (TERM STACK)$/;"	v
+Q_Sync_recv	SPY_data.cpp	/^NSM_PTR_Q		Q_Sync_recv; \/\/ 20241202 kdh add$/;"	v
+Qos	SPY_mmc.h	/^	uint8_t     Qos;$/;"	m	struct:__anon10
+Qos	SPY_mmc.h	/^	uint8_t     Qos;$/;"	m	struct:__anon3
+R100_Counts	SPY_mmc.h	/^	int	R100_Counts;$/;"	m	struct:dis_stat_spy
+R100_Counts	SPY_mmc2.h	/^    int     R100_Counts;$/;"	m	struct:__anon64
+R100_OutCounts	SPY_mmc.h	/^	int	R100_OutCounts;$/;"	m	struct:dis_stat_spy
+R100_OutCounts	SPY_mmc2.h	/^    int     R100_OutCounts;$/;"	m	struct:__anon64
+R180_Counts	SPY_mmc.h	/^	int	R180_Counts;$/;"	m	struct:dis_stat_spy
+R180_Counts	SPY_mmc2.h	/^    int     R180_Counts;$/;"	m	struct:__anon64
+R180_OutCounts	SPY_mmc.h	/^	int	R180_OutCounts;$/;"	m	struct:dis_stat_spy
+R180_OutCounts	SPY_mmc2.h	/^    int     R180_OutCounts;$/;"	m	struct:__anon64
+R183_Counts	SPY_mmc2.h	/^    int     R183_Counts;$/;"	m	struct:__anon64
+R183_OutCounts	SPY_mmc2.h	/^    int     R183_OutCounts;$/;"	m	struct:__anon64
+R200_Counts	SPY_mmc.h	/^	int	R200_Counts;$/;"	m	struct:dis_stat_spy
+R200_Counts	SPY_mmc2.h	/^    int     R200_Counts;$/;"	m	struct:__anon64
+R200_OutCounts	SPY_mmc.h	/^	int	R200_OutCounts;$/;"	m	struct:dis_stat_spy
+R200_OutCounts	SPY_mmc2.h	/^    int     R200_OutCounts;$/;"	m	struct:__anon64
+RASM_FindLastHeader	SPY_rsam.cpp	/^char *RASM_FindLastHeader(char *strBuf, char *strFindHeader, int nHeaderSize)$/;"	f
+RECV_ChAllocRPFromSCM	SPY_scm.cpp	/^bool RECV_ChAllocRPFromSCM(R_SCM_CH_ALLOC_RP *rPDU)$/;"	f
+RECV_ChFreeRPFromSCM	SPY_scm.cpp	/^bool RECV_ChFreeRPFromSCM(R_SCM_CH_FREE_RP *rPDU)$/;"	f
+REGISTER_Counts	SPY_mmc.h	/^	int	REGISTER_Counts;$/;"	m	struct:dis_stat_spy
+REGISTER_OutCounts	SPY_mmc.h	/^	int	REGISTER_OutCounts;$/;"	m	struct:dis_stat_spy
+REGI_GetDataFromContactHeader	SPY_regi.cpp	/^bool REGI_GetDataFromContactHeader(const char *strRcvBuf, char *strContact, int MAX_CONTACT)$/;"	f
+REGI_GetDataFromFromHeader	SPY_regi.cpp	/^bool REGI_GetDataFromFromHeader(const char *strRcvBuf, char *strUser, int MAX_USER, char *strScscf, int MAX_SCSCF)$/;"	f
+REGI_GetDataFromToHeader	SPY_regi.cpp	/^bool REGI_GetDataFromToHeader(const char *strRcvBuf, char *strTo, int MAX_TO)$/;"	f
+REGI_IsDeREGISTER	SPY_regi.cpp	/^bool REGI_IsDeREGISTER(CR_DATA *pCR)$/;"	f
+REGI_ToHeaderSizeFix	SPY_regi.cpp	/^void REGI_ToHeaderSizeFix(char *strTo, int nSizeLimit)$/;"	f
+RELAY_MODE	flcm_manager.h	18;"	d
+RET_MEM_ERR	SPY_timer.h	18;"	d
+RET_TIMER_TABLE_FULL	SPY_timer.h	19;"	d
+RET_TIME_TOO_SMALL	SPY_timer.h	17;"	d
+RET_TIME_UNIT_ERR	SPY_timer.h	16;"	d
+REVNO	VersionHistory.h	14;"	d
+RE_ALLOCATION	SPY_scm.h	28;"	d
+RSAM_AddSpyViaHeader	SPY_rsam.cpp	/^bool RSAM_AddSpyViaHeader(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_AddSupportedTimerToNoBodyMessage	SPY_rsam.cpp	/^bool RSAM_AddSupportedTimerToNoBodyMessage(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_Add_1stRecordRouteTo200INVITE	SPY_rsam.cpp	/^void RSAM_Add_1stRecordRouteTo200INVITE(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_Add_LastRecordRouteTo200INVITE	SPY_rsam.cpp	/^void RSAM_Add_LastRecordRouteTo200INVITE(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_Add_RequireTimerTo200INVITE	SPY_rsam.cpp	/^bool RSAM_Add_RequireTimerTo200INVITE(CR_DATA *pCR, char *strSendBuf) \/\/ [JIRA AS-206]$/;"	f
+RSAM_Add_SupportedTimerTo200UPDATE	SPY_rsam.cpp	/^bool RSAM_Add_SupportedTimerTo200UPDATE(CR_DATA *pCR, char *strSendBuf) \/\/ [JIRA AS-206]$/;"	f
+RSAM_Add_SupportedTimerToUPDATE	SPY_rsam.cpp	/^bool RSAM_Add_SupportedTimerToUPDATE(CR_DATA *pCR, char *strSendBuf) \/\/ [JIRA AS-206]$/;"	f
+RSAM_Change_AccebtToAccept	SPY_rsam.cpp	/^void RSAM_Change_AccebtToAccept(char *strSendBuf)$/;"	f
+RSAM_Change_AequireToRequire	SPY_rsam.cpp	/^void RSAM_Change_AequireToRequire(char *strSendBuf)$/;"	f
+RSAM_Change_Content_Type	SPY_rsam.cpp	/^bool RSAM_Change_Content_Type(char *strSendBuf)$/;"	f
+RSAM_Change_SDPTosdp	SPY_rsam.cpp	/^void RSAM_Change_SDPTosdp(char *strSendBuf)$/;"	f
+RSAM_CheckSesAddress	SPY_rsam.cpp	/^int RSAM_CheckSesAddress(uint32_t address)$/;"	f
+RSAM_CopyRcvBufToSendBuf	SPY_rsam.cpp	/^bool RSAM_CopyRcvBufToSendBuf(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_Delete_FirstRoute	SPY_rsam.cpp	/^void RSAM_Delete_FirstRoute(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSAM_Delete_MultiSessionExpires	SPY_rsam.cpp	/^void RSAM_Delete_MultiSessionExpires(char *strSendBuf)$/;"	f
+RSAM_DequeueThread	SPY_rsam.cpp	/^void* RSAM_DequeueThread(void* arg)$/;"	f
+RSAM_GetChFromPBTHeader	SPY_rsam.cpp	/^int RSAM_GetChFromPBTHeader(CR_DATA *pCR)$/;"	f
+RSAM_GetChFromViaHeader	SPY_rsam.cpp	/^int RSAM_GetChFromViaHeader(CR_DATA *pCR)$/;"	f
+RSAM_GetRoutingInfo	SPY_rsam.cpp	/^bool RSAM_GetRoutingInfo(CR_DATA *pCR)$/;"	f
+RSAM_GetRoutingInfoFromChInfoHeader	SPY_rsam.cpp	/^bool RSAM_GetRoutingInfoFromChInfoHeader(CR_DATA *pCR)$/;"	f
+RSAM_GetRoutingInfoFromHashTable	SPY_rsam.cpp	/^bool RSAM_GetRoutingInfoFromHashTable(CR_DATA *pCR)$/;"	f
+RSAM_GetSamQNo	SPY_rsam.cpp	/^int RSAM_GetSamQNo(int ch)$/;"	f
+RSAM_MakeSendBuffer	SPY_rsam.cpp	/^bool RSAM_MakeSendBuffer(CR_DATA *pCR, int *nSendLen, char *strSendBuf)$/;"	f
+RSAM_Merge_P_BT_Contact	SPY_rsam.cpp	/^void RSAM_Merge_P_BT_Contact(char *strSendBuf)$/;"	f
+RSAM_ReceivedSipParsing	SPY_rsam.cpp	/^bool RSAM_ReceivedSipParsing(CR_DATA *pCR)$/;"	f
+RSAM_SendMessageToSSW	SPY_rsam.cpp	/^void RSAM_SendMessageToSSW(CR_DATA *pCR)$/;"	f
+RSAM_ServerStart	SPY_rsam.cpp	/^int RSAM_ServerStart(void)$/;"	f
+RSAM_ServerThread	SPY_rsam.cpp	/^void* RSAM_ServerThread(void* arg)$/;"	f
+RSAM_main	SPY_rsam.cpp	/^bool RSAM_main(void)$/;"	f
+RSSW_AddSpyViaHeader	SPY_rssw.cpp	/^bool RSSW_AddSpyViaHeader(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSSW_Change_Content_Type	SPY_rssw.cpp	/^bool RSSW_Change_Content_Type(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSSW_CheckExtServerStatus	SPY_opt.cpp	/^void RSSW_CheckExtServerStatus(CR_DATA *pCR)$/;"	f
+RSSW_CheckRegisteredSSW	SPY_rssw.cpp	/^int RSSW_CheckRegisteredSSW(CR_DATA *pCR)$/;"	f
+RSSW_DequeueThread_OPT	SPY_opt.cpp	/^void *RSSW_DequeueThread_OPT(void *arg)$/;"	f
+RSSW_DequeueThread_ORIG	SPY_rssw.cpp	/^void *RSSW_DequeueThread_ORIG(void* arg)$/;"	f
+RSSW_DequeueThread_REG	SPY_regi.cpp	/^void *RSSW_DequeueThread_REG(void *arg)$/;"	f
+RSSW_DequeueThread_TERM	SPY_rssw.cpp	/^void *RSSW_DequeueThread_TERM(void* arg)$/;"	f
+RSSW_GetBoardChannelFromTagOrCallId	SPY_rssw.cpp	/^bool RSSW_GetBoardChannelFromTagOrCallId(CR_DATA *pCR)$/;"	f
+RSSW_GetFromToUserID	SPY_rssw.cpp	/^bool RSSW_GetFromToUserID(CR_DATA *pCR)$/;"	f
+RSSW_GetRoutingInfo	SPY_rssw.cpp	/^bool RSSW_GetRoutingInfo(CR_DATA *pCR)$/;"	f
+RSSW_GetRoutingInfoFromHashTable	SPY_rssw.cpp	/^bool RSSW_GetRoutingInfoFromHashTable(CR_DATA *pCR)$/;"	f
+RSSW_GetServiceKeyAndDPFromRouteHeader	SPY_rssw.cpp	/^int RSSW_GetServiceKeyAndDPFromRouteHeader(char *strRoute, char *strServiceKey, int MAX_SVCKEY_LEN, char *strDP)$/;"	f
+RSSW_GetServiceKeyInMessage	SPY_rssw.cpp	/^bool RSSW_GetServiceKeyInMessage(CR_DATA *pCR)$/;"	f
+RSSW_Insert_P_BT_ChInfo	SPY_rssw.cpp	/^bool RSSW_Insert_P_BT_ChInfo(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSSW_Insert_P_BT_ServiceKey	SPY_rssw.cpp	/^bool RSSW_Insert_P_BT_ServiceKey(CR_DATA *pCR, char *strSendBuf)$/;"	f
+RSSW_MakeSendBufferAndSendToSAM	SPY_rssw.cpp	/^bool RSSW_MakeSendBufferAndSendToSAM(CR_DATA *pCR)$/;"	f
+RSSW_PrintReceiveSIP	SPY_rssw.cpp	/^inline void RSSW_PrintReceiveSIP(CR_DATA *pCR)$/;"	f
+RSSW_PushToQueue	SPY_rssw.cpp	/^bool RSSW_PushToQueue(CR_DATA *pCR)$/;"	f
+RSSW_ReceivedSipParsing	SPY_rssw.cpp	/^bool RSSW_ReceivedSipParsing(CR_DATA *pCR)$/;"	f
+RSSW_RecvOptions	SPY_opt.cpp	/^bool RSSW_RecvOptions(CR_DATA *pCR)$/;"	f
+RSSW_SendMessageToSAM	SPY_rssw.cpp	/^void RSSW_SendMessageToSAM(CR_DATA *pCR)$/;"	f
+RSSW_SendOption200	SPY_opt.cpp	/^bool RSSW_SendOption200(CR_DATA *pCR)$/;"	f
+RSSW_SendOptionsResponseToSCM	SPY_opt.cpp	/^bool RSSW_SendOptionsResponseToSCM(CR_DATA *pCR)$/;"	f
+RSSW_SendResponse	SPY_rssw.cpp	/^bool RSSW_SendResponse(CR_DATA *pCR, int nRespCode, const char *strReason=NULL)$/;"	f
+RSSW_ServerStart	SPY_rssw.cpp	/^int RSSW_ServerStart(int ot_type)$/;"	f
+RSSW_ServerThread_ORIG	SPY_rssw.cpp	/^void *RSSW_ServerThread_ORIG(void* arg)$/;"	f
+RSSW_ServerThread_TERM	SPY_rssw.cpp	/^void* RSSW_ServerThread_TERM(void* arg)$/;"	f
+RSSW_main	SPY_rssw.cpp	/^bool RSSW_main(void)$/;"	f
+RSSW_sockaddr_to_string	SPY_rssw.cpp	/^void RSSW_sockaddr_to_string(CR_DATA *pCR)$/;"	f
+RTC_CHECK_UNIT	SPY_timer.cpp	39;"	d	file:
+RTC_CLOCK	SPY_chmap.cpp	/^size_t          RTC_CLOCK;$/;"	v
+R_AS_BLOCK_RQ	SPY_xbus.h	/^} R_AS_BLOCK_RQ;$/;"	t	typeref:struct:__anon87
+R_CMD_FROM_WEB	SPY_xbus.h	/^} R_CMD_FROM_WEB;$/;"	t	typeref:struct:__anon89
+R_DIS_CFG_SPY	SPY_mmc.h	/^} R_DIS_CFG_SPY;$/;"	t	typeref:struct:__anon3
+R_EXT_SVR_LIST_REG_RQ	SPY_xbus.h	/^} R_EXT_SVR_LIST_REG_RQ;$/;"	t	typeref:struct:__anon93
+R_EXT_SVR_REG_RQ	SPY_xbus.h	/^} R_EXT_SVR_REG_RQ;$/;"	t	typeref:struct:__anon90
+R_EXT_SVR_REG_RQ_V6	SPY_xbus.h	/^} R_EXT_SVR_REG_RQ_V6;$/;"	t	typeref:struct:__anon91
+R_LIST_REG_ITEM	SPY_xbus.h	/^} R_LIST_REG_ITEM;$/;"	t	typeref:struct:__anon92
+R_SAVE_CONFIG	SPY_mmc.h	/^} R_SAVE_CONFIG;$/;"	t	typeref:struct:__anon6
+R_SCM_CH_ALLOC_RP	SPY_scm.h	/^} R_SCM_CH_ALLOC_RP;$/;"	t	typeref:struct:__anon107
+R_SCM_CH_FREE_RP	SPY_scm.h	/^} R_SCM_CH_FREE_RP;$/;"	t	typeref:struct:__anon109
+R_SET_BLOCK_SPY	SPY_mmc.h	/^} R_SET_BLOCK_SPY;$/;"	t	typeref:struct:__anon4
+R_SET_CONFIG_SPY	SPY_mmc.h	/^} R_SET_CONFIG_SPY;$/;"	t	typeref:struct:__anon10
+R_SET_OVER_RESP	SPY_mmc.h	/^} R_SET_OVER_RESP;$/;"	t	typeref:struct:__anon8
+R_SET_PROXY_SPY	SPY_mmc.h	/^} R_SET_PROXY_SPY;$/;"	t	typeref:struct:__anon12
+R_TRACE_ADD_RQ	SPY_xbus.h	/^} R_TRACE_ADD_RQ;$/;"	t	typeref:struct:__anon95
+R_TRACE_DEL_RQ	SPY_xbus.h	/^} R_TRACE_DEL_RQ;$/;"	t	typeref:struct:__anon96
+R_TRACE_ON_SPY	SPY_mmc.h	/^} R_TRACE_ON_SPY;$/;"	t	typeref:struct:__anon11
+SA	SPY_udp.cpp	/^typedef struct sockaddr		SA;$/;"	t	typeref:struct:sockaddr	file:
+SAFETY_MAX_BUF_SIZE	SPY_cr.h	13;"	d
+SAFETY_MAX_BUF_SIZE	libnsmcom.h	9;"	d
+SAMQ_TH_INFO	SPY_xref.h	/^} SAMQ_TH_INFO;$/;"	t	typeref:struct:SamQthreadInfo
+SAM_UDP_SERVER_PORT	SPY_def.h	70;"	d
+SAVE_CFG_SPY_R	SPY_mmc2.h	/^} SAVE_CFG_SPY_R;$/;"	t	typeref:struct:__anon49
+SAVE_CFG_SPY_S	SPY_mmc2.h	/^} SAVE_CFG_SPY_S;$/;"	t	typeref:struct:__anon50
+SCMD_HASH_HA_UPDATE_RQ	SPY_xbus.h	19;"	d
+SCMD_HASH_INSERT_RQ	SPY_xbus.h	17;"	d
+SCMD_HASH_SYNC_RQ	SPY_xbus.h	18;"	d
+SCMFailCounts	SPY_mmc.h	/^	int	SCMFailCounts;$/;"	m	struct:dis_stat_spy
+SCMFailCounts	SPY_mmc2.h	/^    int     SCMFailCounts;$/;"	m	struct:__anon64
+SCM_Audit_thread	SPY_chmap.cpp	/^void *SCM_Audit_thread(void *arg)$/;"	f
+SCM_CH_MAP	SPY_chmap.cpp	/^SCM_CH_MAP::SCM_CH_MAP()$/;"	f	class:SCM_CH_MAP
+SCM_CH_MAP	SPY_chmap.h	/^class SCM_CH_MAP$/;"	c
+SCM_CONFIRM	SPY_scm.h	23;"	d
+SCM_ChAllocFailProc	SPY_scm.cpp	/^void SCM_ChAllocFailProc(R_SCM_CH_ALLOC_RP *rPDU)$/;"	f
+SCM_HEAD	SPY_scm.h	/^} SCM_HEAD;$/;"	t	typeref:struct:__anon105
+SCM_REJECT	SPY_scm.h	24;"	d
+SEND_AlarmMessage	SPY_alm.cpp	/^int SEND_AlarmMessage(int cmd_no, int flag, int alarm_id, const char *extend, const char *comment)$/;"	f
+SEND_AlarmV2	SPY_alm.cpp	/^int SEND_AlarmV2(int type, int cmd_no, int xbusId, int alarmId, int indexId, int alarmFlag, int commentCnt, const char comments[][64])$/;"	f
+SEND_AsBlockAlarm	SPY_alm.cpp	/^int SEND_AsBlockAlarm(void)$/;"	f
+SEND_AsBlockStatusToEMS	SPY_send.cpp	/^void SEND_AsBlockStatusToEMS(void)$/;"	f
+SEND_ChAllocRQToSCM	SPY_scm.cpp	/^bool SEND_ChAllocRQToSCM(CR_DATA *pCR)$/;"	f
+SEND_ExtServerStatusAlarm	SPY_alm.cpp	/^void SEND_ExtServerStatusAlarm(char *strSswID, char *strIP, int alarm_onoff, time_t time_down, int ot_type)$/;"	f
+SEND_ExtServerStatusUpdateToDBM_ECS_only	SPY_alm.cpp	/^int SEND_ExtServerStatusUpdateToDBM_ECS_only(char ot_type, int alarm_flag, const char *strIP)$/;"	f
+SEND_FaultMessage	SPY_alm.cpp	/^int SEND_FaultMessage(int cmd_no, int flag, int alarm_id, char extend, const char *comment)$/;"	f
+SEND_LogLevelToEMS	SPY_send.cpp	/^void SEND_LogLevelToEMS(void)$/;"	f
+SEND_Reg_Q_Alarm	SPY_alm.cpp	/^ void SEND_Reg_Q_Alarm(char alarm_onoff)$/;"	f
+SEND_Reg_Q_Alarm2	SPY_alm.cpp	/^void SEND_Reg_Q_Alarm2(char alarm_onoff)$/;"	f
+SEND_RegiStatInfoToSGM	SPY_stat.cpp	/^void SEND_RegiStatInfoToSGM(XBUS_MSG *rXBUS)$/;"	f
+SEND_RegisterMessageToDBM	SPY_regi.cpp	/^void SEND_RegisterMessageToDBM(DBM_QUERY *send, int nSendLen, const char *strFrom)$/;"	f
+SEND_StatisticInfoToSGM	SPY_stat.cpp	/^void SEND_StatisticInfoToSGM(XBUS_MSG *rXBUS)$/;"	f
+SEND_StatisticInfoToSGM_V6	SPY_stat.cpp	/^void SEND_StatisticInfoToSGM_V6(XBUS_MSG *rXBUS)$/;"	f
+SEND_StatusMessage	SPY_alm.cpp	/^int SEND_StatusMessage(uint16_t cmd_no, const char *comment)$/;"	f
+SERVICE_BLOCKED	SPY_scm.h	30;"	d
+SERVICE_NUM_EXCEED	SPY_scm.h	32;"	d
+SES_HA_ProcessDown	SPY_xbus.cpp	/^bool SES_HA_ProcessDown(uint8_t moId, int nBoardNo)$/;"	f
+SET_BLIST_SPY_R	SPY_mmc2.h	/^} SET_BLIST_SPY_R;$/;"	t	typeref:struct:__anon29
+SET_BLIST_SPY_S	SPY_mmc2.h	/^} SET_BLIST_SPY_S;$/;"	t	typeref:struct:__anon30
+SET_BLOCK_SPY_R	SPY_mmc2.h	/^} SET_BLOCK_SPY_R;$/;"	t	typeref:struct:__anon27
+SET_BLOCK_SPY_S	SPY_mmc2.h	/^} SET_BLOCK_SPY_S;$/;"	t	typeref:struct:__anon28
+SET_LOG_SPY_R	SPY_mmc2.h	/^} SET_LOG_SPY_R;$/;"	t	typeref:struct:__anon21
+SET_LOG_SPY_S	SPY_mmc2.h	/^} SET_LOG_SPY_S;$/;"	t	typeref:struct:__anon22
+SET_OVER_RESP_R	SPY_mmc2.h	/^} SET_OVER_RESP_R;$/;"	t	typeref:struct:__anon35
+SET_OVER_RESP_S	SPY_mmc2.h	/^} SET_OVER_RESP_S;$/;"	t	typeref:struct:__anon36
+SET_QOS_SPY_R	SPY_mmc2.h	/^} SET_QOS_SPY_R;$/;"	t	typeref:struct:__anon23
+SET_QOS_SPY_S	SPY_mmc2.h	/^} SET_QOS_SPY_S;$/;"	t	typeref:struct:__anon24
+SET_SCM_AUDIT_R	SPY_mmc2.h	/^} SET_SCM_AUDIT_R;$/;"	t	typeref:struct:__anon47
+SET_SCM_AUDIT_S	SPY_mmc2.h	/^} SET_SCM_AUDIT_S;$/;"	t	typeref:struct:__anon48
+SET_SCM_MAP_R	SPY_mmc2.h	/^} SET_SCM_MAP_R;$/;"	t	typeref:struct:__anon41
+SET_SCM_MAP_S	SPY_mmc2.h	/^} SET_SCM_MAP_S;$/;"	t	typeref:struct:__anon42
+SIP_INFO	SPY_cr.h	/^} SIP_INFO;$/;"	t	typeref:struct:__anon118
+SIP_METHOD	SPY_cr.h	/^enum SIP_METHOD$/;"	g
+SIP_TYPE	SPY_cr.h	/^enum SIP_TYPE$/;"	g
+SIP_TYPE_REQUEST	SPY_cr.h	/^    SIP_TYPE_UNDEF = -1, SIP_TYPE_REQUEST, SIP_TYPE_RESPONSE$/;"	e	enum:SIP_TYPE
+SIP_TYPE_RESPONSE	SPY_cr.h	/^    SIP_TYPE_UNDEF = -1, SIP_TYPE_REQUEST, SIP_TYPE_RESPONSE$/;"	e	enum:SIP_TYPE
+SIP_TYPE_UNDEF	SPY_cr.h	/^    SIP_TYPE_UNDEF = -1, SIP_TYPE_REQUEST, SIP_TYPE_RESPONSE$/;"	e	enum:SIP_TYPE
+SPY_AdjustConfigValue	SPY_cfg.cpp	/^void SPY_AdjustConfigValue(void)$/;"	f
+SPY_Analyze_REGISTER	SPY_regi.cpp	/^void SPY_Analyze_REGISTER(CR_DATA *pCR)$/;"	f
+SPY_CFG	SPY_cfg.h	/^} SPY_CFG;$/;"	t	typeref:struct:__anon126
+SPY_CR	SPY_cr.cpp	/^SPY_CR::SPY_CR(void)$/;"	f	class:SPY_CR
+SPY_CR	SPY_cr.h	/^class SPY_CR$/;"	c
+SPY_DeRegisterInfoToDB	SPY_regi.cpp	/^void SPY_DeRegisterInfoToDB(CR_DATA *pCR)$/;"	f
+SPY_HASH_MAP	SPY_hash.cpp	/^SPY_HASH_MAP::SPY_HASH_MAP()$/;"	f	class:SPY_HASH_MAP
+SPY_HASH_MAP	SPY_hash.h	/^class SPY_HASH_MAP$/;"	c
+SPY_LoggingVersion	SPY_main.cpp	/^void SPY_LoggingVersion(void)$/;"	f
+SPY_MMC2	SPY_mmc2.h	/^} SPY_MMC2;$/;"	t	typeref:enum:__anon18
+SPY_PrintOutConfig	SPY_cfg.cpp	/^void SPY_PrintOutConfig(void)$/;"	f
+SPY_PrintVersion	SPY_main.cpp	/^void SPY_PrintVersion(void)$/;"	f
+SPY_REGI_STS	SPY_stat.h	/^} SPY_REGI_STS;$/;"	t	typeref:struct:__anon82
+SPY_ReadConfigFile	SPY_cfg.cpp	/^bool SPY_ReadConfigFile(void)$/;"	f
+SPY_RegisterCPSThread	SPY_stat.cpp	/^void *SPY_RegisterCPSThread(void *arg)$/;"	f
+SPY_RegisterInfoToDB	SPY_regi.cpp	/^void SPY_RegisterInfoToDB(CR_DATA *pCR, char *strBodyBuf)$/;"	f
+SPY_SERVER_THREAD_PRIORITY	SPY_def.h	29;"	d
+SPY_STS	SPY_stat.h	/^} SPY_STS;$/;"	t	typeref:struct:__anon81
+SPY_STS_RESP_CODE	SPY_stat.h	/^static int SPY_STS_RESP_CODE[MAX_STA_RESPONSE_CODE] =$/;"	v
+SPY_SendResponseToWEB	SPY_xbus.cpp	/^void SPY_SendResponseToWEB(R_CMD_FROM_WEB *recv, char result, char reason)$/;"	f
+SPY_SetAndWriteAsBlockStatus	SPY_mmc.cpp	/^bool SPY_SetAndWriteAsBlockStatus(bool bBlock)$/;"	f
+SPY_SetConfigDefaultValue	SPY_cfg.cpp	/^void SPY_SetConfigDefaultValue(void)$/;"	f
+SPY_init_black_list	SPY_main.cpp	/^void SPY_init_black_list(void)$/;"	f
+SPY_init_data	SPY_main.cpp	/^bool SPY_init_data(int argc, char* argv[])$/;"	f
+SPY_init_xbus	SPY_xbus.cpp	/^bool SPY_init_xbus(void)$/;"	f
+SPY_read_config	SPY_main.cpp	/^bool SPY_read_config(void)$/;"	f
+SRM_USAGE_INFO	SPY_stat.cpp	354;"	d	file:
+SSWLIST_TBL	SPY_sswlist.h	/^class SSWLIST_TBL$/;"	c
+STAT_ADD_REGISTER_FAIL	SPY_stat.cpp	/^void STAT_ADD_REGISTER_FAIL(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_FAIL_DEREGI	SPY_stat.cpp	/^void STAT_ADD_REGISTER_FAIL_DEREGI(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_FAIL_REGI	SPY_stat.cpp	/^void STAT_ADD_REGISTER_FAIL_REGI(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_IN	SPY_stat.cpp	/^void STAT_ADD_REGISTER_IN(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_SUCCESS	SPY_stat.cpp	/^void STAT_ADD_REGISTER_SUCCESS(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_SUCCESS_DEREGI	SPY_stat.cpp	/^void STAT_ADD_REGISTER_SUCCESS_DEREGI(CR_DATA *pCR)$/;"	f
+STAT_ADD_REGISTER_SUCCESS_REGI	SPY_stat.cpp	/^void STAT_ADD_REGISTER_SUCCESS_REGI(CR_DATA *pCR)$/;"	f
+STA_HDR	SPY_stat.h	/^} STA_HDR;$/;"	t	typeref:struct:__anon76
+STA_INFO	SPY_stat.h	/^} STA_INFO;$/;"	t	typeref:struct:__anon80
+STA_SAM	SPY_stat.h	/^} STA_SAM;$/;"	t	typeref:struct:__anon78
+STA_SPY	SPY_stat.h	/^} STA_SPY;$/;"	t	typeref:struct:__anon77
+STA_SSW	SPY_stat.h	/^} STA_SSW;$/;"	t	typeref:struct:__anon79
+STMR_CALLBACK	libnsmtimer.h	/^typedef void (*STMR_CALLBACK)(size_t, size_t, size_t);$/;"	t
+STMR_TBL	libnsmtimer.h	/^} STMR_TBL;$/;"	t	typeref:struct:__anon104
+STR_SIP_METHOD	SPY_data.cpp	/^char    STR_SIP_METHOD[13][10] =    \/* enum SIP_METHOD¿Í ¼ø¼­°¡ ¹Ýµå½Ã µ¿ÀÏÇØ¾ß ÇÔ *\/$/;"	v
+STR_SIP_RESPONSE	SPY_data.cpp	/^char    STR_SIP_RESPONSE[] = "SIP\/2.0 ";$/;"	v
+STRs	libnsmcom.h	/^} STRs;$/;"	t	typeref:struct:__anon111
+STS_ID_SPY_CH_SYNC	SPY_alm.h	18;"	d
+ST_ERR_MALLOC_FAIL	libnsmtimer.h	/^    ST_ERR_MALLOC_FAIL        = -2,$/;"	e	enum:__anon103
+ST_ERR_NOT_INITIALIZED	libnsmtimer.h	/^    ST_ERR_NOT_INITIALIZED    = -1,$/;"	e	enum:__anon103
+ST_ERR_TABLE_FULL	libnsmtimer.h	/^    ST_ERR_TABLE_FULL         = -5,$/;"	e	enum:__anon103
+ST_ERR_TIMER_NOT_SETTED	libnsmtimer.h	/^    ST_ERR_TIMER_NOT_SETTED   = -6,$/;"	e	enum:__anon103
+ST_ERR_TIME_TOO_BIG	libnsmtimer.h	/^    ST_ERR_TIME_TOO_BIG       = -3,$/;"	e	enum:__anon103
+ST_ERR_TIME_TOO_SMALL	libnsmtimer.h	/^    ST_ERR_TIME_TOO_SMALL     = -4,$/;"	e	enum:__anon103
+ST_ERR_UNDEFINED	libnsmtimer.h	/^    ST_ERR_UNDEFINED          = -99$/;"	e	enum:__anon103
+ST_OK	libnsmtimer.h	/^    ST_OK                     = 0,$/;"	e	enum:__anon103
+SUBS_callback	SPY_xbus.cpp	/^int SUBS_callback(int len, uint8_t *r_msg)$/;"	f
+SVCKEY_LIST	SPY_svckey.h	/^} SVCKEY_LIST;$/;"	t	typeref:struct:__anon83
+SVCKEY_TBL	SPY_svckey.cpp	/^SVCKEY_TBL::SVCKEY_TBL(void)$/;"	f	class:SVCKEY_TBL
+SVCKEY_TBL	SPY_svckey.h	/^class SVCKEY_TBL$/;"	c
+SYNC_COUNT_1_LOOP	SPY_ha.cpp	248;"	d	file:
+S_DIS_BLOCK_SPY	SPY_mmc.h	/^} S_DIS_BLOCK_SPY;$/;"	t	typeref:struct:__anon5
+S_DIS_OVER_RESP	SPY_mmc.h	/^} S_DIS_OVER_RESP;$/;"	t	typeref:struct:__anon9
+S_RELOAD_CFG_SPY	SPY_mmc.h	/^} S_RELOAD_CFG_SPY;$/;"	t	typeref:struct:reload_config_spy
+S_RESULT_TO_WEB	SPY_xbus.h	/^} S_RESULT_TO_WEB;$/;"	t	typeref:struct:__anon88
+S_SAVE_CONFIG	SPY_mmc.h	/^} S_SAVE_CONFIG;$/;"	t	typeref:struct:__anon7
+S_SCM_CH_ALLOC_RQ	SPY_scm.h	/^} S_SCM_CH_ALLOC_RQ;$/;"	t	typeref:struct:__anon106
+S_SCM_CH_FREE_RQ	SPY_scm.h	/^} S_SCM_CH_FREE_RQ;$/;"	t	typeref:struct:__anon108
+S_SCM_OPTION_REPORT	SPY_scm.h	/^} S_SCM_OPTION_REPORT;$/;"	t	typeref:struct:__anon110
+S_SES_HA_START	SPY_xbus.cpp	/^} S_SES_HA_START;$/;"	t	typeref:struct:__anon113	file:
+S_TO_ALTIBASE	SPY_alm.h	/^} S_TO_ALTIBASE;$/;"	t	typeref:struct:__anon117
+S_TO_ORACLE	SPY_extlist.cpp	/^} S_TO_ORACLE;$/;"	t	typeref:struct:__anon112	file:
+S_TO_ORACLE	SPY_send.cpp	/^} S_TO_ORACLE;$/;"	t	typeref:struct:__anon74	file:
+S_TRACE_LIST_RP	SPY_xbus.h	/^} S_TRACE_LIST_RP;$/;"	t	typeref:struct:__anon94
+S_TRACE_ON_SPY	SPY_mmc.h	150;"	d
+SamQthreadInfo	SPY_xref.h	/^typedef struct SamQthreadInfo$/;"	s
+SaveFile	LIB_nsmcfg.cpp	/^bool NSM_CFG::SaveFile(void)$/;"	f	class:NSM_CFG
+SendChDeallocRQ_SCM	SPY_scm.cpp	/^int SendChDeallocRQ_SCM(int nBoard, int nChannel)$/;"	f
+SendOptionResponseRP_SCM	SPY_scm.cpp	/^int SendOptionResponseRP_SCM(uint16_t nRespCode, char *strContact, char *strTo, char *strAV)$/;"	f
+Send_Fault	flcm_manager.cpp	/^void FLCM_MANAGER::Send_Fault(char* key, int value)$/;"	f	class:FLCM_MANAGER
+Send_Fault_FLCM_RELAY	flcm_manager.cpp	/^void FLCM_MANAGER::Send_Fault_FLCM_RELAY()$/;"	f	class:FLCM_MANAGER
+Send_Fault_FLCM_RELAY	flcm_manager.cpp	/^void FLCM_MANAGER::Send_Fault_FLCM_RELAY(char* data)$/;"	f	class:FLCM_MANAGER
+SessionCounts	SPY_mmc.h	/^	int	SessionCounts;$/;"	m	struct:dis_stat_spy
+SessionCounts	SPY_mmc2.h	/^    int     SessionCounts;$/;"	m	struct:__anon64
+SetBool	LIB_nsmcfg.cpp	/^bool NSM_CFG::SetBool(const char *strSection, const char *strName, bool bValue)$/;"	f	class:NSM_CFG
+SetInt	LIB_nsmcfg.cpp	/^bool NSM_CFG::SetInt(const char *strSection, const char *strName, int nValue)$/;"	f	class:NSM_CFG
+SetStr	LIB_nsmcfg.cpp	/^bool NSM_CFG::SetStr(const char *strSection, const char *strName, char *strValue)$/;"	f	class:NSM_CFG
+SrmUsageInfo	SPY_stat.cpp	/^} SrmUsageInfo;$/;"	t	typeref:struct:__anon75	file:
+TIMER	SPY_timer.cpp	/^TIMER::TIMER()$/;"	f	class:TIMER
+TIMER	SPY_timer.h	/^class TIMER$/;"	c
+TIME_CHECK_SSW_EXT_STATUS_CHECK	SPY_def.h	67;"	d
+TIME_DAY	SPY_timer.h	14;"	d
+TIME_HOUR	SPY_timer.h	13;"	d
+TIME_MIN	SPY_timer.h	12;"	d
+TIME_MSEC	SPY_timer.h	10;"	d
+TIME_SEC	SPY_timer.h	11;"	d
+TMRTBL	SPY_timer.h	/^} TMRTBL;$/;"	t	typeref:struct:__anon84
+TOUT_SendChAllocRQ	SPY_scm.cpp	/^int TOUT_SendChAllocRQ(size_t nRcvSip, size_t arg2)$/;"	f
+TO_FUNC	SPY_timer.h	/^typedef int (*TO_FUNC)(size_t, size_t);$/;"	t
+TO_TIME_SCM_ALLOC	SPY_scm.h	9;"	d
+TO_TIME_WAIT_RESPONSE_FROM_SCM	SPY_scm.h	10;"	d
+TRACE_ERROR_DUPLICATED	SPY_trace.h	27;"	d
+TRACE_ERROR_TABLE_FULL	SPY_trace.h	28;"	d
+TRACE_FILE_FORMAT	SPY_trace.h	30;"	d
+TRACE_ITEM	SPY_mmc2.h	/^} TRACE_ITEM;$/;"	t	typeref:struct:__anon66
+TRACE_LIST	SPY_trace.h	/^} TRACE_LIST;$/;"	t	typeref:struct:__anon85
+TRACE_OK	SPY_trace.h	26;"	d
+TRACE_TBL	SPY_trace.cpp	/^TRACE_TBL::TRACE_TBL(void)$/;"	f	class:TRACE_TBL
+TRACE_TBL	SPY_trace.h	/^class TRACE_TBL$/;"	c
+TotalMsgCounts	SPY_mmc.h	/^	int	TotalMsgCounts;$/;"	m	struct:dis_stat_spy
+TotalMsgCounts	SPY_mmc2.h	/^    int     TotalMsgCounts;$/;"	m	struct:__anon64
+TotalMsgOutCounts	SPY_mmc.h	/^	int	TotalMsgOutCounts;$/;"	m	struct:dis_stat_spy
+TotalMsgOutCounts	SPY_mmc2.h	/^    int     TotalMsgOutCounts;$/;"	m	struct:__anon64
+UDP_HEADER_LEN	SPY_udp.h	25;"	d
+UDP_HEADER_LEN	SPY_udp.h	28;"	d
+UDP_MakeClientAndSendMessage	SPY_udp.cpp	/^int UDP_MakeClientAndSendMessage(char *ip, uint16_t port, char *data, int length)$/;"	f
+UDP_MakeServer	SPY_udp.cpp	/^int UDP_MakeServer(uint16_t port)$/;"	f
+UDP_MakeServerByIp	SPY_udp.cpp	/^int UDP_MakeServerByIp(char * ip, uint16_t port)$/;"	f
+UDP_RawSocketSendByIpNoCRC	SPY_udp.cpp	/^int UDP_RawSocketSendByIpNoCRC(char *my_ip, uint16_t sport, char *dest_ip, uint16_t dest_port, char *data, int length, uint8_t iTos)$/;"	f
+UDP_ServerWaitMessageByIpEx	SPY_udp.cpp	/^int UDP_ServerWaitMessageByIpEx(int fd, char *ip , char *buf, int maxbuf, struct sockaddr_in *cli_addr)$/;"	f
+UDP_ServerWaitMessageEx	SPY_udp.cpp	/^int UDP_ServerWaitMessageEx(int fd, char *buf, int maxbuf, struct sockaddr_in *cli_addr)$/;"	f
+UNKNOWN_SERVICE	SPY_scm.h	29;"	d
+UPD_BLACK_LIST_RP	SPY_mmc.h	/^} UPD_BLACK_LIST_RP;$/;"	t	typeref:struct:__anon14
+UPD_BLACK_LIST_RQ	SPY_mmc.h	/^} UPD_BLACK_LIST_RQ;$/;"	t	typeref:struct:__anon13
+UPD_BLIST_SPY_R	SPY_mmc2.h	/^} UPD_BLIST_SPY_R;$/;"	t	typeref:struct:__anon31
+UPD_BLIST_SPY_S	SPY_mmc2.h	/^} UPD_BLIST_SPY_S;$/;"	t	typeref:struct:__anon32
+UPD_EXTLIST_SPY_R	SPY_mmc2.h	/^} UPD_EXTLIST_SPY_R;$/;"	t	typeref:struct:__anon33
+UPD_EXTLIST_SPY_S	SPY_mmc2.h	/^} UPD_EXTLIST_SPY_S;$/;"	t	typeref:struct:__anon34
+UPD_EXT_LIST_RP	SPY_mmc.h	/^} UPD_EXT_LIST_RP;$/;"	t	typeref:struct:__anon17
+URI_TYPE	SPY_cr.h	/^enum URI_TYPE$/;"	g
+URI_TYPE_SIP	SPY_cr.h	/^    URI_TYPE_UNDEFINED = -1, URI_TYPE_SIP, URI_TYPE_TEL$/;"	e	enum:URI_TYPE
+URI_TYPE_TEL	SPY_cr.h	/^    URI_TYPE_UNDEFINED = -1, URI_TYPE_SIP, URI_TYPE_TEL$/;"	e	enum:URI_TYPE
+URI_TYPE_UNDEFINED	SPY_cr.h	/^    URI_TYPE_UNDEFINED = -1, URI_TYPE_SIP, URI_TYPE_TEL$/;"	e	enum:URI_TYPE
+USEC_1SEC	SPY_timer.cpp	36;"	d	file:
+Usage	build_info.sh	/^function Usage()$/;"	f
+Usage	build_info_asv5.sh	/^function Usage()$/;"	f
+Usage	build_info_sb.sh	/^function Usage()$/;"	f
+Usage	build_info_ses_noha.sh	/^function Usage()$/;"	f
+Usage	build_info_ses_noha_fault.sh	/^function Usage()$/;"	f
+Usage	build_info_tas.sh	/^function Usage()$/;"	f
+VmRSS	SPY_mmc.h	/^	int	VmRSS;$/;"	m	struct:dis_stat_spy
+WCMD_AS_BLOCK	SPY_xbus.h	27;"	d
+WCMD_BLACKLIST_ACT	SPY_xbus.h	32;"	d
+WCMD_BLACKLIST_REG	SPY_xbus.h	31;"	d
+WCMD_BLACKLIST_REG_V6	SPY_xbus.h	36;"	d
+WCMD_SSWFILE_REG	SPY_xbus.h	33;"	d
+WCMD_SSWFILE_REG_V6	SPY_xbus.h	39;"	d
+WCMD_SSWLIST_REG	SPY_xbus.h	26;"	d
+WCMD_SSWLIST_REG_V6	SPY_xbus.h	38;"	d
+WCMD_SSW_REG	SPY_xbus.h	25;"	d
+WCMD_SSW_REG_V6	SPY_xbus.h	37;"	d
+WCMD_TRACE_ADD_REQ	SPY_xbus.h	29;"	d
+WCMD_TRACE_DEL_REQ	SPY_xbus.h	30;"	d
+WCMD_TRACE_LIST_REQ	SPY_xbus.h	28;"	d
+WEB_AsBlockRQ	SPY_xbus.cpp	/^int WEB_AsBlockRQ(DGM_HDR *rPDU)$/;"	f
+WEB_BlackListActivateRQ	SPY_xbus.cpp	/^int WEB_BlackListActivateRQ(DGM_HDR *rPDU)$/;"	f
+WEB_BlackListUpdateRQ	SPY_xbus.cpp	/^int WEB_BlackListUpdateRQ(DGM_HDR *rPDU)$/;"	f
+WEB_BlackListUpdateRQ_V6	SPY_xbus.cpp	/^int WEB_BlackListUpdateRQ_V6(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrFileRegRQ	SPY_xbus.cpp	/^int WEB_ExtSvrFileRegRQ(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrFileRegRQ_V6	SPY_xbus.cpp	/^int WEB_ExtSvrFileRegRQ_V6(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrListRegRQ	SPY_xbus.cpp	/^int WEB_ExtSvrListRegRQ(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrListRegRQ_V6	SPY_xbus.cpp	/^int WEB_ExtSvrListRegRQ_V6(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrRegRQ	SPY_xbus.cpp	/^int WEB_ExtSvrRegRQ(DGM_HDR *rPDU)$/;"	f
+WEB_ExtSvrRegRQ_V6	SPY_xbus.cpp	/^int WEB_ExtSvrRegRQ_V6(DGM_HDR *rPDU)$/;"	f
+WEB_TraceAddRQ	SPY_xbus.cpp	/^int WEB_TraceAddRQ(DGM_HDR *rPDU)$/;"	f
+WEB_TraceDelRQ	SPY_xbus.cpp	/^int WEB_TraceDelRQ(DGM_HDR *rPDU)$/;"	f
+WEB_TraceListRQ	SPY_xbus.cpp	/^int WEB_TraceListRQ(DGM_HDR *rPDU)$/;"	f
+_GET_CONFIG_BOOL	SPY_cfg.cpp	29;"	d	file:
+_GET_CONFIG_INT	SPY_cfg.cpp	26;"	d	file:
+_GET_CONFIG_STR	SPY_cfg.cpp	27;"	d	file:
+_GET_CONFIG_nSTR	SPY_cfg.cpp	28;"	d	file:
+_Q_PTR	libnsmptrq.h	/^typedef struct _Q_PTR$/;"	s
+__LIB_NSMCFG_H__	libnsmcfg.h	26;"	d
+__LIB_NSMCOM_H__	libnsmcom.h	3;"	d
+__LIB_NSMLOG_H__	libnsmlog.h	10;"	d
+__LIB_NSMPTRQ_H__	libnsmptrq.h	10;"	d
+__LIB_NSMTIMER_H__	libnsmtimer.h	25;"	d
+__SPY_ALM_H__	SPY_alm.h	3;"	d
+__SPY_BLIST_H__	SPY_blist.h	23;"	d
+__SPY_BLIST_V6_H__	SPY_blist_v6.h	25;"	d
+__SPY_CFG_H__	SPY_cfg.h	3;"	d
+__SPY_CHMAP_H__	SPY_chmap.h	11;"	d
+__SPY_CR_H__	SPY_cr.h	3;"	d
+__SPY_DEF_H__	SPY_def.h	3;"	d
+__SPY_EXTLIST_H__	SPY_extlist.h	3;"	d
+__SPY_HHASH_H__	SPY_hash.h	10;"	d
+__SPY_LIBV6_H__	SPY_libv6.h	10;"	d
+__SPY_LIB_H__	SPY_lib.h	10;"	d
+__SPY_MMC2_H__	SPY_mmc2.h	10;"	d
+__SPY_MMC_H__	SPY_mmc.h	2;"	d
+__SPY_REGI_H__	SPY_regi.h	10;"	d
+__SPY_SCM_H__	SPY_scm.h	4;"	d
+__SPY_SSWLIST_H__	SPY_sswlist.h	3;"	d
+__SPY_STA_H__	SPY_stat.h	4;"	d
+__SPY_SVCKEY_H__	SPY_svckey.h	10;"	d
+__SPY_TIMER_H__	SPY_timer.h	3;"	d
+__SPY_TRACE_H__	SPY_trace.h	10;"	d
+__SPY_UDP_H__	SPY_udp.h	10;"	d
+__SPY_XBUS_H__	SPY_xbus.h	10;"	d
+__SPY_XREF_H__	SPY_xref.h	10;"	d
+_svcInfo	SPY_stat.cpp	/^    struct _svcInfo {$/;"	s	struct:__anon75	file:
+act	SPY_mmc.h	/^    char	act;$/;"	m	struct:__anon15
+act	SPY_xbus.h	/^    char    act;        \/\/ '0': stop, '1': act$/;"	m	struct:__anon99
+action	SPY_xbus.h	/^	char        action[6];$/;"	m	struct:__anon90
+action	SPY_xbus.h	/^    char        action[6];$/;"	m	struct:__anon91
+add_msgerr	SPY_extlist.cpp	/^bool ERRSVR_TBL::add_msgerr(const char *strIP)$/;"	f	class:ERRSVR_TBL
+add_unreg	SPY_extlist.cpp	/^bool ERRSVR_TBL::add_unreg(const char *strIP)$/;"	f	class:ERRSVR_TBL
+all_alarm_off	SPY_extlist.cpp	/^bool EXTLIST_TBL::all_alarm_off(void)$/;"	f	class:EXTLIST_TBL
+all_alarm_off	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::all_alarm_off(void)$/;"	f	class:EXTLIST_TBL_V6
+alloc	SPY_cr.cpp	/^CR_DATA *SPY_CR::alloc(void)$/;"	f	class:SPY_CR
+already_reg	SPY_trace.cpp	/^bool TRACE_TBL::already_reg(TRACE_LIST *trace)$/;"	f	class:TRACE_TBL
+arg1	SPY_timer.h	/^	size_t  arg1;$/;"	m	struct:__anon84
+arg1	libnsmtimer.h	/^    size_t		arg1;       \/\/ funcÀÌ ½ÇÇàµÉ¶§ ÆÄ¶ó¹ÌÅÍ$/;"	m	struct:__anon104
+arg2	SPY_timer.h	/^	size_t  arg2;$/;"	m	struct:__anon84
+arg2	libnsmtimer.h	/^    size_t		arg2;       \/\/ funcÀÌ ½ÇÇàµÉ¶§ ÆÄ¶ó¹ÌÅÍ$/;"	m	struct:__anon104
+asId	SPY_xbus.h	/^	char        asId[2];$/;"	m	struct:__anon87
+audio_video	SPY_scm.h	/^    char        audio_video[64];$/;"	m	struct:__anon110
+audit	SPY_cr.h	/^    CR_AUDIT    audit;              \/\/ CR Audit¿ë Á¤º¸$/;"	m	struct:__anon120
+audit_CallID	SPY_chmap.cpp	/^bool SCM_CH_MAP::audit_CallID(int nSEC)$/;"	f	class:SCM_CH_MAP
+audit_pCR	SPY_chmap.cpp	/^bool SCM_CH_MAP::audit_pCR(int nSEC)$/;"	f	class:SCM_CH_MAP
+bCSRN	SPY_cr.h	/^    bool    bCSRN;                  \/\/ SCM¿¡ Ã¤³ÎÇÒ´ç °á°ú°¡ CSRNÀÎ °æ¿ì setting(TAS only)$/;"	m	struct:__anon118
+bDeath	SPY_hash.h	/^    bool    bDeath;             \/\/ FIXIT - SES Down flag - »ç¿ë ¿©ºÎ È®ÀÎ$/;"	m	struct:__anon114
+bDeath	SPY_hash.h	/^    bool    bDeath;             \/\/ FIXIT - SES Down flag - »ç¿ë ¿©ºÎ È®ÀÎ$/;"	m	struct:__anon115
+bExistInHashTable	SPY_cr.h	/^    bool    bExistInHashTable;      \/\/ ÇØ´ç Á¤º¸°¡ HashTable¿¡ ÀÖ´ÂÁö ¾ø´ÂÁö ¿©ºÎ (ÀÖÀ¸¸é true);$/;"	m	struct:__anon118
+bFlag	SPY_mmc.h	/^	uint16_t	bFlag;$/;"	m	struct:__anon11
+bFlag	SPY_mmc.h	/^	uint8_t     bFlag;$/;"	m	struct:__anon12
+bFlag	SPY_mmc.h	/^	uint8_t     bFlag;$/;"	m	struct:__anon3
+bFree	SPY_cr.h	/^    bool        bFree;              \/\/ ÀÌ¹Ì free°¡ µÇ¾ú´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö$/;"	m	struct:__anon119
+bIPV6	SPY_cr.h	/^    bool        bIPV6;$/;"	m	struct:__anon120
+bIPv6	SPY_hash.h	/^    bool    bIPv6;              \/\/ IPv6 È£ ÀÎÁö v4È£ ÀÎÁö ±¸ºÐÀÚ$/;"	m	struct:__anon115
+bIPv6	SPY_hash.h	/^    bool    bIPv6;              \/\/ »ó´ëÆíÀÌ IPv6 ÀÎÁö IPv4ÀÎÁö¸¦ ³ªÅ¸³¿$/;"	m	struct:__anon114
+bInitialMessage	SPY_cr.h	/^    bool    bInitialMessage;        \/\/ SIP Initial Message ¿©ºÎ (ÀÌ °æ¿ì SCM¿¡ Ã¤³ÎÇÒ´çÇÏ°í, HashTable¿¡ InsertÇØ¾ß ÇÔ)$/;"	m	struct:__anon118
+bIsDeregi	SPY_cr.h	/^    bool        bIsDeregi;          \/\/ add 20170222 - REGISTER message typeÀÌ REGI.ÀÎÁö DEREGI.ÀÎÁö¸¦ ³ªÅ¸³¿ (true¸é deregi) - TAS ¿¡¼­¸¸ »ç¿ë$/;"	m	struct:__anon120
+bIsMoved	SPY_cr.h	/^    bool        bIsMoved;           \/\/ SES HA ·Î ÀÎÇØ º¸µå°¡ º¯°æµÇ¸é true·Î SettingÇÏ°í ÀÌÈÄ routingÀ» BoardNo·Î ÇÏÁö ¾Ê°í PeerBoard·Î ÇÑ´Ù.$/;"	m	struct:__anon120
+bIsMoved	SPY_hash.h	/^    bool    bIsMoved;           \/\/ SES HA ·Î ÀÎÇØ º¸µå°¡ º¯°æµÇ¸é true·Î SettingÇÏ°í ÀÌÈÄ routingÀ» BoardNo·Î ÇÏÁö ¾Ê°í PeerBoard·Î ÇÑ´Ù.$/;"	m	struct:__anon114
+bIsReceiveACK	SPY_cr.h	/^    bool        bIsReceiveACK;      \/\/ 20161005$/;"	m	struct:__anon120
+bIsReceiveACK	SPY_hash.h	/^    bool    bIsReceiveACK;      \/\/ ACK ¸¦ ¼ö½ÅÇÑ ÅëÈ­Áß »óÅÂÀÎÁö¸¦ ³ªÅ¸³»´Â flag (SES°¡ ÅëÈ­Áß¿¡¸¸ ÀÌÁßÈ­... ÅëÈ­ÁßÀÌ ¾Æ´Ï¸é ÀýÃ¼½Ã release Ã³¸®(SCMÀ¸·Î Åëº¸)ÇØ¾ß ÇÔ)$/;"	m	struct:__anon114
+bIsReceiveACK	SPY_hash.h	/^    bool    bIsReceiveACK;$/;"	m	struct:__anon116
+bIsV6	SPY_mmc2.h	/^    bool    bIsV6;          \/\/ V4(0)\/V6(1) ¿©ºÎ - ÃßÈÄ±¸Çö$/;"	m	struct:__anon31
+bIsV6	SPY_mmc2.h	/^    bool    bIsV6;          \/\/ V4(0)\/V6(1) ¿©ºÎ - ÃßÈÄ±¸Çö$/;"	m	struct:__anon32
+bIsV6	SPY_mmc2.h	/^    bool    bIsV6;          \/\/ V4(0)\/V6(1) ¿©ºÎ - ÃßÈÄ±¸Çö$/;"	m	struct:__anon33
+bIsV6	SPY_mmc2.h	/^    bool    bIsV6;          \/\/ V4(0)\/V6(1) ¿©ºÎ - ÃßÈÄ±¸Çö$/;"	m	struct:__anon34
+bPBTChInfo	SPY_cr.h	/^    bool        bPBTChInfo;         \/\/ ¼ö½ÅÇÑ ¸Þ¼¼Áö¿¡ P-BT-ChInfo Header°¡ ÀÖ¾ú´ÂÁö ¿©ºÎ$/;"	m	struct:__anon119
+bRetransmission	SPY_cr.h	/^    bool    bRetransmission;        \/\/ ÀçÀü¼Û ¿©ºÎ$/;"	m	struct:__anon118
+b_add_200_invite_timer	SPY_cfg.h	/^    bool        b_add_200_invite_timer;                 \/\/ 200-INVITE¿¡ Require: timer Ãß°¡ ¿©ºÎ$/;"	m	struct:__anon125
+b_add_200_update_timer	SPY_cfg.h	/^    bool        b_add_200_update_timer;                 \/\/ 200-UPDATE¿¡ Require: timer Ãß°¡ ¿©ºÎ$/;"	m	struct:__anon125
+b_add_update_timer	SPY_cfg.h	/^    bool        b_add_update_timer;                     \/\/ UPDATE¿¡   Supported: timer Ãß°¡ ¿©ºÎ$/;"	m	struct:__anon125
+b_as_block	SPY_cfg.h	/^    bool        b_as_block;         \/\/ AS ºí·Ï¿©ºÎ$/;"	m	struct:__anon122
+b_black_list_use	SPY_cfg.h	/^    bool        b_black_list_use;                       \/\/ BLACK LIST ÆÄÀÏ »ç¿ë ¿©ºÎ$/;"	m	struct:__anon125
+b_bye_no_hash_200	SPY_cfg.h	/^    bool        b_bye_no_hash_200;  \/\/ RSSW¿¡¼­ HAsh¿¡ ¾ø´õ¶óµµ BYE¿¡ ´ëÇÑ 200À» SPY°¡ º¸³¾Áö ¿©ºÎ$/;"	m	struct:__anon122
+b_changed	libnsmcfg.h	/^    bool    b_changed;      \/\/ ÇØ´ç¶óÀÎÀÌ º¯°æµÇ¾ú´ÂÁö ¿©ºÎ$/;"	m	struct:__anon102
+b_data_row	libnsmcfg.h	/^    bool    b_data_row;     \/\/ ÇØ´ç Row¿¡ Key, Value°¡ ÀÖ´ÂÁö ¿©ºÎ$/;"	m	struct:__anon102
+b_del_18x_supported	SPY_cfg.h	/^    bool        b_del_18x_supported;                    \/\/ 18XÀÇ Supported Header¸¦ »èÁ¦ÇÏ°í SSW·Î Àü¼ÛÇÒÁö ¿©ºÎ(ÀÏºÎ ´Ü¸» ÀÌ½´)$/;"	m	struct:__anon125
+b_ecs_update	SPY_cfg.h	/^    bool        b_ecs_update;$/;"	m	struct:__anon122
+b_hash_fail_route	SPY_cfg.h	/^    bool        b_hash_fail_route;$/;"	m	struct:__anon122
+b_ip_mode_v6	SPY_cfg.h	/^    bool        b_ip_mode_v6;                           \/\/ IPv6·Î µ¿ÀÛÀ» ÇÒÁö v4·Î µ¿ÀÛÇÒÁö ¿©ºÎ$/;"	m	struct:__anon122
+b_log_options	SPY_mmc2.h	/^    bool        b_log_options;  \/\/ C_LOG_OPTION$/;"	m	struct:__anon21
+b_log_options	SPY_mmc2.h	/^    bool    b_log_options;  \/\/ C_LOG_OPTION$/;"	m	struct:__anon20
+b_log_options	SPY_mmc2.h	/^    bool    b_log_options;  \/\/ C_LOG_OPTION$/;"	m	struct:__anon22
+b_log_register	SPY_mmc2.h	/^    bool        b_log_register; \/\/ C_LOG_REGISTER$/;"	m	struct:__anon21
+b_log_register	SPY_mmc2.h	/^    bool    b_log_register; \/\/ C_LOG_REGISTER$/;"	m	struct:__anon20
+b_log_register	SPY_mmc2.h	/^    bool    b_log_register; \/\/ C_LOG_REGISTER$/;"	m	struct:__anon22
+b_options	SPY_cfg.h	/^    bool        b_options;          \/\/ OPTIONS SIP ¸Þ½ÃÁö Ãâ·Â ¿©ºÎ$/;"	m	struct:__anon121
+b_outbund_proxy	SPY_cfg.h	/^    bool        b_outbund_proxy;    \/\/ SIP ¼Û½ÅÀ» Æ¯Á¤ ¼­¹ö·Î¸¸ ÇÏ°íÀÚ ÇÒ¶§ ¼³Á¤ÇØ¼­ »ç¿ë(Æ¯¼öÇÑ °æ¿ì ??)$/;"	m	struct:__anon121
+b_refer_405	SPY_cfg.h	/^    bool        b_refer_405;                            \/\/ REFER¸¦ ¼ö½ÅÇÏ¸é SPY¿¡¼­ 405¸¦ Àü¼ÛÇÒÁö ¿©ºÎ$/;"	m	struct:__anon125
+b_register	SPY_cfg.h	/^    bool        b_register;         \/\/ REGISTER SIP ¸Þ½ÃÁö Ãâ·Â ¿©ºÎ$/;"	m	struct:__anon121
+b_run_flag	SPY_timer.h	/^    bool    b_run_flag;$/;"	m	class:TIMER
+b_syntax_check	SPY_cfg.h	/^    bool        b_syntax_check;     \/\/ SIP Syntax check »ç¿ë ¿©ºÎ$/;"	m	struct:__anon122
+b_tas_block_480	SPY_cfg.h	/^    bool        b_tas_block_480;                        \/\/ TASÀÎ °æ¿ì SERVICE BLOCKÀ» ÇÏ¸é 503´ë½Å 480À» º¸³½´Ù$/;"	m	struct:__anon125
+b_use_message	SPY_cfg.h	/^	bool		b_use_message;$/;"	m	struct:__anon125
+b_use_regi_api_4	SPY_cfg.h	/^	bool		b_use_regi_api_4;						\/\/[JIRA AS-211]$/;"	m	struct:__anon125
+backup_file	LIB_nsmcfg.cpp	/^bool NSM_CFG::backup_file(void)$/;"	f	class:NSM_CFG
+backup_file	SPY_extlist.cpp	/^bool EXTLIST_TBL::backup_file(void)$/;"	f	class:EXTLIST_TBL
+backup_file	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::backup_file(void)$/;"	f	class:EXTLIST_TBL_V6
+bd	SPY_cr.h	/^    uint8_t     bd;                 \/\/ SAM board number$/;"	m	struct:__anon120
+bd	SPY_xref.h	/^    int bd;$/;"	m	struct:SamQthreadInfo
+blist_state	SPY_mmc2.h	/^    uint8_t     blist_state;    \/\/ 0 - unuse, 1 - use$/;"	m	struct:__anon29
+blist_state	SPY_mmc2.h	/^    uint8_t blist_state;$/;"	m	struct:__anon30
+block	SPY_extlist.h	/^    bool    block;$/;"	m	struct:__anon1
+block	SPY_mmc.h	/^	uint8_t     block;$/;"	m	struct:__anon4
+block	SPY_xbus.h	/^	char        block;$/;"	m	struct:__anon87
+block	SPY_xbus.h	/^	char        block;$/;"	m	struct:__anon90
+block	SPY_xbus.h	/^	char        block;$/;"	m	struct:__anon92
+block	SPY_xbus.h	/^    char        block;$/;"	m	struct:__anon91
+block_state	SPY_mmc2.h	/^    uint8_t	block_state;$/;"	m	struct:__anon26
+block_state	SPY_mmc2.h	/^    uint8_t	block_state;$/;"	m	struct:__anon28
+block_state	SPY_mmc2.h	/^    uint8_t     block_state;    \/\/ 0 - unblock, 1 - block$/;"	m	struct:__anon27
+board	SPY_regi.cpp	/^    int  board;$/;"	m	struct:__anon72	file:
+board	SPY_scm.h	/^    uint16_t    board;$/;"	m	struct:__anon107
+board	SPY_scm.h	/^    uint16_t    board;$/;"	m	struct:__anon108
+board	SPY_scm.h	/^    uint16_t    board;$/;"	m	struct:__anon109
+callType	SPY_scm.h	/^    uint16_t    callType;$/;"	m	struct:__anon107
+callType	SPY_scm.h	/^    uint16_t    callType;$/;"	m	struct:__anon109
+cancel	LIB_nsmtimer.cpp	/^NSM_RESULT NSM_SEC_TIMER::cancel(size_t key)$/;"	f	class:NSM_SEC_TIMER
+cancel	SPY_timer.cpp	/^int TIMER::cancel(int64_t timer_id)$/;"	f	class:TIMER
+category	flcm_manager.h	/^	char category[MAX_CATEGORY_SIZE];$/;"	m	struct:__anon101
+cfg	SPY_data.cpp	/^NSM_CFG     cfg;                \/\/ LIB SM LOG CFG class$/;"	v
+ch	SPY_cr.h	/^    int         ch;                 \/\/ SAM channel number$/;"	m	struct:__anon120
+ch	SPY_scm.h	/^	uint32_t    ch;$/;"	m	struct:__anon108
+ch	SPY_scm.h	/^    uint32_t    ch;$/;"	m	struct:__anon107
+ch	SPY_scm.h	/^    uint32_t    ch;$/;"	m	struct:__anon109
+ch_size	SPY_hash.cpp	/^int SPY_HASH_MAP::ch_size()$/;"	f	class:SPY_HASH_MAP
+ch_total	SPY_stat.cpp	/^    unsigned int ch_total;$/;"	m	struct:__anon75	file:
+ch_usage	SPY_stat.cpp	/^    unsigned int ch_usage;$/;"	m	struct:__anon75	file:
+channel	SPY_regi.cpp	/^    int  channel;$/;"	m	struct:__anon72	file:
+check	LIB_nsmtimer.cpp	/^NSM_RESULT NSM_SEC_TIMER::check(size_t key, uint32_t *n_sec)$/;"	f	class:NSM_SEC_TIMER
+check	SPY_timer.cpp	/^int TIMER::check(int64_t timer_id)$/;"	f	class:TIMER
+check	SPY_trace.cpp	/^int TRACE_TBL::check(int nBoardNo, int nChannelNo)$/;"	f	class:TRACE_TBL
+checkTime	SPY_extlist.h	/^    int     checkTime;$/;"	m	struct:__anon1
+checkTime	SPY_xbus.h	/^	char        checkTime[3];$/;"	m	struct:__anon90
+checkTime	SPY_xbus.h	/^	char        checkTime[3];$/;"	m	struct:__anon92
+checkTime	SPY_xbus.h	/^    char        checkTime[3];$/;"	m	struct:__anon91
+check_file_size_limit	LIB_nsmlog.cpp	/^void NSM_LOG::check_file_size_limit(struct tm *p_now)$/;"	f	class:NSM_LOG
+check_time_out	LIB_nsmtimer.cpp	/^void NSM_SEC_TIMER::check_time_out(void)$/;"	f	class:NSM_SEC_TIMER
+check_time_out	SPY_timer.cpp	/^void TIMER::check_time_out(void)$/;"	f	class:TIMER
+check_twice_moved	SPY_hash.cpp	/^int SPY_HASH_MAP::check_twice_moved(int down_board, int move_board, int MAX_CH, bool bIsORIG)$/;"	f	class:SPY_HASH_MAP
+clear	SPY_blist.cpp	/^void BLIST_TBL::clear(void)$/;"	f	class:BLIST_TBL
+clear	SPY_blist_v6.cpp	/^void BLIST_TBL_V6::clear(void)$/;"	f	class:BLIST_TBL_V6
+clear	SPY_chmap.cpp	/^void SCM_CH_MAP::clear()$/;"	f	class:SCM_CH_MAP
+clear	SPY_cr.cpp	/^void SPY_CR::clear(void)$/;"	f	class:SPY_CR
+clear	SPY_extlist.cpp	/^void ERRSVR_TBL::clear(void)$/;"	f	class:ERRSVR_TBL
+clear	SPY_extlist.cpp	/^void EXTLIST_TBL::clear(void)$/;"	f	class:EXTLIST_TBL
+clear	SPY_extlist.cpp	/^void EXTLIST_TBL_V6::clear(void)$/;"	f	class:EXTLIST_TBL_V6
+clear	SPY_hash.cpp	/^void SPY_HASH_MAP::clear()$/;"	f	class:SPY_HASH_MAP
+clear	SPY_svckey.cpp	/^void SVCKEY_TBL::clear(void)$/;"	f	class:SVCKEY_TBL
+clear	SPY_trace.cpp	/^void TRACE_TBL::clear(void)$/;"	f	class:TRACE_TBL
+close	LIB_nsmlog.cpp	/^void NSM_LOG::close(void)$/;"	f	class:NSM_LOG
+cnt	libnsmcom.h	/^	char    cnt;$/;"	m	struct:__anon111
+code	SPY_scm.h	/^    uint16_t    code;$/;"	m	struct:__anon110
+color	LIB_nsmlog.cpp	/^void NSM_LOG::color(const char *color, char nLogLevel, const char *fmt, ...)$/;"	f	class:NSM_LOG
+command	SPY_stat.h	/^	uint8_t     command;$/;"	m	struct:__anon76
+contact	SPY_scm.h	/^    char        contact[32];$/;"	m	struct:__anon110
+count	LIB_nsmtimer.cpp	/^size_t NSM_SEC_TIMER::count(void)$/;"	f	class:NSM_SEC_TIMER
+count	SPY_stat.cpp	/^    unsigned int count;$/;"	m	struct:__anon75	file:
+count	SPY_xbus.h	/^	char        count[3];$/;"	m	struct:__anon93
+counter	libnsmptrq.h	/^	int		counter;$/;"	m	class:NSM_PTR_Q
+cprintf	LIB_nsmlog.cpp	/^void NSM_LOG::cprintf(char nLogLevel, const char *fmt, ...)$/;"	f	class:NSM_LOG
+data	SPY_xbus.h	/^	char        data[1860];$/;"	m	struct:__anon94
+data	SPY_xbus.h	/^	char        data[2048];$/;"	m	struct:__anon89
+data	libnsmptrq.h	/^	void     *data;$/;"	m	struct:_Q_PTR
+data_ptr	SPY_xbus.h	/^	char        data_ptr;$/;"	m	struct:__anon93
+dead_mark	SPY_hash.cpp	/^int SPY_HASH_MAP::dead_mark(int BoardNo, int MaxCh)$/;"	f	class:SPY_HASH_MAP
+debug	SPY_cfg.h	/^    CFG_DEBUG   debug;$/;"	m	struct:__anon126
+delete_by_board	SPY_hash.cpp	/^int SPY_HASH_MAP::delete_by_board(int BoardNo, int MaxCh)$/;"	f	class:SPY_HASH_MAP
+delete_hash	SPY_hash.cpp	/^bool SPY_HASH_MAP::delete_hash(int BoardNo, int ChannelNo)$/;"	f	class:SPY_HASH_MAP
+dequeue	LIB_nsmptrq.cpp	/^bool NSM_PTR_Q::dequeue(void **data)$/;"	f	class:NSM_PTR_Q
+dest_address	SPY_udp.cpp	/^	IN_ADDR     dest_address;$/;"	m	struct:psuedo_hdr	file:
+dis_stat_spy	SPY_mmc.h	/^typedef struct dis_stat_spy$/;"	s
+dis_trace_item	SPY_mmc.h	/^typedef struct dis_trace_item$/;"	s
+dis_trace_spy	SPY_mmc.h	/^typedef struct dis_trace_spy$/;"	s
+down_board	SPY_xbus.cpp	/^    uint8_t     down_board;$/;"	m	struct:__anon113	file:
+down_moId	SPY_xbus.cpp	/^    uint8_t     down_moId;$/;"	m	struct:__anon113	file:
+dp	SPY_scm.h	/^    char        dp[4];                      \/\/ FIXIT - ?? why string ??$/;"	m	struct:__anon106
+dp	SPY_scm.h	/^    char        dp[4];$/;"	m	struct:__anon107
+dummy	SPY_mmc.h	/^    char	dummy;$/;"	m	struct:__anon13
+dummy	SPY_mmc2.h	/^    char        dummy[2];$/;"	m	struct:__anon44
+dummy	SPY_mmc2.h	/^    char        dummy[2];$/;"	m	struct:__anon46
+dummy	SPY_mmc2.h	/^    char        dummy[2];$/;"	m	struct:__anon48
+dummy	SPY_mmc2.h	/^    char        dummy[2];$/;"	m	struct:__anon54
+dummy	SPY_mmc2.h	/^    char        dummy[2];$/;"	m	struct:__anon62
+dummy	SPY_mmc2.h	/^    char        dummy[3];$/;"	m	struct:__anon40
+dummy	SPY_mmc2.h	/^    char    dummy;$/;"	m	struct:__anon67
+dummy	SPY_mmc2.h	/^    char    dummy[2];$/;"	m	struct:__anon20
+dummy	SPY_mmc2.h	/^    char    dummy[2];$/;"	m	struct:__anon64
+dummy	SPY_mmc2.h	/^    uint8_t     dummy;$/;"	m	struct:__anon35
+dummy	SPY_mmc2.h	/^    uint8_t     dummy;$/;"	m	struct:__anon68
+dummy	SPY_xbus.h	/^    char    dummy;$/;"	m	struct:__anon97
+dump	SPY_chmap.cpp	/^void SCM_CH_MAP::dump(void)$/;"	f	class:SCM_CH_MAP
+dumy	SPY_regi.cpp	/^    char dumy[7];$/;"	m	struct:__anon72	file:
+enqueue	LIB_nsmptrq.cpp	/^bool NSM_PTR_Q::enqueue(void *data)$/;"	f	class:NSM_PTR_Q
+erase	SPY_chmap.cpp	/^bool SCM_CH_MAP::erase(CR_DATA *pCR)$/;"	f	class:SCM_CH_MAP
+erase	SPY_extlist.cpp	/^bool EXTLIST_TBL::erase(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+erase	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::erase(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+erase	SPY_trace.cpp	/^bool TRACE_TBL::erase(int nTrace)$/;"	f	class:TRACE_TBL
+erase_file	SPY_extlist.cpp	/^bool EXTLIST_TBL::erase_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+erase_file	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::erase_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+erase_file	SPY_trace.cpp	/^void TRACE_TBL::erase_file(void)$/;"	f	class:TRACE_TBL
+etc	SPY_cfg.h	/^    CFG_ETC     etc;$/;"	m	struct:__anon126
+exist	SPY_extlist.cpp	/^bool EXTLIST_TBL::exist(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+exist	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::exist(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+exist	SPY_trace.cpp	/^int TRACE_TBL::exist(const char *strFrom, const char *strTo, const char *strSvcKey, int nBoardNo, int nChannelNo)$/;"	f	class:TRACE_TBL
+fault	SPY_extlist.h	/^    char    fault;$/;"	m	struct:__anon1
+file_mutex	SPY_blist.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for file access$/;"	m	class:BLIST_TBL
+file_mutex	SPY_blist_v6.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for file access$/;"	m	class:BLIST_TBL_V6
+file_mutex	SPY_extlist.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for extlist.cfg file access$/;"	m	class:EXTLIST_TBL
+file_mutex	SPY_extlist.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for extlist.cfg file access$/;"	m	class:EXTLIST_TBL_V6
+file_mutex	SPY_sswlist.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for sswlist.cfg file access$/;"	m	class:SSWLIST_TBL
+file_mutex	SPY_svckey.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for service_key.cfg file access$/;"	m	class:SVCKEY_TBL
+file_mutex	SPY_trace.h	/^    pthread_mutex_t     file_mutex;             \/\/ mutex for file access$/;"	m	class:TRACE_TBL
+file_mutex	libnsmlog.h	/^    pthread_mutex_t file_mutex;     \/\/ mutex for file access$/;"	m	class:NSM_LOG
+fileopen	LIB_nsmlog.cpp	/^FILE *NSM_LOG::fileopen(void)$/;"	f	class:NSM_LOG
+find	SPY_chmap.cpp	/^bool SCM_CH_MAP::find(const char *strKey)$/;"	f	class:SCM_CH_MAP
+find_hash	SPY_hash.cpp	/^bool SPY_HASH_MAP::find_hash(char* strCall_ID, HASH_ITEM *ptrItem)$/;"	f	class:SPY_HASH_MAP
+flcm_manager	SPY_data.cpp	/^FLCM_MANAGER	flcm_manager;$/;"	v
+free	SPY_cr.cpp	/^void SPY_CR::free(CR_DATA *pCR)$/;"	f	class:SPY_CR
+free_cnt	libnsmptrq.h	/^    uint32_t    free_cnt;               \/\/ Queue¿¡¼­ freeÇÑ È½ ¼ö (for Debugging)$/;"	m	class:NSM_PTR_Q
+free_size	LIB_nsmptrq.cpp	/^uint32_t NSM_PTR_Q::free_size(void)$/;"	f	class:NSM_PTR_Q
+from	SPY_xbus.h	/^	char        from[64];$/;"	m	struct:__anon95
+func	SPY_timer.h	/^	TO_FUNC	func;$/;"	m	struct:__anon84
+g_BlackList	SPY_data.cpp	/^BLIST_TBL       g_BlackList;    \/\/ add by SMCHO 20140918$/;"	v
+g_BlackList_V6	SPY_data.cpp	/^BLIST_TBL_V6    g_BlackList_V6;     \/\/ IPv6$/;"	v
+g_CR	SPY_data.cpp	/^SPY_CR      g_CR;               \/\/ SPY Call Register Class$/;"	v
+g_DBMAlive	SPY_data.cpp	/^bool    g_DBMAlive[2] = { 0, 0 };$/;"	v
+g_ErrSvrList	SPY_data.cpp	/^ERRSVR_TBL      g_ErrSvrList;   \/\/ 문제가 있는 외부 연동 서버를 관리하는 Class$/;"	v
+g_ExtList	SPY_data.cpp	/^EXTLIST_TBL     g_ExtList;      \/\/ 등록된 EXT. Server list를 관리하는 Class(extlist.cfg)$/;"	v
+g_ExtList_V6	SPY_data.cpp	/^EXTLIST_TBL_V6  g_ExtList_V6;       \/\/ IPv6용$/;"	v
+g_FaultType	flcm_manager.h	/^		int	g_FaultType;$/;"	m	class:FLCM_MANAGER
+g_Hash_O	SPY_data.cpp	/^SPY_HASH_MAP    g_Hash_O;       \/\/ ORIG STACK Call 정보를 포함하는 Hash Table (CSCF 발신 AS 착신 호)$/;"	v
+g_Hash_T	SPY_data.cpp	/^SPY_HASH_MAP    g_Hash_T;       \/\/ TERM STACK Call 정보를 포함하는 Hash Table (AS 발신 CSCF 착신 호)$/;"	v
+g_RegiSts	SPY_data.cpp	/^SPY_REGI_STS    g_RegiSts;$/;"	v
+g_ReportTime	SPY_data.cpp	/^int     g_ReportTime = 20;        \/\/ default 15sec * 20 = 5 min$/;"	v
+g_ScmMap	SPY_data.cpp	/^SCM_CH_MAP      g_ScmMap;           \/\/ SCM 채널할당시 등록하여 INVITE재전송시 중복할당 방지 및 SCM에서 응답이 없을 경우 할당된 CR을 해제하는 용도로 사용$/;"	v
+g_SvcKey	SPY_data.cpp	/^SVCKEY_TBL      g_SvcKey;       \/\/ service_key.cfg에 등록된 Service Key 관련 Class$/;"	v
+g_Trace	SPY_data.cpp	/^TRACE_TBL       g_Trace;        \/\/ Call Trace를 관리하는 Class$/;"	v
+g_bReqQ_Alarm	SPY_data.cpp	/^bool    g_bReqQ_Alarm;          \/\/ add 20170303$/;"	v
+g_nHA_State	SPY_data.cpp	/^char    g_nHA_State;$/;"	v
+g_nRegiCount	SPY_stat.cpp	/^int     g_nRegiCount = 0;$/;"	v
+g_nSamServerResetCount	SPY_data.cpp	/^int     g_nSamServerResetCount;$/;"	v
+g_nSswServerResetCount	SPY_data.cpp	/^int     g_nSswServerResetCount[2];$/;"	v
+g_strCfgFile	SPY_data.cpp	/^char    g_strCfgFile[MAX_FNAME_LEN];$/;"	v
+getSize_SamQ	SPY_main.cpp	/^long getSize_SamQ(int size_type)$/;"	f
+get_filename	LIB_nsmlog.cpp	/^const char *NSM_LOG::get_filename(void)$/;"	f	class:NSM_LOG
+get_level	LIB_nsmlog.cpp	/^int8_t NSM_LOG::get_level(void)$/;"	f	class:NSM_LOG
+get_reg_timer_cnt	SPY_timer.cpp	/^int TIMER::get_reg_timer_cnt(void)$/;"	f	class:TIMER
+get_service_key	SPY_svckey.cpp	/^bool SVCKEY_TBL::get_service_key(const char *strRURI, char *strServiceKey)$/;"	f	class:SVCKEY_TBL
+get_timer_err_cnt	SPY_timer.cpp	/^void TIMER::get_timer_err_cnt(int *unit_err, int *tsmall_err, int *mem_err, int *tbl_full)$/;"	f	class:TIMER
+get_trace	SPY_trace.cpp	/^bool TRACE_TBL::get_trace(int nTrace, char *strFrom, char *strTo, char *strSvcKey, int *nMaxCount, int *nCount)$/;"	f	class:TRACE_TBL
+get_trace_filename	SPY_trace.cpp	/^void TRACE_TBL::get_trace_filename(char *fname)$/;"	f	class:TRACE_TBL
+haActive	SPY_xbus.cpp	/^void haActive(int arg)$/;"	f
+haModuleStateChange	SPY_xbus.cpp	/^void haModuleStateChange(uint8_t moId, int state)$/;"	f
+haStandby	SPY_xbus.cpp	/^void haStandby(int arg)$/;"	f
+haUnassign	SPY_xbus.cpp	/^void haUnassign(int arg)$/;"	f
+ha_move_mark	SPY_hash.cpp	/^int SPY_HASH_MAP::ha_move_mark(int down_board, int move_board, int MAX_CH, bool bIsORIG)$/;"	f	class:SPY_HASH_MAP
+ha_update_ack	SPY_hash.cpp	/^bool SPY_HASH_MAP::ha_update_ack(char* strCall_ID, bool bReceiveAck)$/;"	f	class:SPY_HASH_MAP
+hash_mutex	SPY_hash.h	/^    pthread_mutex_t     hash_mutex;$/;"	m	class:SPY_HASH_MAP
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon87
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon88
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon89
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon90
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon93
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon94
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon95
+hdr	SPY_xbus.h	/^	DGM_HDR     hdr;$/;"	m	struct:__anon96
+hdr	SPY_xbus.h	/^    DGM_HDR     hdr;$/;"	m	struct:__anon91
+hdr	SPY_xbus.h	/^    DGM_HDR hdr;$/;"	m	struct:__anon100
+hdr	SPY_xbus.h	/^    DGM_HDR hdr;$/;"	m	struct:__anon97
+hdr	SPY_xbus.h	/^    DGM_HDR hdr;$/;"	m	struct:__anon98
+hdr	SPY_xbus.h	/^    DGM_HDR hdr;$/;"	m	struct:__anon99
+head	LIB_nsmlog.cpp	/^void NSM_LOG::head(int nLogLevel, const char *fmt, char *strBuf, int nLen)$/;"	f	class:NSM_LOG
+head	SPY_regi.cpp	/^    DBM_HEAD    head;$/;"	m	struct:__anon73	file:
+header	SPY_extlist.cpp	/^    char    header[16];$/;"	m	struct:__anon112	file:
+header	SPY_scm.h	/^	SCM_HEAD    header;$/;"	m	struct:__anon106
+header	SPY_scm.h	/^	SCM_HEAD    header;$/;"	m	struct:__anon107
+header	SPY_scm.h	/^	SCM_HEAD    header;$/;"	m	struct:__anon108
+header	SPY_scm.h	/^	SCM_HEAD    header;$/;"	m	struct:__anon109
+header	SPY_scm.h	/^    SCM_HEAD	header;$/;"	m	struct:__anon110
+header	SPY_send.cpp	/^    char    header[16];$/;"	m	struct:__anon74	file:
+header	SPY_stat.h	/^	STA_HDR	header;$/;"	m	struct:__anon81
+header	SPY_stat.h	/^    STA_HDR header;$/;"	m	struct:__anon82
+header	libnsmptrq.h	/^	Q_PTR	*header, *tail;$/;"	m	class:NSM_PTR_Q
+hexdump	LIB_nsmlog.cpp	/^void NSM_LOG::hexdump(int nLogLevel, const char *hex_buf, int nLen, const char *strTitle)$/;"	f	class:NSM_LOG
+id	SPY_scm.h	/^	uint16_t  id;$/;"	m	struct:__anon105
+id	SPY_timer.h	/^	int64_t id;$/;"	m	struct:__anon84
+in_deregi	SPY_stat.h	/^    int     in_deregi;          \/\/ De-regi ÃÑ count$/;"	m	struct:__anon82
+in_deregi_fail	SPY_stat.h	/^    int     in_deregi_fail;     \/\/ De-regi Ã³¸® °á°ú ½ÇÆÐ count$/;"	m	struct:__anon82
+in_deregi_succ	SPY_stat.h	/^    int     in_deregi_succ;     \/\/ De-regi Ã³¸® °á°ú ¼º°ø count$/;"	m	struct:__anon82
+in_msg_o	SPY_stat.h	/^	int     in_msg_o;$/;"	m	struct:__anon81
+in_msg_t	SPY_stat.h	/^	int     in_msg_t;$/;"	m	struct:__anon81
+in_regi	SPY_stat.h	/^    int     in_regi;            \/\/ Regi ÃÑ count$/;"	m	struct:__anon82
+in_regi_fail	SPY_stat.h	/^    int     in_regi_fail;       \/\/ Regi Ã³¸® °á°ú ½ÇÆÐ count$/;"	m	struct:__anon82
+in_regi_succ	SPY_stat.h	/^    int     in_regi_succ;       \/\/ Regi Ã³¸® °á°ú ¼º°ø count$/;"	m	struct:__anon82
+in_request	SPY_stat.h	/^    int     in_request[MAX_STA_REQUEST_CDDE];$/;"	m	struct:__anon81
+in_response_code	SPY_stat.h	/^    int     in_response_code[MAX_STA_RESPONSE_CODE];$/;"	m	struct:__anon81
+in_total_msg	SPY_stat.h	/^	int     in_total_msg;$/;"	m	struct:__anon81
+incomming	SPY_stat.cpp	/^        unsigned long int incomming;$/;"	m	struct:__anon75::_svcInfo	file:
+index	SPY_xbus.h	/^	char        index[2];$/;"	m	struct:__anon95
+index	SPY_xbus.h	/^	char        index[2];$/;"	m	struct:__anon96
+info	SPY_cr.h	/^    SIP_INFO    info;               \/\/ SIP ¸Þ¼¼Áö¸¦ ºÐ¼®ÇÑ ³»¿ë$/;"	m	struct:__anon120
+init	LIB_nsmlog.cpp	/^bool NSM_LOG::init(const char *path)$/;"	f	class:NSM_LOG
+init	LIB_nsmtimer.cpp	/^NSM_RESULT NSM_SEC_TIMER::init(STMR_CALLBACK to_func)$/;"	f	class:NSM_SEC_TIMER
+insert	SPY_chmap.cpp	/^bool SCM_CH_MAP::insert(CR_DATA *pCR)$/;"	f	class:SCM_CH_MAP
+insert	SPY_extlist.cpp	/^bool EXTLIST_TBL::insert(EXTSVR_LIST *extSvr, bool bInsertFile)$/;"	f	class:EXTLIST_TBL
+insert	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::insert(EXTSVR_LIST *extSvr, bool bInsertFile)$/;"	f	class:EXTLIST_TBL_V6
+insert	SPY_trace.cpp	/^bool TRACE_TBL::insert(TRACE_LIST *trace, int *nIndex)$/;"	f	class:TRACE_TBL
+insert_file	SPY_extlist.cpp	/^bool EXTLIST_TBL::insert_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+insert_file	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::insert_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+insert_hash	SPY_hash.cpp	/^bool SPY_HASH_MAP::insert_hash(char *strCall_ID, char *strCscfIp, int nCscfPort, int nBoardNo, int nChannelNo, int nTrace, time_t tInsert, bool bIPv6)$/;"	f	class:SPY_HASH_MAP
+ip	SPY_extlist.h	/^    char    ip[MAX_EXTSVR_IP_LEN+1];$/;"	m	struct:__anon1
+ip	SPY_xbus.h	/^	char        ip[32];$/;"	m	struct:__anon90
+ip	SPY_xbus.h	/^	char        ip[32];$/;"	m	struct:__anon92
+ip	SPY_xbus.h	/^    char        ip[64];$/;"	m	struct:__anon91
+ip_check_sum	SPY_udp.cpp	/^uint16_t ip_check_sum(uint16_t *addr, int len)$/;"	f
+ip_header_gen	SPY_udp.cpp	/^void ip_header_gen(char *sPDU, IN_ADDR saddr, IN_ADDR daddr, uint16_t length, uint8_t iTos )$/;"	f
+ip_header_gen2	SPY_udp.cpp	/^void ip_header_gen2(char *sPDU, IN_ADDR saddr, IN_ADDR daddr, uint16_t length, uint8_t iTos, uint16_t flag_id, uint16_t flag_offset, char flag_on )$/;"	f
+is_DialInPrefix	SPY_rssw.cpp	/^bool is_DialInPrefix(CR_DATA *pCR)$/;"	f
+is_black_list	SPY_blist.cpp	/^bool BLIST_TBL::is_black_list(const char *strIP)$/;"	f	class:BLIST_TBL
+is_black_list	SPY_blist.cpp	/^bool BLIST_TBL::is_black_list(uint32_t nIP)$/;"	f	class:BLIST_TBL
+is_black_list	SPY_blist_v6.cpp	/^bool BLIST_TBL_V6::is_black_list(const char *strIP)$/;"	f	class:BLIST_TBL_V6
+is_black_list	SPY_blist_v6.cpp	/^bool BLIST_TBL_V6::is_black_list(struct in6_addr ip6addr)$/;"	f	class:BLIST_TBL_V6
+is_config_changed	LIB_nsmcfg.cpp	/^bool NSM_CFG::is_config_changed(void)$/;"	f	class:NSM_CFG
+is_empty	LIB_nsmptrq.cpp	/^bool NSM_PTR_Q::is_empty()$/;"	f	class:NSM_PTR_Q
+is_options_received	SPY_extlist.cpp	/^void EXTLIST_TBL::is_options_received(void)$/;"	f	class:EXTLIST_TBL
+is_options_received	SPY_extlist.cpp	/^void EXTLIST_TBL_V6::is_options_received(void)$/;"	f	class:EXTLIST_TBL_V6
+is_service_key	SPY_svckey.cpp	/^bool SVCKEY_TBL::is_service_key(const char *strServiceKey)$/;"	f	class:SVCKEY_TBL
+item	SPY_mmc.h	/^	DIS_TRACE_ITEM	item[10];	$/;"	m	struct:dis_trace_spy
+item	SPY_mmc2.h	/^    TRACE_ITEM	item[10];$/;"	m	struct:__anon67
+key	libnsmtimer.h	/^    size_t      key;        \/\/ map¿¡ insert\/update\/findÇÏ´Âµ¥ »ç¿ëÇÏ´Â key$/;"	m	struct:__anon104
+lastTime	SPY_extlist.h	/^    long    lastTime;$/;"	m	struct:__anon1
+len	SPY_stat.h	/^	uint16_t    len;$/;"	m	struct:__anon76
+len	SPY_xbus.h	/^	short       len;$/;"	m	struct:__anon86
+length	SPY_udp.cpp	/^	uint16_t 	length;$/;"	m	struct:psuedo_hdr	file:
+lock_mutex	SPY_blist.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:BLIST_TBL
+lock_mutex	SPY_blist_v6.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:BLIST_TBL_V6
+lock_mutex	SPY_chmap.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:SCM_CH_MAP
+lock_mutex	SPY_cr.h	/^    pthread_mutex_t lock_mutex;$/;"	m	class:SPY_CR
+lock_mutex	SPY_extlist.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:ERRSVR_TBL
+lock_mutex	SPY_extlist.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:EXTLIST_TBL
+lock_mutex	SPY_extlist.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:EXTLIST_TBL_V6
+lock_mutex	SPY_sswlist.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:SSWLIST_TBL
+lock_mutex	SPY_svckey.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:SVCKEY_TBL
+lock_mutex	SPY_trace.h	/^    pthread_mutex_t     lock_mutex;             \/\/ mutex for memory access$/;"	m	class:TRACE_TBL
+lock_mutex	libnsmlog.h	/^    pthread_mutex_t lock_mutex;     \/\/ mutex for memory access$/;"	m	class:NSM_LOG
+m_ActiveCount	SPY_trace.h	/^    int             m_ActiveCount;              \/\/ MaxCount ±îÁö Trace°¡ ³¡³­ List¸¦ Á¦¿ÜÇÑ ½ÇÁ¦ µ¿ÀÛ ÁßÀÎ List Count$/;"	m	class:TRACE_TBL
+m_BlackListTable	SPY_blist.h	/^    uint32_t    m_BlackListTable[MAX_BLACK_LIST];    \/\/ Black List List Memory$/;"	m	class:BLIST_TBL
+m_BlackListTable	SPY_blist_v6.h	/^    struct in6_addr m_BlackListTable[MAX_BLACK_LIST];    \/\/ Black List List Memory$/;"	m	class:BLIST_TBL_V6	typeref:struct:BLIST_TBL_V6::in6_addr
+m_CallID_Map	SPY_hash.h	/^	map<string, size_t>    m_CallID_Map;       \/\/ Key °¡ Call-IdÀÎ Map$/;"	m	class:SPY_HASH_MAP
+m_ChInfo_Map	SPY_hash.h	/^	multimap<int, size_t>  m_ChInfo_Map;       \/\/ Key °¡ Board\/ChannelÀÎ Map$/;"	m	class:SPY_HASH_MAP
+m_ErrSvrList	SPY_extlist.h	/^    ERRSVR_LIST     m_ErrSvrList[MAX_ERRSVR_LIST];  \/\/ ERROR Service List$/;"	m	class:ERRSVR_TBL
+m_ExtSvrList	SPY_extlist.h	/^    EXTSVR_LIST     m_ExtSvrList[MAX_EXTSVR_LIST];  \/\/ External Server List$/;"	m	class:EXTLIST_TBL
+m_ExtSvrList	SPY_extlist.h	/^    EXTSVR_LIST     m_ExtSvrList[MAX_EXTSVR_LIST];  \/\/ External Server List$/;"	m	class:EXTLIST_TBL_V6
+m_SvcKeyList	SPY_svckey.h	/^    SVCKEY_LIST     m_SvcKeyList[MAX_SVCKEY_LIST];$/;"	m	class:SVCKEY_TBL
+m_TraceList	SPY_trace.h	/^    TRACE_LIST      m_TraceList[MAX_TRACE_LIST];$/;"	m	class:TRACE_TBL
+m_backup_file_format	libnsmlog.h	/^    char        m_backup_file_format[MAX_LOG_NAME_LEN+1];   \/\/ ·Î±× ¹é¾÷ÆÄÀÏÀÇ Format$/;"	m	class:NSM_LOG
+m_backup_name	libnsmcfg.h	/^    char    m_backup_name[MAX_CFG_NAME_LEN+32]; \/\/ config ¹é¾÷ ÆÄÀÏ ÀÌ¸§$/;"	m	class:NSM_CFG
+m_cfg_memory	libnsmcfg.h	/^    CFG_MEM m_cfg_memory[MAX_CFG_LINE];$/;"	m	class:NSM_CFG
+m_err_full	SPY_timer.h	/^    int     m_err_unit, m_err_tsmall, m_err_mem, m_err_full;$/;"	m	class:TIMER
+m_err_mem	SPY_timer.h	/^    int     m_err_unit, m_err_tsmall, m_err_mem, m_err_full;$/;"	m	class:TIMER
+m_err_tsmall	SPY_timer.h	/^    int     m_err_unit, m_err_tsmall, m_err_mem, m_err_full;$/;"	m	class:TIMER
+m_err_unit	SPY_timer.h	/^    int     m_err_unit, m_err_tsmall, m_err_mem, m_err_full;$/;"	m	class:TIMER
+m_filename	SPY_blist.h	/^    char        m_filename[256];                \/\/ Black List Filename$/;"	m	class:BLIST_TBL
+m_filename	SPY_blist_v6.h	/^    char            m_filename[256];                \/\/ Black List Filename$/;"	m	class:BLIST_TBL_V6
+m_filename	SPY_extlist.h	/^    char            m_filename[256];$/;"	m	class:EXTLIST_TBL
+m_filename	SPY_extlist.h	/^    char            m_filename[256];$/;"	m	class:EXTLIST_TBL_V6
+m_filename	SPY_sswlist.h	/^    char                m_filename[256];$/;"	m	class:SSWLIST_TBL
+m_filename	SPY_svckey.h	/^    char            m_filename[256];$/;"	m	class:SVCKEY_TBL
+m_filename	libnsmcfg.h	/^    char    m_filename[MAX_CFG_NAME_LEN+1];     \/\/ config file name$/;"	m	class:NSM_CFG
+m_filename	libnsmlog.h	/^    char        m_filename[MAX_LOG_NAME_LEN+1];            \/\/ openµÈ Log ÆÄÀÏ ÀÌ¸§$/;"	m	class:NSM_LOG
+m_fp	libnsmlog.h	/^    FILE        *m_fp;              \/\/ Log file pointer$/;"	m	class:NSM_LOG
+m_level	libnsmlog.h	/^    int8_t      m_level;            \/\/ Log Level$/;"	m	class:NSM_LOG
+m_log_file_format	libnsmlog.h	/^    char        m_log_file_format[MAX_LOG_NAME_LEN+1];      \/\/ ·Î±× ÆÄÀÏÀÇ Format$/;"	m	class:NSM_LOG
+m_make_timer_id	SPY_timer.h	/^    int64_t m_make_timer_id;$/;"	m	class:TIMER
+m_map_CallID	SPY_chmap.h	/^    map<string,    size_t>  m_map_CallID;       \/\/ Key °¡ Call-IdÀÎ Map$/;"	m	class:SCM_CH_MAP
+m_map_pCR	SPY_chmap.h	/^    map<CR_DATA *, size_t>  m_map_pCR;$/;"	m	class:SCM_CH_MAP
+m_max_limit	libnsmlog.h	/^    uint32_t    m_max_limit;        \/\/ ÃÖ´ë file size (´ÜÀ§´Â BYTE)$/;"	m	class:NSM_LOG
+m_nBlockListCount	SPY_blist.h	/^    int         m_nBlockListCount;              \/\/ m_BlackList¿¡ µî·ÏµÈ IP ¼ö$/;"	m	class:BLIST_TBL
+m_nBlockListCount	SPY_blist_v6.h	/^    int             m_nBlockListCount;              \/\/ m_BlackList¿¡ µî·ÏµÈ IP ¼ö$/;"	m	class:BLIST_TBL_V6
+m_nExtSvrListCount	SPY_extlist.h	/^    int             m_nExtSvrListCount;$/;"	m	class:EXTLIST_TBL
+m_nExtSvrListCount	SPY_extlist.h	/^    int             m_nExtSvrListCount;$/;"	m	class:EXTLIST_TBL_V6
+m_nRow	libnsmcfg.h	/^    int     m_nRow;$/;"	m	class:NSM_CFG
+m_nSvcKeyListCount	SPY_svckey.h	/^    int             m_nSvcKeyListCount;$/;"	m	class:SVCKEY_TBL
+m_nTraceListCount	SPY_trace.h	/^    int             m_nTraceListCount;$/;"	m	class:TRACE_TBL
+m_open_day	libnsmlog.h	/^    int         m_open_day;         \/\/ ÇöÀç openµÈ ·Î±× ÆÄÀÏ ÀÌ¸§ÀÇ ³¯Â¥ - ³¯ÀÌ ¹Ù²î¸é ÆÄÀÏÀ» ¹Ù²Ù±â À§ÇØ$/;"	m	class:NSM_LOG
+m_reg_timer_cnt	SPY_timer.h	/^    int     m_reg_timer_cnt;$/;"	m	class:TIMER
+m_regiMutex	SPY_stat.cpp	/^pthread_mutex_t     m_regiMutex;$/;"	v
+m_sswlist_map	SPY_sswlist.h	/^    map<string, bool>   m_sswlist_map;         \/\/    $/;"	m	class:SSWLIST_TBL
+m_stat_cancel	libnsmtimer.h	/^    size_t      m_stat_cancel;      \/\/ cancel count$/;"	m	class:NSM_SEC_TIMER
+m_stat_count	libnsmtimer.h	/^    size_t      m_stat_count;$/;"	m	class:NSM_SEC_TIMER
+m_stat_set	libnsmtimer.h	/^    size_t      m_stat_set;         \/\/ set count$/;"	m	class:NSM_SEC_TIMER
+m_stat_to	libnsmtimer.h	/^    size_t      m_stat_to;          \/\/ T\/O count$/;"	m	class:NSM_SEC_TIMER
+m_stmr_map	libnsmtimer.h	/^    hash_map<size_t, STMR_TBL *>    m_stmr_map;$/;"	m	class:NSM_SEC_TIMER
+m_stmr_map	libnsmtimer.h	/^    map<size_t, STMR_TBL *>         m_stmr_map;$/;"	m	class:NSM_SEC_TIMER
+m_stmr_mutex	libnsmtimer.h	/^    pthread_mutex_t                 m_stmr_mutex;$/;"	m	class:NSM_SEC_TIMER
+m_tid	SPY_chmap.h	/^    pthread_t           m_tid;$/;"	m	class:SCM_CH_MAP
+m_tid	libnsmtimer.h	/^    pthread_t                       m_tid;$/;"	m	class:NSM_SEC_TIMER
+m_timer_map	SPY_timer.h	/^    map<int64_t, TMRTBL *>  m_timer_map;$/;"	m	class:TIMER
+m_timer_mutex	SPY_timer.h	/^    pthread_mutex_t     m_timer_mutex;$/;"	m	class:TIMER
+m_to_func	libnsmtimer.h	/^    STMR_CALLBACK                   m_to_func;          \/\/ T\/O ¹ß»ý½Ã callback µÉ ÇÔ¼ö$/;"	m	class:NSM_SEC_TIMER
+main	SPY_main.cpp	/^int main(int argc, char* argv[])$/;"	f
+malloc_and_copy	LIB_nsmcfg.cpp	/^void NSM_CFG::malloc_and_copy(char **strAlloc, const char *strValue)$/;"	f	class:NSM_CFG
+malloc_and_copy	LIB_nsmcfg.cpp	/^void NSM_CFG::malloc_and_copy(char **strAlloc, const char *strValue1, const char *strValue2, const char *strValue3)$/;"	f	class:NSM_CFG
+malloc_cnt	libnsmptrq.h	/^    uint32_t    malloc_cnt;             \/\/ Queue¿¡¼­ mallocÇÑ È½ ¼ö (for Debugging)$/;"	m	class:NSM_PTR_Q
+malloc_err_cnt	SPY_cr.h	/^    int     malloc_err_cnt;         \/\/ mallocÀÌ ¿¬¼ÓÀûÀ¸·Î ½ÇÆÐÇÑ È½¼ö$/;"	m	class:SPY_CR
+malloc_size	LIB_nsmptrq.cpp	/^uint32_t NSM_PTR_Q::malloc_size(void)$/;"	f	class:NSM_PTR_Q
+max	SPY_xbus.h	/^	char        max[4];$/;"	m	struct:__anon95
+mmc_head	SPY_mmc.h	/^	MMCHD	mmc_head;$/;"	m	struct:__anon11
+mmc_head	SPY_mmc.h	/^	MMCHD	mmc_head;$/;"	m	struct:__anon5
+mmc_head	SPY_mmc.h	/^	MMCHD	mmc_head;$/;"	m	struct:dis_stat_spy
+mmc_head	SPY_mmc.h	/^	MMCHD	mmc_head;$/;"	m	struct:dis_trace_spy
+mmc_head	SPY_mmc.h	/^	MMCHD       mmc_head;$/;"	m	struct:__anon10
+mmc_head	SPY_mmc.h	/^	MMCHD       mmc_head;$/;"	m	struct:__anon12
+mmc_head	SPY_mmc.h	/^	MMCHD       mmc_head;$/;"	m	struct:__anon3
+mmc_head	SPY_mmc.h	/^	MMCHD       mmc_head;$/;"	m	struct:__anon4
+mmc_head	SPY_mmc.h	/^	MMCHD       mmc_head;$/;"	m	struct:reload_config_spy
+mmc_head	SPY_mmc.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon13
+mmc_head	SPY_mmc.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon14
+mmc_head	SPY_mmc.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon15
+mmc_head	SPY_mmc.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon16
+mmc_head	SPY_mmc.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon17
+mmc_head	SPY_mmc.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon8
+mmc_head	SPY_mmc.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon9
+mmc_head	SPY_mmc.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon6
+mmc_head	SPY_mmc.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon7
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon26
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon28
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon30
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon31
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon32
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon33
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon34
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon64
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon67
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon69
+mmc_head	SPY_mmc2.h	/^    MMCHD	mmc_head;$/;"	m	struct:__anon71
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon21
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon23
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon27
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon29
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon35
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon36
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon37
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon38
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon39
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon40
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon41
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon42
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon43
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon44
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon45
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon46
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon47
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon48
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon49
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon50
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon51
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon52
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon53
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon54
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon55
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon56
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon57
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon58
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon59
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon60
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon61
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon62
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon63
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon65
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon68
+mmc_head	SPY_mmc2.h	/^    MMCHD       mmc_head;$/;"	m	struct:__anon70
+mmc_head	SPY_mmc2.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon19
+mmc_head	SPY_mmc2.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon20
+mmc_head	SPY_mmc2.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon22
+mmc_head	SPY_mmc2.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon24
+mmc_head	SPY_mmc2.h	/^    MMCHD   mmc_head;$/;"	m	struct:__anon25
+module	SPY_cfg.h	/^    CFG_MODULE  module;$/;"	m	struct:__anon126
+monitor	SPY_extlist.h	/^    char    monitor;$/;"	m	struct:__anon1
+monitor	SPY_xbus.h	/^	char        monitor;$/;"	m	struct:__anon90
+monitor	SPY_xbus.h	/^	char        monitor;$/;"	m	struct:__anon92
+monitor	SPY_xbus.h	/^    char        monitor;$/;"	m	struct:__anon91
+moved_bd	SPY_cr.h	/^    uint8_t     moved_bd;           \/\/ SES°¡ HA ÀýÃ¼°¡ µÇ¾î ½ÇÁ¦ ¸Þ½ÃÁö¸¦ º¸³»¾ßÇÒ SES Board ¹øÈ£$/;"	m	struct:__anon120
+msgCount	SPY_mmc.h	/^	int     msgCount;$/;"	m	struct:__anon11
+msgDirection	SPY_mmc.h	/^	uint16_t	msgDirection;$/;"	m	struct:__anon11
+msgId	SPY_xbus.h	/^	uint16_t    msgId;$/;"	m	struct:__anon86
+msgResponseCode	SPY_mmc.h	/^	uint16_t	msgResponseCode;$/;"	m	struct:__anon11
+msgType	SPY_mmc.h	/^	uint16_t	msgType;$/;"	m	struct:__anon11
+msleep	SPY_def.h	40;"	d
+mtx	flcm_manager.h	/^		pthread_mutex_t	mtx;$/;"	m	class:FLCM_MANAGER
+nBoardNo	SPY_trace.h	/^    int     nBoardNo;       \/\/ SES Board Number$/;"	m	struct:__anon85
+nChannelNo	SPY_trace.h	/^    int     nChannelNo;     \/\/ SES Channel Number$/;"	m	struct:__anon85
+nCount	SPY_mmc.h	/^	int	nCount;$/;"	m	struct:dis_trace_item
+nCount	SPY_mmc2.h	/^    int     nCount;$/;"	m	struct:__anon66
+nCount	SPY_trace.h	/^	int     nCount;$/;"	m	struct:__anon85
+nCscfPort	SPY_cr.h	/^    int     nCscfPort;              \/\/ CSCF PORT (strCscfAddr ¿¡¼­ PORT ºÎºÐ, ¾øÀ¸¸é 5060)$/;"	m	struct:__anon118
+nCscfPort	SPY_hash.h	/^    int     nCscfPort;          \/\/ CSCF Port number$/;"	m	struct:__anon114
+nCscfPort	SPY_hash.h	/^    int     nCscfPort;          \/\/ CSCF Port number$/;"	m	struct:__anon115
+nIndex	SPY_mmc.h	/^	uint8_t	nIndex;$/;"	m	struct:dis_trace_item
+nIndex	SPY_mmc2.h	/^    int     nIndex;$/;"	m	struct:__anon66
+nIndex	SPY_mmc2.h	/^    uint8_t     nIndex;     \/\/ »èÁ¦ÇÒ index (DIS_TRACE_SPY¿¡ ÀÖÀ½)$/;"	m	struct:__anon70
+nIndex	SPY_mmc2.h	/^    uint8_t nIndex;$/;"	m	struct:__anon69
+nLogLevel	SPY_mmc2.h	/^    uint8_t     nLogLevel;$/;"	m	struct:__anon21
+nLogLevel	SPY_mmc2.h	/^    uint8_t nLogLevel;$/;"	m	struct:__anon20
+nLogLevel	SPY_mmc2.h	/^    uint8_t nLogLevel;$/;"	m	struct:__anon22
+nMax	SPY_mmc.h	/^	int	nMax;$/;"	m	struct:dis_trace_item
+nMax	SPY_mmc2.h	/^    int     nMax;$/;"	m	struct:__anon66
+nMaxCount	SPY_trace.h	/^	int     nMaxCount;$/;"	m	struct:__anon85
+nMsgErrCount	SPY_extlist.h	/^    int     nMsgErrCount;       \/\/ µî·ÏµÇ¾î ÀÖÁö¸¸ Àß¸øµÈ ¸Þ¼¼Áö¸¦ º¸³½ È½¼ö$/;"	m	struct:__anon2
+nMyStackPort	SPY_cr.h	/^    int     nMyStackPort;           \/\/ ORIG\/TERM SPY PORT$/;"	m	struct:__anon118
+nQoS	SPY_mmc2.h	/^    uint8_t     nQoS;$/;"	m	struct:__anon23
+nQoS	SPY_mmc2.h	/^    uint8_t nQoS;$/;"	m	struct:__anon20
+nQoS	SPY_mmc2.h	/^    uint8_t nQoS;$/;"	m	struct:__anon24
+nRcvLen	SPY_cr.h	/^    int         nRcvLen;                    \/\/ ¼ö½ÅÇÑ UDP(SIP) ¸Þ¼¼Áö ±æÀÌ$/;"	m	struct:__anon120
+nRepeatCount	SPY_mmc2.h	/^    uint16_t    nRepeatCount;           \/\/ Trace ¹Ýº¹È½¼ö$/;"	m	struct:__anon68
+nSipMsgType	SPY_cr.h	/^    SIP_TYPE    nSipMsgType;        \/\/ REQUEST\/RESPONSE$/;"	m	struct:__anon120
+nSipMsg_ID	SPY_cr.h	/^    int         nSipMsg_ID;         \/\/  0 ~ 12 ±îÁö´Â Request 100 ~ 699: Response$/;"	m	struct:__anon120
+nTrace	SPY_cr.h	/^    int     nTrace;$/;"	m	struct:__anon118
+nTrace	SPY_hash.h	/^    int     nTrace;             \/\/ Index of Trace Item$/;"	m	struct:__anon114
+nTrace	SPY_hash.h	/^    int     nTrace;             \/\/ Index of Trace Item$/;"	m	struct:__anon115
+nUnRegCount	SPY_extlist.h	/^    int     nUnRegCount;        \/\/ µî·ÏµÇÁö ¾ÊÀº ¿ÜºÎ ¼­¹ö¿¡¼­  SIP ¸Þ¼¼Áö¸¦ ¼ö½ÅÇÑ È½¼ö$/;"	m	struct:__anon2
+n_after	SPY_mmc2.h	/^    int         n_after;$/;"	m	struct:__anon44
+n_alarm_send_time	SPY_cfg.h	/^    int         n_alarm_send_time;  \/\/ ÁÖ±âÀûÀ¸·Î Alarm Á¤º¸¸¦ º¸³»´Â ÁÖ±â (add 20170306)$/;"	m	struct:__anon122
+n_audit_CR	SPY_chmap.h	/^    size_t  n_audit_CR;$/;"	m	class:SCM_CH_MAP
+n_audit_CallID	SPY_chmap.h	/^    size_t  n_audit_CallID;$/;"	m	class:SCM_CH_MAP
+n_before	SPY_mmc2.h	/^    int         n_before;$/;"	m	struct:__anon44
+n_blist	SPY_mmc2.h	/^    uint8_t n_blist;      \/\/ µî·ÏµÈ EXT LIST °¹¼ö$/;"	m	struct:__anon32
+n_call_id_map	SPY_mmc2.h	/^    int         n_call_id_map;$/;"	m	struct:__anon40
+n_cr_map	SPY_mmc2.h	/^    int         n_cr_map;$/;"	m	struct:__anon40
+n_dial_in_pfx_len	SPY_cfg.h	/^    int         n_dial_in_pfx_len;                      \/\/ strlen(s_dial_in_pfx)$/;"	m	struct:__anon125
+n_erase	SPY_chmap.h	/^    size_t  n_erase;$/;"	m	class:SCM_CH_MAP
+n_extlist	SPY_mmc2.h	/^    uint8_t n_extlist;      \/\/ µî·ÏµÈ EXT LIST °¹¼ö$/;"	m	struct:__anon34
+n_hash_fail	SPY_stat.h	/^    int     n_hash_fail;$/;"	m	struct:__anon78
+n_in6_spy	SPY_cfg.h	/^    struct in6_addr     n_in6_spy;                      \/\/ SPY IPV6 address$/;"	m	struct:__anon122	typeref:struct:__anon122::in6_addr
+n_in_sum	SPY_stat.h	/^    int     n_in_sum;$/;"	m	struct:__anon78
+n_in_sum	SPY_stat.h	/^    int     n_in_sum[2];                    \/\/ 0: ORIG, 1: TERM$/;"	m	struct:__anon79
+n_inseert	SPY_chmap.h	/^    size_t  n_inseert;$/;"	m	class:SCM_CH_MAP
+n_item	SPY_mmc2.h	/^    uint8_t     n_item;$/;"	m	struct:__anon67
+n_level	SPY_cfg.h	/^    char        n_level;            \/\/ ·Î±× ·¹º§ 0~3(0:OFF, 1:»ó¼¼, 2:º¸Åë, 3:°£´Ü)$/;"	m	struct:__anon121
+n_max_req_q_size	SPY_cfg.h	/^    int         n_max_req_q_size;   \/\/ REG QueueÀÇ ÃÖ´ë »çÀÌÁî·Î ÀÌ Sizeº¸´Ù Å©¸é 480À» Àü¼ÛÇÏ°í queue¿¡ ³ÖÁö ¾Ê´Â´Ù.$/;"	m	struct:__anon122
+n_max_size	SPY_cfg.h	/^    uint32_t    n_max_size;         \/\/ (´ÜÀ§: MBytes) ·Î±× ÆÄÀÏÀÇ ÃÖ´ë Å©Å°(MAX_SIZE º¸´Ù Å©¸é ¹é¾÷µÊ)$/;"	m	struct:__anon121
+n_ostack_port	SPY_cfg.h	/^    int         n_ostack_port;                      \/\/ ORIG STACK PORT$/;"	m	struct:__anon122
+n_out_sum	SPY_stat.h	/^    int     n_out_sum[2];                   \/\/ 0: ORIG, 1: TERM$/;"	m	struct:__anon78
+n_out_sum_O	SPY_stat.h	/^    int     n_out_sum_O;$/;"	m	struct:__anon79
+n_out_sum_T	SPY_stat.h	/^    int     n_out_sum_T;$/;"	m	struct:__anon79
+n_overload_resp_code	SPY_cfg.h	/^    int         n_overload_resp_code;                   \/\/ Overload½Ã È£¸¦ Á¦ÇÑÇÒ ¶§ »ç¿ëÇÏ´Â Response code$/;"	m	struct:__anon125
+n_qos	SPY_cfg.h	/^    int         n_qos;              \/\/ Diff-Serv QoS °ª$/;"	m	struct:__anon122
+n_reg_q_alm_limit	SPY_cfg.h	/^    int         n_reg_q_alm_limit;  \/\/ add 170303 REQ Q °¡ FullÀÌ µÇ¾î AlarmÀÌ ¹ß»ýÇÑ ÈÄ ÀÌ Limit ÀÌÇÏ·Î ¶³¾îÁö¸é Alarm À» OFF ÇÑ´Ù.$/;"	m	struct:__anon122
+n_report_time	SPY_cfg.h	/^    int         n_report_time;      \/\/ ÁÖ±âÀû report(log file¿¡ write) ½Ã°£$/;"	m	struct:__anon122
+n_request	SPY_stat.h	/^    int     n_request[METHOD_END];$/;"	m	struct:__anon78
+n_request	SPY_stat.h	/^    int     n_request[METHOD_END];$/;"	m	struct:__anon79
+n_request_err	SPY_stat.h	/^    int     n_request_err;              \/\/ ERROR Åë°è Ãß°¡ °ËÅä$/;"	m	struct:__anon78
+n_request_err	SPY_stat.h	/^    int     n_request_err;              \/\/ FIXIT: Ãß°¡ °ËÅä$/;"	m	struct:__anon79
+n_response_code	SPY_stat.h	/^    int     n_response_code[700];$/;"	m	struct:__anon78
+n_response_code	SPY_stat.h	/^    int     n_response_code[700];$/;"	m	struct:__anon79
+n_response_code_out	SPY_stat.h	/^    int     n_response_code_out[700];$/;"	m	struct:__anon79
+n_response_code_out_sum	SPY_stat.h	/^    int     n_response_code_out_sum[2];     \/\/ 0: ORIG, 1: TERM$/;"	m	struct:__anon79
+n_rsam_ses_thread	SPY_cfg.h	/^    int         n_rsam_ses_thread;  \/\/ SAM¿¡¼­ ¼ö½ÅÇÑ SIP Ã³¸® ¾²·¹µå °³¼ö (SES º¸µåº°  °¹¼ö, ÀüÃ¼ °¹¼ö ¾Æ´Ô)$/;"	m	struct:__anon123
+n_rssw_o_thread	SPY_cfg.h	/^    int         n_rssw_o_thread;    \/\/ SSW¿¡¼­ ¸Þ¼¼Áö¸¦ ¼ö½ÅÇØ¼­ SAMÀ¸·Î Àü¼ÛÇÏ´Â Thread ¼ö(ORIG)$/;"	m	struct:__anon123
+n_rssw_opt_thread	SPY_cfg.h	/^    int         n_rssw_opt_thread;  \/\/ SSW¿¡¼­ OPTIONS ¸Þ¼¼Áö¸¦ ¼ö½ÅÇØ¼­ Ã³¸®ÇÏ´Â Thread ¼ö$/;"	m	struct:__anon123
+n_rssw_reg_thread	SPY_cfg.h	/^    int         n_rssw_reg_thread;  \/\/ SSW¿¡¼­ REGISTER ¸Þ¼¼Áö¸¦ ¼ö½ÅÇØ¼­ Ã³¸®ÇÏ´Â Thread ¼ö$/;"	m	struct:__anon123
+n_rssw_t_thread	SPY_cfg.h	/^    int         n_rssw_t_thread;    \/\/ SSW¿¡¼­ ¸Þ¼¼Áö¸¦ ¼ö½ÅÇØ¼­ SAMÀ¸·Î Àü¼ÛÇÏ´Â Thread ¼ö(ORIG)$/;"	m	struct:__anon123
+n_sam_port	SPY_cfg.h	/^    int         n_sam_port;         \/\/ ¿ÁÅ¸ºê ½ºÀ§Ä¡ ±âº» SIP Æ÷Æ®¹øÈ£$/;"	m	struct:__anon122
+n_scm_audit_time	SPY_mmc2.h	/^    uint8_t     n_scm_audit_time;   \/\/ 0 ~ 5$/;"	m	struct:__anon46
+n_scm_audit_time	SPY_mmc2.h	/^    uint8_t     n_scm_audit_time;   \/\/ 0 ~ 5$/;"	m	struct:__anon48
+n_scm_audit_time	SPY_mmc2.h	/^    uint8_t     n_scm_audit_time;$/;"	m	struct:__anon47
+n_scm_map_audit_time	SPY_cfg.h	/^    int         n_scm_map_audit_time;   \/\/ SCM MAP Audit½Ã ¾ó¸¶ ÀÌ»óÀÌ¸é ÇØÁ¦ ÇÒÁö¿¡ ÇØ´çÇÏ´Â ½Ã°£(1~5, defaut = 3)$/;"	m	struct:__anon122
+n_ses_board	SPY_cfg.h	/^    int         n_ses_board;        \/\/ ½ÇÀåµÈ SES Board ¼ö (¿¬¼ÓÀûÀ¸·Î 0ºÎÅÍ ½ÃÀÛ, Áï n_ses_board°¡ 3ÀÌ¸é 0,1,2 º¸µå°¡ ½ÇÀåµÊ)$/;"	m	struct:__anon124
+n_ses_ip	SPY_cfg.h	/^    uint32_t    n_ses_ip[MAX_SES_BOARD];                    \/\/ SES IP Address inet_addr(s_ses_ip)$/;"	m	struct:__anon124
+n_ses_port	SPY_cfg.h	/^	int			n_ses_port[MAX_SES_BOARD];$/;"	m	struct:__anon124
+n_ses_port	SPY_cfg.h	/^    int         n_ses_port;         \/\/ SAM RV Stack UPD port number$/;"	m	struct:__anon124
+n_ssw_port	SPY_cfg.h	/^    int         n_ssw_port;         \/\/ ¿ÁÅ¸ºê ½ºÀ§Ä¡ ±âº» SIP Æ÷Æ®¹øÈ£$/;"	m	struct:__anon122
+n_tstack_port	SPY_cfg.h	/^    int         n_tstack_port;                      \/\/ TERM STACK PORT$/;"	m	struct:__anon122
+next	libnsmptrq.h	/^	struct _Q_PTR	*next;$/;"	m	struct:_Q_PTR	typeref:struct:_Q_PTR::_Q_PTR
+nsm_no_operation	LIB_nsmtimer.cpp	/^void nsm_no_operation(size_t key, size_t arg1, size_t arg2)$/;"	f
+nsm_sec_timer_thread	LIB_nsmtimer.cpp	/^void *nsm_sec_timer_thread(void *arg)$/;"	f
+o_hash_size	SPY_mmc2.h	/^    int         o_hash_size;$/;"	m	struct:__anon54
+o_hash_size	SPY_mmc2.h	/^    int         o_hash_size;$/;"	m	struct:__anon62
+ot_type	SPY_cr.h	/^    char        ot_type;            \/\/ SIP ¸Þ¼¼Áö¸¦ ORIG STACK¿¡¼­ ¹Þ¾Ò´ÂÁö TERM STACK¿¡¼­ ¹Þ¾Ò´ÂÁö¸¦ ³ªÅ¸³¿$/;"	m	struct:__anon120
+ot_type	SPY_hash.h	/^    char    ot_type;            \/\/ O\/T·Î Hash¸¦ ³ª´«°æ¿ì$/;"	m	struct:__anon115
+out_msg_o	SPY_stat.h	/^	int     out_msg_o;$/;"	m	struct:__anon81
+out_msg_t	SPY_stat.h	/^	int     out_msg_t;$/;"	m	struct:__anon81
+out_request	SPY_stat.h	/^    int     out_request[MAX_STA_REQUEST_CDDE];$/;"	m	struct:__anon81
+out_response_code	SPY_stat.h	/^    int     out_response_code[MAX_STA_RESPONSE_CODE];$/;"	m	struct:__anon81
+out_total_msg	SPY_stat.h	/^	int     out_total_msg;$/;"	m	struct:__anon81
+output_flcm_msg	flcm_manager.cpp	/^int FLCM_MANAGER::output_flcm_msg(char* key, int value, char* flcm_msg)$/;"	f	class:FLCM_MANAGER
+pCR	SPY_scm.h	/^    CR_DATA *pCR;                   \/\/SIP 구조체 포인터$/;"	m	struct:__anon106
+pCR	SPY_scm.h	/^    CR_DATA *pCR;                   \/\/SIP 구조체 포인터$/;"	m	struct:__anon107
+peer	SPY_cr.h	/^    struct  sockaddr_in peer;       \/\/ ¸Þ¼¼Áö¸¦ º¸³½ CSCF IP\/PORT (IPv4 only)$/;"	m	struct:__anon120	typeref:struct:__anon120::sockaddr_in
+peer6	SPY_cr.h	/^    struct  sockaddr_in6 peer6;     \/\/ IPv6 CSCF IP\/PORT (IPv4\/v6 dual)$/;"	m	struct:__anon120	typeref:struct:__anon120::sockaddr_in6
+place_holder	SPY_udp.cpp	/^	uint8_t     place_holder;$/;"	m	struct:psuedo_hdr	file:
+print_log	SPY_blist.cpp	/^void BLIST_TBL::print_log(void)$/;"	f	class:BLIST_TBL
+print_log	SPY_blist_v6.cpp	/^void BLIST_TBL_V6::print_log(void)$/;"	f	class:BLIST_TBL_V6
+print_log	SPY_extlist.cpp	/^void EXTLIST_TBL::print_log(void)$/;"	f	class:EXTLIST_TBL
+print_log	SPY_extlist.cpp	/^void EXTLIST_TBL_V6::print_log(void)$/;"	f	class:EXTLIST_TBL_V6
+print_log	SPY_svckey.cpp	/^void SVCKEY_TBL::print_log(void)$/;"	f	class:SVCKEY_TBL
+print_out_spy_status	SPY_main.cpp	/^void print_out_spy_status(void)$/;"	f
+printf	LIB_nsmlog.cpp	/^void NSM_LOG::printf(char nLogLevel, const char *fmt, ...)$/;"	f	class:NSM_LOG
+printf_noansi	LIB_nsmlog.cpp	/^void NSM_LOG::printf_noansi(char nLogLevel, const char *fmt, ...)$/;"	f	class:NSM_LOG
+protocol	SPY_udp.cpp	/^	uint8_t 	protocol;$/;"	m	struct:psuedo_hdr	file:
+psuedo_hdr	SPY_udp.cpp	/^struct psuedo_hdr$/;"	s	file:
+psuedo_hdr	SPY_udp.cpp	/^} psuedo_hdr;$/;"	v	typeref:struct:psuedo_hdr
+q_is_empty	LIB_nsmptrq.cpp	/^bool NSM_PTR_Q::q_is_empty()$/;"	f	class:NSM_PTR_Q
+q_mutex	libnsmptrq.h	/^    pthread_mutex_t q_mutex;$/;"	m	class:NSM_PTR_Q
+queueNo	SPY_xref.h	/^    int queueNo;$/;"	m	struct:SamQthreadInfo
+read	SPY_blist.cpp	/^int BLIST_TBL::read(const char *fname)$/;"	f	class:BLIST_TBL
+read	SPY_blist.cpp	/^int BLIST_TBL::read(void)$/;"	f	class:BLIST_TBL
+read	SPY_blist_v6.cpp	/^int BLIST_TBL_V6::read(const char *fname)$/;"	f	class:BLIST_TBL_V6
+read	SPY_blist_v6.cpp	/^int BLIST_TBL_V6::read(void)$/;"	f	class:BLIST_TBL_V6
+read	SPY_extlist.cpp	/^bool EXTLIST_TBL::read(const char *fname)$/;"	f	class:EXTLIST_TBL
+read	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::read(const char *fname)$/;"	f	class:EXTLIST_TBL_V6
+read	SPY_svckey.cpp	/^bool SVCKEY_TBL::read(const char *fname)$/;"	f	class:SVCKEY_TBL
+read_again	SPY_blist.cpp	/^int BLIST_TBL::read_again(const char *fname)$/;"	f	class:BLIST_TBL
+read_again	SPY_blist.cpp	/^int BLIST_TBL::read_again(void)$/;"	f	class:BLIST_TBL
+read_again	SPY_blist_v6.cpp	/^int BLIST_TBL_V6::read_again(const char *fname)$/;"	f	class:BLIST_TBL_V6
+read_again	SPY_blist_v6.cpp	/^int BLIST_TBL_V6::read_again(void)$/;"	f	class:BLIST_TBL_V6
+reason	SPY_mmc.h	/^    char    reason;$/;"	m	struct:__anon14
+reason	SPY_mmc.h	/^    char    reason;$/;"	m	struct:__anon17
+reason	SPY_mmc.h	/^    char    reason;$/;"	m	struct:__anon7
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon36
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon38
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon40
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon42
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon44
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon46
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon48
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon50
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon52
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon54
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon57
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon59
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon61
+reason	SPY_mmc2.h	/^    char        reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon62
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon20
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon22
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon24
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon26
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon28
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon30
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon32
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon34
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon64
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon67
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon69
+reason	SPY_mmc2.h	/^    char    reason;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon71
+reason	SPY_scm.h	/^	uint8_t   reason;$/;"	m	struct:__anon105
+reason	SPY_xbus.h	/^    char        reason;     \/\/ result°¡ '0' ÀÎ °æ¿ì¿¡ ¸¸ setting$/;"	m	struct:__anon88
+reason	SPY_xbus.h	/^    char    reason;     \/\/ '1': size==0, '2':file open error$/;"	m	struct:__anon98
+receive_options	SPY_extlist.cpp	/^bool EXTLIST_TBL::receive_options(const char *strIP, int ot_type)$/;"	f	class:EXTLIST_TBL
+receive_options	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::receive_options(struct in6_addr *v6_addr, int ot_type)$/;"	f	class:EXTLIST_TBL_V6
+recount_list	SPY_trace.cpp	/^void TRACE_TBL::recount_list(void)$/;"	f	class:TRACE_TBL
+recvCount	SPY_extlist.h	/^    char    recvCount;$/;"	m	struct:__anon1
+relay_MsgId	SPY_xbus.h	/^	uint16_t    relay_MsgId;$/;"	m	struct:__anon86
+relay_ToId	SPY_xbus.h	/^	uint16_t    relay_ToId;$/;"	m	struct:__anon86
+reload_config_spy	SPY_mmc.h	/^typedef struct reload_config_spy$/;"	s
+report_time	SPY_mmc2.h	/^    uint16_t    report_time;$/;"	m	struct:__anon56
+report_time	SPY_mmc2.h	/^    uint16_t    report_time;$/;"	m	struct:__anon57
+report_time	SPY_mmc2.h	/^    uint16_t    report_time;$/;"	m	struct:__anon59
+report_time_in_config	SPY_mmc2.h	/^    uint16_t    report_time_in_config;$/;"	m	struct:__anon57
+report_time_in_config	SPY_mmc2.h	/^    uint16_t    report_time_in_config;$/;"	m	struct:__anon59
+report_to_ems	SPY_extlist.cpp	/^void ERRSVR_TBL::report_to_ems(void)$/;"	f	class:ERRSVR_TBL
+req_time	SPY_scm.h	/^    time_t      req_time;                   \/\/채널 할당 요구를 보낸 시간(for AUDIT)$/;"	m	struct:__anon106
+req_time	SPY_scm.h	/^    time_t      req_time;                   \/\/채널 할당 요구를 보낸 시간(for AUDIT)$/;"	m	struct:__anon107
+request_sync	SPY_xbus.cpp	/^void *request_sync(void* arg)$/;"	f
+reread	SPY_extlist.cpp	/^bool EXTLIST_TBL::reread(void)$/;"	f	class:EXTLIST_TBL
+reread	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::reread(void)$/;"	f	class:EXTLIST_TBL_V6
+reread_from_WEB	SPY_extlist.cpp	/^bool EXTLIST_TBL::reread_from_WEB(const char *web_extlist_filename)$/;"	f	class:EXTLIST_TBL
+reread_from_WEB	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::reread_from_WEB(const char *web_extlist_filename)$/;"	f	class:EXTLIST_TBL_V6
+reserv	SPY_stat.h	/^	uint8_t     reserv;$/;"	m	struct:__anon76
+reserved	SPY_alm.h	/^	char	reserved[8];$/;"	m	struct:__anon117
+reserved	SPY_scm.h	/^    uint16_t    reserved;$/;"	m	struct:__anon107
+resp_code	SPY_mmc.h	/^    uint16_t    resp_code;$/;"	m	struct:__anon8
+resp_code	SPY_mmc.h	/^    uint16_t    resp_code;$/;"	m	struct:__anon9
+resp_code	SPY_mmc2.h	/^    uint16_t    resp_code;$/;"	m	struct:__anon35
+resp_code	SPY_mmc2.h	/^    uint16_t    resp_code;$/;"	m	struct:__anon36
+resp_code	SPY_mmc2.h	/^    uint16_t    resp_code;$/;"	m	struct:__anon38
+response	SPY_scm.h	/^	uint8_t   response;$/;"	m	struct:__anon105
+restore_file	LIB_nsmcfg.cpp	/^bool NSM_CFG::restore_file(void)$/;"	f	class:NSM_CFG
+result	SPY_mmc.h	/^	char	result[4];$/;"	m	struct:__anon5
+result	SPY_mmc.h	/^    char	result;$/;"	m	struct:__anon14
+result	SPY_mmc.h	/^    char	result;$/;"	m	struct:__anon16
+result	SPY_mmc.h	/^    char	result;$/;"	m	struct:__anon17
+result	SPY_mmc.h	/^    char	result;$/;"	m	struct:__anon7
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon20
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon22
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon24
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon26
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon28
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon30
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon32
+result	SPY_mmc2.h	/^    char	result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon34
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon36
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon38
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon40
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon42
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon44
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon46
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon48
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon50
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon52
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon54
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon57
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon59
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon61
+result	SPY_mmc2.h	/^    char        result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon62
+result	SPY_mmc2.h	/^    char    result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon64
+result	SPY_mmc2.h	/^    char    result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon67
+result	SPY_mmc2.h	/^    char    result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon69
+result	SPY_mmc2.h	/^    char    result;         \/\/ »ç¿ëÇÏÁö ¾Ê´õ¶óµµ MMC °á°ú¿¡ Ç×»óÆ÷ÇÔ$/;"	m	struct:__anon71
+result	SPY_xbus.h	/^	char        result;     \/\/ '1': OK, '0': Fail => not number, character$/;"	m	struct:__anon88
+result	SPY_xbus.h	/^    char    result;     \/\/ '0': false, '1': OK$/;"	m	struct:__anon100
+result	SPY_xbus.h	/^    char    result;     \/\/ '0': false, '1': OK$/;"	m	struct:__anon98
+rtc_mutex	SPY_chmap.cpp	/^pthread_mutex_t rtc_mutex;$/;"	v
+s_black_list_name	SPY_cfg.h	/^    char        s_black_list_name[MAX_FNAME_LEN+1];     \/\/ BLACK LIST ÆÄÀÏ¸í (full path)$/;"	m	struct:__anon125
+s_black_list_name_v6	SPY_cfg.h	/^    char        s_black_list_name_v6[MAX_FNAME_LEN+1];  \/\/ IPv6$/;"	m	struct:__anon125
+s_dial_in_pfx	SPY_cfg.h	/^    char        s_dial_in_pfx[MAX_DN_LEN+1];            \/\/ TASÀÇ  RCS_PFX¿Í  µ¿ÀÏ ±â´É$/;"	m	struct:__anon125
+s_ostack_ip	SPY_cfg.h	/^    char        s_ostack_ip[MAX_IPADDR_LEN+1];          \/\/ ORIG STACK IP$/;"	m	struct:__anon122
+s_ostack_ip_port	SPY_cfg.h	/^    char        s_ostack_ip_port[MAX_IPADDR_LEN+1];     \/\/ ORIG STACK IP:PORT$/;"	m	struct:__anon122
+s_ostack_ip_port_v6	SPY_cfg.h	/^    char        s_ostack_ip_port_v6[MAX_IPADDR_LEN+1];  \/\/ ORIG STACK IP:PORT$/;"	m	struct:__anon122
+s_ostack_ip_v6	SPY_cfg.h	/^    char        s_ostack_ip_v6[MAX_IPADDR_LEN+1];       \/\/ ORIG STACK IP$/;"	m	struct:__anon122
+s_outbound_ip	SPY_cfg.h	/^    char        s_outbound_ip[MAX_IPADDR_LEN+1];    \/\/ OUTBOUND PROXY »ç¿ë½Ã ¼Û½Å IP, port´Â 5060À¸·Î FIX$/;"	m	struct:__anon121
+s_ses_ip	SPY_cfg.h	/^    char        s_ses_ip[MAX_SES_BOARD][MAX_IPADDR_LEN+1];  \/\/ SES IP Address (string)$/;"	m	struct:__anon124
+s_tas_register_skey	SPY_cfg.h	/^    char        s_tas_register_skey[MAX_FNAME_LEN+1];   \/\/ SPY REGISTER¸¦ Ã³¸®ÇÒ Service Key$/;"	m	struct:__anon125
+s_tstack_ip	SPY_cfg.h	/^    char        s_tstack_ip[MAX_IPADDR_LEN+1];          \/\/ TERM STACK IP$/;"	m	struct:__anon122
+s_tstack_ip_port	SPY_cfg.h	/^    char        s_tstack_ip_port[MAX_IPADDR_LEN+1];     \/\/ TERM STACK IP:PORT$/;"	m	struct:__anon122
+s_tstack_ip_port_v6	SPY_cfg.h	/^    char        s_tstack_ip_port_v6[MAX_IPADDR_LEN+1];  \/\/ TERM STACK IP:PORT$/;"	m	struct:__anon122
+s_tstack_ip_v6	SPY_cfg.h	/^    char        s_tstack_ip_v6[MAX_IPADDR_LEN+1];       \/\/ TERM STACK IP$/;"	m	struct:__anon122
+s_web_extlist_name	SPY_cfg.h	/^    char        s_web_extlist_name[MAX_FNAME_LEN+1];     \/\/ BLACK LIST ÆÄÀÏ¸í (full path)$/;"	m	struct:__anon125
+s_web_extlist_name_v6	SPY_cfg.h	/^    char        s_web_extlist_name_v6[MAX_FNAME_LEN+1];  \/\/ IPv6$/;"	m	struct:__anon125
+sam	SPY_stat.h	/^    STA_SAM     sam;$/;"	m	struct:__anon80
+save_file	SPY_extlist.cpp	/^bool EXTLIST_TBL::save_file(void)$/;"	f	class:EXTLIST_TBL
+save_file	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::save_file(void)$/;"	f	class:EXTLIST_TBL_V6
+scm_error	SPY_stat.h	/^	int     scm_error;$/;"	m	struct:__anon81
+scm_fail_count	SPY_stat.h	/^    int     scm_fail_count;$/;"	m	struct:__anon77
+scm_resp_count	SPY_stat.h	/^    int     scm_resp_count;$/;"	m	struct:__anon77
+select	SPY_extlist.cpp	/^bool EXTLIST_TBL::select(const char *strIP, bool *bBlock)$/;"	f	class:EXTLIST_TBL
+select	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::select(struct in6_addr *v6_addr, bool *bBlock)$/;"	f	class:EXTLIST_TBL_V6
+send_sync	SPY_ha.cpp	/^void *send_sync(void* arg)$/;"	f
+serviceKey	SPY_scm.h	/^    char        serviceKey[MAX_SVCKEY_LEN];$/;"	m	struct:__anon106
+serviceKey	SPY_scm.h	/^    char        serviceKey[MAX_SVCKEY_LEN];$/;"	m	struct:__anon107
+ses	SPY_cfg.h	/^    CFG_SES     ses;$/;"	m	struct:__anon126
+sessionid	SPY_regi.cpp	/^    char sessionid;$/;"	m	struct:__anon72	file:
+set	LIB_nsmtimer.cpp	/^NSM_RESULT NSM_SEC_TIMER::set(size_t key, uint32_t n_sec, size_t arg1, size_t arg2)$/;"	f	class:NSM_SEC_TIMER
+set	SPY_timer.cpp	/^int64_t TIMER::set(int t, int unit, TO_FUNC func, size_t arg1, size_t arg2)$/;"	f	class:TIMER
+set_debug	LIB_nsmlog.cpp	/^void NSM_LOG::set_debug()$/;"	f	class:NSM_LOG
+set_level	LIB_nsmlog.cpp	/^void NSM_LOG::set_level(int8_t nLevel)$/;"	f	class:NSM_LOG
+set_max_limit	LIB_nsmlog.cpp	/^bool NSM_LOG::set_max_limit(uint32_t nLimit)$/;"	f	class:NSM_LOG
+set_mmc_head	SPY_mmc.cpp	/^void set_mmc_head(MMCHD *send, MMCHD *recv, int len, bool bContinue)$/;"	f
+set_time	flcm_manager.h	/^		int		set_time;$/;"	m	class:FLCM_MANAGER
+shut_down	SPY_main.cpp	/^void shut_down(int reason)$/;"	f
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon21
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon23
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon27
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon29
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon35
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon37
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon39
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon41
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon43
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon45
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon47
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon49
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon51
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon53
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon55
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon56
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon58
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon60
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon63
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon65
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon68
+side	SPY_mmc2.h	/^    uint8_t     side;       \/\/ default$/;"	m	struct:__anon70
+side	SPY_mmc2.h	/^    uint8_t side;           \/\/ default$/;"	m	struct:__anon19
+side	SPY_mmc2.h	/^    uint8_t side;           \/\/ default$/;"	m	struct:__anon25
+side	SPY_mmc2.h	/^    uint8_t side;           \/\/ default$/;"	m	struct:__anon31
+side	SPY_mmc2.h	/^    uint8_t side;           \/\/ default$/;"	m	struct:__anon33
+side	SPY_scm.h	/^    uint8_t     side;$/;"	m	struct:__anon106
+side	SPY_scm.h	/^    uint8_t     side;$/;"	m	struct:__anon107
+size	LIB_nsmptrq.cpp	/^int NSM_PTR_Q::size()$/;"	f	class:NSM_PTR_Q
+size	LIB_nsmtimer.cpp	/^size_t NSM_SEC_TIMER::size(void)$/;"	f	class:NSM_SEC_TIMER
+size	SPY_blist.cpp	/^int BLIST_TBL::size(void)$/;"	f	class:BLIST_TBL
+size	SPY_blist_v6.cpp	/^int BLIST_TBL_V6::size(void)$/;"	f	class:BLIST_TBL_V6
+size	SPY_extlist.cpp	/^int EXTLIST_TBL::size(void)$/;"	f	class:EXTLIST_TBL
+size	SPY_extlist.cpp	/^int EXTLIST_TBL_V6::size(void)$/;"	f	class:EXTLIST_TBL_V6
+size	SPY_hash.cpp	/^int SPY_HASH_MAP::size()$/;"	f	class:SPY_HASH_MAP
+size	SPY_svckey.cpp	/^int SVCKEY_TBL::size(void)$/;"	f	class:SVCKEY_TBL
+size	SPY_timer.cpp	/^size_t TIMER::size()$/;"	f	class:TIMER
+size	SPY_trace.cpp	/^int TRACE_TBL::size(void)$/;"	f	class:TRACE_TBL
+sockFd	SPY_xbus.h	/^	int         sockFd;$/;"	m	struct:__anon86
+source_address	SPY_udp.cpp	/^	IN_ADDR     source_address;$/;"	m	struct:psuedo_hdr	file:
+sprint_trace	SPY_trace.cpp	/^int TRACE_TBL::sprint_trace(char *strTrace)$/;"	f	class:TRACE_TBL
+spy	SPY_stat.h	/^    STA_SPY     spy;$/;"	m	struct:__anon80
+spy_cfg	SPY_data.cpp	/^SPY_CFG     spy_cfg;            \/\/ SPY Config Data$/;"	v
+sql	SPY_alm.h	/^	char	sql[1024];$/;"	m	struct:__anon117
+srm_idx	SPY_stat.cpp	/^    int srm_idx;    \/\/ SPY id : 9$/;"	m	struct:__anon75	file:
+sspcode	SPY_xbus.h	/^	char        sspcode[4];$/;"	m	struct:__anon90
+sspcode	SPY_xbus.h	/^	char        sspcode[4];$/;"	m	struct:__anon92
+sspcode	SPY_xbus.h	/^    char        sspcode[4];$/;"	m	struct:__anon91
+ssw	SPY_stat.h	/^    STA_SSW     ssw;$/;"	m	struct:__anon80
+sswid	SPY_extlist.h	/^    char    sswid[4];       \/\/ SSW ID (3ÀÚ¸®)$/;"	m	struct:__anon1
+sswid	SPY_xbus.h	/^	char        sswid[3];$/;"	m	struct:__anon90
+sswid	SPY_xbus.h	/^	char        sswid[3];$/;"	m	struct:__anon92
+sswid	SPY_xbus.h	/^    char        sswid[3];$/;"	m	struct:__anon91
+stat	LIB_nsmtimer.cpp	/^void NSM_SEC_TIMER::stat(size_t *n_set, size_t *n_cancel, size_t *n_to)$/;"	f	class:NSM_SEC_TIMER
+stat_reset	LIB_nsmtimer.cpp	/^void NSM_SEC_TIMER::stat_reset(void)$/;"	f	class:NSM_SEC_TIMER
+state	SPY_mmc.h	/^    char	state;$/;"	m	struct:__anon16
+state	SPY_xbus.h	/^    char    state;      \/\/ '1': act, '0': stop$/;"	m	struct:__anon100
+statistic	SPY_data.cpp	/^STA_INFO    statistic;          \/\/ SPY statistic Data$/;"	v
+statistic_v6	SPY_data.cpp	/^STA_INFO        statistic_v6;       \/\/ IPv6$/;"	v
+str	libnsmcom.h	/^	char    str[MAX_STRs_CNT][MAX_STRs_LEN+1];$/;"	m	struct:__anon111
+strAllow	SPY_mmc.h	/^	char        strAllow[16][32];$/;"	m	struct:reload_config_spy
+strCSeq	SPY_cr.h	/^    char    strCSeq[32];            \/\/ CSeq: header string (SIP_TYPEÀÌ RESPONSEÀÎ °æ¿ì¿¡ »ç¿ë)$/;"	m	struct:__anon118
+strCall_ID	SPY_cr.h	/^    char	strCall_ID[256];        \/\/ SIP ¸Þ½ÃÁöÀÇ Call ID$/;"	m	struct:__anon118
+strCall_ID	SPY_hash.h	/^    char	strCall_ID[256];    \/\/ Call ´ÜÀ§ ±¸ºÐµÇ´Â °ª$/;"	m	struct:__anon115
+strCall_ID	SPY_hash.h	/^    char	strCall_ID[256];    \/\/ Call ´ÜÀ§ ±¸ºÐµÇ´Â °ª$/;"	m	struct:__anon116
+strCall_ID	SPY_trace.h	/^	char    strCall_ID[256];$/;"	m	struct:__anon85
+strComment	libnsmcfg.h	/^    char    *strComment;    \/\/ Name = value      # comment$/;"	m	struct:__anon102
+strCscfAddr	SPY_cr.h	/^    char    strCscfAddr[64];        \/\/ CSCF Address (IP:PORT or IP) FIXIT - ÇÊ¿äÇÑ°¡, IP PORT¸¸ ÀÖÀ¸¸é µÇÁö ¾Ê³ª?$/;"	m	struct:__anon118
+strCscfIp	SPY_cr.h	/^    char	strCscfIp[64];          \/\/ CSCF IP   (strCscfAddr ¿¡¼­ IP ºÎºÐ)$/;"	m	struct:__anon118
+strCscfIp	SPY_hash.h	/^    char    strCscfIp[64];      \/\/ CSCF IP address$/;"	m	struct:__anon114
+strCscfIp	SPY_hash.h	/^    char    strCscfIp[64];      \/\/ CSCF IP address$/;"	m	struct:__anon115
+strDP	SPY_cr.h	/^    char    strDP[8];               \/\/ FIXIT - DP - »ç¿ë¿©ºÎ ?? »èÁ¦ °ËÅä ??$/;"	m	struct:__anon118
+strData	SPY_mmc.h	/^	char        strData[32];$/;"	m	struct:__anon12
+strData	SPY_mmc.h	/^	char        strData[32];$/;"	m	struct:__anon3
+strDeny	SPY_mmc.h	/^	char        strDeny[16][32];$/;"	m	struct:reload_config_spy
+strFrom	SPY_cr.h	/^    char    strFrom[256];           \/\/ From: Header Á¤º¸  username@domain ¶Ç´Â ÀüÈ­¹øÈ£$/;"	m	struct:__anon118
+strFrom	SPY_mmc.h	/^	char	strFrom[32];$/;"	m	struct:dis_trace_item
+strFrom	SPY_mmc2.h	/^    char	strFrom[32];$/;"	m	struct:__anon66
+strFrom	SPY_trace.h	/^	char    strFrom[32];$/;"	m	struct:__anon85
+strFromAddr	SPY_mmc.h	/^	char	strFromAddr[32];$/;"	m	struct:__anon11
+strFromAddr	SPY_mmc2.h	/^    char        strFromAddr[32];$/;"	m	struct:__anon68
+strIP	SPY_extlist.h	/^    char    strIP[64];          \/\/ SIP ¸Þ¼¼Áö¸¦ º¸³»¿Â µî·ÏµÇÁö ¾ÊÀº ¿ÜºÎ ¼­¹ö ¶Ç´Â Àß¸øµÈ ¸Þ¼¼Áö¸¦ º¸³½ ¿ÜºÎ¼­¹ö IP (IPv6¸¦ °í·Á 64byte·Î)$/;"	m	struct:__anon2
+strKey	libnsmcfg.h	/^    char    *strKey;        \/\/ key = Section.Name$/;"	m	struct:__anon102
+strMyStackIp	SPY_cr.h	/^    char	strMyStackIp[64];       \/\/ ORIG\/TERM SPY IP$/;"	m	struct:__anon118
+strMyStackIpPort	SPY_cr.h	/^    char	strMyStackIpPort[70];   \/\/ ORIG\/TERM SPY IP:PORT$/;"	m	struct:__anon118
+strName	libnsmcfg.h	/^    char    *strName;       \/\/ Name = Valuse    # comment$/;"	m	struct:__anon102
+strOrigStack	SPY_mmc.h	/^	char        strOrigStack[32];$/;"	m	struct:__anon3
+strOrigStackAddr	SPY_mmc2.h	/^    char    strOrigStackAddr[32];$/;"	m	struct:__anon20
+strOrigStackAddr_V6	SPY_mmc2.h	/^    char    strOrigStackAddr_V6[64];$/;"	m	struct:__anon20
+strRcvBuf	SPY_cr.h	/^    char        strRcvBuf[MAX_BUF_SIZE+1];  \/\/ ¼ö½ÅÇÑ SIP ¸Þ¼¼Áö$/;"	m	struct:__anon120
+strRow	libnsmcfg.h	/^    char    *strRow;        \/\/ config file¿¡¼­ ÀÐ¾îµéÀÎ Data ±×´ë·Î$/;"	m	struct:__anon102
+strSQL	SPY_extlist.cpp	/^    char    strSQL[112];$/;"	m	struct:__anon112	file:
+strSQL	SPY_regi.cpp	/^    char        strSQL[2048];$/;"	m	struct:__anon73	file:
+strSQL	SPY_send.cpp	/^    char    strSQL[112];$/;"	m	struct:__anon74	file:
+strServiceKey	SPY_cr.h	/^    char    strServiceKey[64];      \/\/ ServiceKey - InitalMessageÀÎ °æ¿ì¿¡ Route ¶Ç´Â ruri¿¡ ÀÖÀ½$/;"	m	struct:__anon118
+strSvcKey	SPY_mmc.h	/^	char	strSvcKey[32];$/;"	m	struct:__anon11
+strSvcKey	SPY_mmc.h	/^	char	strSvcKey[32];$/;"	m	struct:dis_trace_item
+strSvcKey	SPY_svckey.h	/^    char strSvcKey[64];$/;"	m	struct:__anon83
+strSvcKey	SPY_trace.h	/^	char    strSvcKey[64];$/;"	m	struct:__anon85
+strSvcName	SPY_svckey.h	/^    char strSvcName[64];$/;"	m	struct:__anon83
+strTermStack	SPY_mmc.h	/^	char        strTermStack[32];$/;"	m	struct:__anon3
+strTermStackAddr	SPY_mmc2.h	/^    char    strTermStackAddr[32];$/;"	m	struct:__anon20
+strTermStackAddr_V6	SPY_mmc2.h	/^    char    strTermStackAddr_V6[64];$/;"	m	struct:__anon20
+strTo	SPY_cr.h	/^    char    strTo[256];             \/\/ To:   Header Á¤º¸  username@domain ¶Ç´Â ÀüÈ­¹øÈ£$/;"	m	struct:__anon118
+strTo	SPY_mmc.h	/^	char	strTo[32];$/;"	m	struct:dis_trace_item
+strTo	SPY_mmc2.h	/^    char	strTo[32];$/;"	m	struct:__anon66
+strTo	SPY_trace.h	/^	char    strTo[32];$/;"	m	struct:__anon85
+strToAddr	SPY_mmc.h	/^	char	strToAddr[32];$/;"	m	struct:__anon11
+strToAddr	SPY_mmc2.h	/^    char        strToAddr[32];$/;"	m	struct:__anon68
+strValue	libnsmcfg.h	/^    char    *strValue;      \/\/ Name = value      # comment$/;"	m	struct:__anon102
+string_to_char	flcm_manager.cpp	/^void FLCM_MANAGER::string_to_char(string string_msg, char* char_msg)$/;"	f	class:FLCM_MANAGER
+success	SPY_stat.cpp	/^        unsigned long int success;$/;"	m	struct:__anon75::_svcInfo	file:
+sum_free_cnt	SPY_cr.h	/^    int     sum_free_cnt;           \/\/ free È½ ¼ö (malloc_cnt != free_cntÀÌ¸é ¹®Á¦°¡ ÀÖÀ½)$/;"	m	class:SPY_CR
+sum_malloc_cnt	SPY_cr.h	/^    int     sum_malloc_cnt;         \/\/ malloc ¼º°ø È½ ¼ö$/;"	m	class:SPY_CR
+sum_malloc_err_cnt	SPY_cr.h	/^    int     sum_malloc_err_cnt;     \/\/ malloc ½ÇÆÐ È½ ¼ö$/;"	m	class:SPY_CR
+svc	SPY_xbus.h	/^	char        svc[64];$/;"	m	struct:__anon95
+svcItem	SPY_stat.cpp	/^    } svcItem[];$/;"	m	struct:__anon75	typeref:struct:__anon75::_svcInfo	file:
+svckey	SPY_stat.cpp	/^        char svckey[16];$/;"	m	struct:__anon75::_svcInfo	file:
+tInsert	SPY_hash.h	/^    time_t  tInsert;            \/\/ Insert Time$/;"	m	struct:__anon114
+tInsert	SPY_hash.h	/^    time_t  tInsert;            \/\/ Insert Time$/;"	m	struct:__anon115
+t_TO	libnsmtimer.h	/^    time_t      t_TO;       \/\/ timeoutÀÌ µÇ´Â ½Ã°£$/;"	m	struct:__anon104
+t_alloc	SPY_cr.h	/^    time_t      t_alloc;            \/\/ CRÀÌ AllocµÈ ½Ã°£$/;"	m	struct:__anon119
+t_hash_size	SPY_mmc2.h	/^    int         t_hash_size;$/;"	m	struct:__anon54
+t_hash_size	SPY_mmc2.h	/^    int         t_hash_size;$/;"	m	struct:__anon62
+t_timer	flcm_manager.h	/^		pthread_t		t_timer;$/;"	m	class:FLCM_MANAGER
+tail	libnsmptrq.h	/^	Q_PTR	*header, *tail;$/;"	m	class:NSM_PTR_Q
+thread	SPY_cfg.h	/^    CFG_THREAD  thread;$/;"	m	struct:__anon126
+threadId	SPY_alm.h	/^	int     threadId;$/;"	m	struct:__anon117
+threadId	SPY_xbus.h	/^	int         threadId;$/;"	m	struct:__anon86
+thread_id	SPY_timer.h	/^    pthread_t           thread_id;$/;"	m	class:TIMER
+timer_id	SPY_cr.h	/^    int64_t     timer_id;           \/\/ SCM Ã¤³Î ÇÒ´ç½Ã »ç¿ëÇÏ´Â Å¸ÀÌ¸Ó ID(¿¹¿Ü Ã³¸® ¿ë)$/;"	m	struct:__anon120
+timer_id	SPY_scm.h	/^    int64_t     timer_id;$/;"	m	struct:__anon106
+timer_id	SPY_scm.h	/^    int64_t     timer_id;$/;"	m	struct:__anon107
+timer_thread	SPY_timer.cpp	/^void *timer_thread(void *arg)$/;"	f
+to	SPY_scm.h	/^    char        to[64];$/;"	m	struct:__anon110
+to	SPY_timer.h	/^	struct  timeval  to;$/;"	m	struct:__anon84	typeref:struct:__anon84::timeval
+to	SPY_xbus.h	/^	char        to[64];$/;"	m	struct:__anon95
+trace	SPY_trace.cpp	/^bool TRACE_TBL::trace(int nTrace, int nBoardNo, int nChannelNo, int ot_type, const char *strToIP, int nToPort, const char *strSendBuf)$/;"	f	class:TRACE_TBL
+trace_size	SPY_mmc2.h	/^    uint8_t trace_size;$/;"	m	struct:__anon71
+trigger	SPY_alm.h	/^	short	trigger;$/;"	m	struct:__anon117
+tryCount	SPY_extlist.h	/^    char    tryCount;$/;"	m	struct:__anon1
+tryCount	SPY_xbus.h	/^	char        tryCount;$/;"	m	struct:__anon90
+tryCount	SPY_xbus.h	/^	char        tryCount;$/;"	m	struct:__anon92
+tryCount	SPY_xbus.h	/^    char        tryCount;$/;"	m	struct:__anon91
+udp_check_sum	SPY_udp.cpp	/^uint16_t udp_check_sum(char *packet, int length, IN_ADDR saddr, IN_ADDR daddr)$/;"	f
+udp_header_gen	SPY_udp.cpp	/^void udp_header_gen(char *sPDU, uint16_t sport, uint16_t dport, uint16_t length)$/;"	f
+unit	SPY_timer.h	/^	int		unit;$/;"	m	struct:__anon84
+update	LIB_nsmtimer.cpp	/^NSM_RESULT NSM_SEC_TIMER::update(size_t key, uint32_t n_sec, size_t arg1, size_t arg2)$/;"	f	class:NSM_SEC_TIMER
+update	SPY_extlist.cpp	/^bool EXTLIST_TBL::update(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+update	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::update(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+update_file	SPY_extlist.cpp	/^bool EXTLIST_TBL::update_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL
+update_file	SPY_extlist.cpp	/^bool EXTLIST_TBL_V6::update_file(EXTSVR_LIST *extSvr)$/;"	f	class:EXTLIST_TBL_V6
+update_hash	SPY_hash.cpp	/^bool SPY_HASH_MAP::update_hash(char* strCall_ID, HASH_ITEM *ptrItem)$/;"	f	class:SPY_HASH_MAP
+update_tbl_ssw_config	SPY_extlist.cpp	/^void EXTLIST_TBL::update_tbl_ssw_config(void)$/;"	f	class:EXTLIST_TBL
+update_tbl_ssw_config	SPY_extlist.cpp	/^void EXTLIST_TBL_V6::update_tbl_ssw_config(void)$/;"	f	class:EXTLIST_TBL_V6
+use_scm_map	SPY_mmc2.h	/^    uint8_t     use_scm_map;$/;"	m	struct:__anon40
+use_scm_map	SPY_mmc2.h	/^    uint8_t     use_scm_map;$/;"	m	struct:__anon41
+use_scm_map	SPY_mmc2.h	/^    uint8_t     use_scm_map;$/;"	m	struct:__anon42
+userId	SPY_scm.h	/^    char        userId[MAX_USER_ID_LEN];$/;"	m	struct:__anon106
+userId	SPY_scm.h	/^    char        userId[MAX_USER_ID_LEN];$/;"	m	struct:__anon107
+userId	SPY_scm.h	/^    uint16_t    userId[MAX_USER_ID_LEN];$/;"	m	struct:__anon109
+v6_addr	SPY_extlist.h	/^    struct in6_addr v6_addr;$/;"	m	struct:__anon1	typeref:struct:__anon1::in6_addr
+versionDisplay	VersionHistory.cpp	/^void versionDisplay(int argc, char* argv[])$/;"	f
+warning	LIB_nsmlog.cpp	/^void NSM_LOG::warning(const char *fmt, ...)$/;"	f	class:NSM_LOG
+~BLIST_TBL	SPY_blist.cpp	/^BLIST_TBL::~BLIST_TBL(void)$/;"	f	class:BLIST_TBL
+~BLIST_TBL_V6	SPY_blist_v6.cpp	/^BLIST_TBL_V6::~BLIST_TBL_V6(void)$/;"	f	class:BLIST_TBL_V6
+~ERRSVR_TBL	SPY_extlist.cpp	/^ERRSVR_TBL::~ERRSVR_TBL(void)$/;"	f	class:ERRSVR_TBL
+~EXTLIST_TBL	SPY_extlist.cpp	/^EXTLIST_TBL::~EXTLIST_TBL(void)$/;"	f	class:EXTLIST_TBL
+~EXTLIST_TBL_V6	SPY_extlist.cpp	/^EXTLIST_TBL_V6::~EXTLIST_TBL_V6(void)$/;"	f	class:EXTLIST_TBL_V6
+~FLCM_MANAGER	flcm_manager.cpp	/^FLCM_MANAGER::~FLCM_MANAGER()$/;"	f	class:FLCM_MANAGER
+~NSM_CFG	LIB_nsmcfg.cpp	/^NSM_CFG::~NSM_CFG()$/;"	f	class:NSM_CFG
+~NSM_LOG	LIB_nsmlog.cpp	/^NSM_LOG::~NSM_LOG(void)$/;"	f	class:NSM_LOG
+~NSM_PTR_Q	LIB_nsmptrq.cpp	/^NSM_PTR_Q::~NSM_PTR_Q()$/;"	f	class:NSM_PTR_Q
+~NSM_SEC_TIMER	LIB_nsmtimer.cpp	/^NSM_SEC_TIMER::~NSM_SEC_TIMER()$/;"	f	class:NSM_SEC_TIMER
+~SCM_CH_MAP	SPY_chmap.cpp	/^SCM_CH_MAP::~SCM_CH_MAP()$/;"	f	class:SCM_CH_MAP
+~SPY_CR	SPY_cr.cpp	/^SPY_CR::~SPY_CR(void)$/;"	f	class:SPY_CR
+~SPY_HASH_MAP	SPY_hash.cpp	/^SPY_HASH_MAP::~SPY_HASH_MAP()$/;"	f	class:SPY_HASH_MAP
+~SVCKEY_TBL	SPY_svckey.cpp	/^SVCKEY_TBL::~SVCKEY_TBL(void)$/;"	f	class:SVCKEY_TBL
+~TIMER	SPY_timer.cpp	/^TIMER::~TIMER()$/;"	f	class:TIMER
+~TRACE_TBL	SPY_trace.cpp	/^TRACE_TBL::~TRACE_TBL(void)$/;"	f	class:TRACE_TBL

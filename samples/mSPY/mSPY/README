@@ -1,0 +1,13 @@
+compile
+1) SoIP 버전 compile
+ > make -f Makefile.ses_noha_fault
+
+===================================================
+
+1. 2023.09.06 myung 4.4.2 1.1.0
+ - FLCM 기능 개발
+
+
+2. 20260210 kdh 
+ - RHEL9 ECS Version
+ - build_info_asv5_dbs.sh (Makefile.asv5_dbs)

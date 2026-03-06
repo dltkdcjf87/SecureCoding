@@ -110,10 +110,25 @@ def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
         src_abs_path = os.path.abspath(os.path.join(os.path.dirname(current_dir), *parts))
         print(f"DEBUG: Mapping to SIBLING FIXED: {target_abs_path}")
     else:
-        # Fallback: maybe the path is already absolute or relative to cwd
-        src_abs_path = os.path.abspath(file_path)
-        target_abs_path = src_abs_path # Default to same file if no _fixed found
-        print(f"DEBUG: No _fixed found, using: {target_abs_path}")
+        # Recursive search for the _fixed directory
+        found_fixed_path = None
+        for root, dirs, files in os.walk(current_dir):
+             if fixed_base_seg in dirs:
+                 found_fixed_path = os.path.join(root, fixed_base_seg)
+                 break
+        
+        if found_fixed_path:
+            target_abs_path = os.path.abspath(os.path.join(found_fixed_path, *parts[1:]))
+            # Assume src is in the same parent as the fixed path
+            src_parent = os.path.dirname(found_fixed_path)
+            src_abs_path = os.path.abspath(os.path.join(src_parent, *parts))
+            print(f"DEBUG: Mapping to FOUND FIXED: {target_abs_path}")
+        else:
+            # Fallback: maybe the path is already absolute or relative to cwd
+            src_abs_path = os.path.abspath(file_path)
+            target_abs_path = src_abs_path # Default to same file if no _fixed found
+            print(f"DEBUG: No _fixed found, using: {target_abs_path}")
+
 
     # 2. Ensure the destination file exists (Selective Copy)
     if "_fixed" in target_abs_path and not os.path.exists(target_abs_path):
@@ -137,27 +152,65 @@ def safe_apply_fix(file_path: str, original: str, suggested: str) -> bool:
 
 def apply_fix_internal(target_full_path: str, original: str, suggested: str) -> bool:
     """
-    Actual file write operation.
+    Actual file write operation with indentation preservation.
     """
     if not target_full_path or not os.path.exists(target_full_path):
         print(f"Target file not found for write: {target_full_path}")
         return False
 
     try:
-        # We need to handle encodings here as well
         with open(target_full_path, "rb") as f:
             raw_content = f.read()
         
         content = decode_content(raw_content)
         
         # Exact match check
+        # Exact match check
         if original in content:
-            new_content = content.replace(original, suggested)
+            # 1. Detect base indentation from the 'original' snippet itself
+            # This is reliable because 'original' is an exact match from the file
+            orig_lines = original.splitlines()
+            if not orig_lines: return False
+            
+            first_orig_line = orig_lines[0]
+            indent_len = len(first_orig_line) - len(first_orig_line.lstrip())
+            base_indent = first_orig_line[:indent_len]
+            
+            # 2. Adjust indentation for 'suggested'
+            suggested_lines = suggested.splitlines()
+            if suggested_lines and base_indent:
+                # Check if the first line of suggested already has indentation
+                first_s_line = suggested_lines[0]
+                s_indent_len = len(first_s_line) - len(first_s_line.lstrip())
+                
+                # If suggested is not indented but original is, apply the base_indent
+                if s_indent_len == 0:
+                    adjusted_suggested = "\n".join([base_indent + line if line.strip() else line for line in suggested_lines])
+                    # Ensure we handle the exact newline style (keep original trailing newlines if any)
+                    if original.endswith('\n') and not adjusted_suggested.endswith('\n'):
+                        adjusted_suggested += '\n'
+                    new_content = content.replace(original, adjusted_suggested)
+                else:
+                    new_content = content.replace(original, suggested)
+            else:
+                new_content = content.replace(original, suggested)
+
             with open(target_full_path, "w", encoding="utf-8") as f:
                 f.write(new_content)
-            print(f"Successfully applied fix to: {target_full_path}")
+            print(f"Successfully applied fix and preserved indentation in: {target_full_path}")
             return True
+
+
         else:
+            # Try a slightly looser match (ignoring leading/trailing whitespace of the whole block)
+            stripped_original = original.strip()
+            if stripped_original and stripped_original in content:
+                # Find where it is
+                new_content = content.replace(original, suggested) # Fallback to original
+                # Actually, better to just use replace if it contains it.
+                # If it doesn't match exactly, the UI might be sending slightly different whitespace.
+                pass
+            
             if suggested in content:
                 print(f"Fix already applied in: {target_full_path}")
                 return True
@@ -166,6 +219,7 @@ def apply_fix_internal(target_full_path: str, original: str, suggested: str) -> 
     except Exception as e:
         print(f"Error writing fix to {target_full_path}: {e}")
         return False
+
 
 def decode_content(content: bytes) -> str:
     """
@@ -451,51 +505,64 @@ async def create_fix_copy(request: CreateCopyRequest):
     """
     Creates a copy of the specified directory with a '_fixed' suffix.
     """
-    current_dir = os.getcwd()
-    current_dir_abs = os.path.abspath(current_dir)
-    current_dir_name = os.path.basename(current_dir_abs)
+    current_dir = os.path.abspath(os.getcwd())
+    current_dir_name = os.path.basename(current_dir)
     
-    # Normalize path separators
+    # Normalize path separators for consistent processing
     raw_base_path = request.base_path.replace("\\", "/")
-    path_parts = raw_base_path.split("/")
-    base_path_from_request = path_parts[0] if path_parts else ""
+    path_parts = [p for p in raw_base_path.split("/") if p]
+    
+    if not path_parts or ".." in path_parts:
+        raise HTTPException(status_code=400, detail="Invalid base path.")
+    
+    base_path_from_request = path_parts[0]
     
     print(f"DEBUG: create_fix_copy request.base_path={request.base_path}")
-    print(f"DEBUG: current_dir={current_dir}")
-    print(f"DEBUG: current_dir_name={current_dir_name}, base_path_from_request={base_path_from_request}")
+    print(f"DEBUG: current_dir={current_dir}, base_path_from_request={base_path_from_request}")
 
-    if ".." in raw_base_path or not base_path_from_request:
-        raise HTTPException(status_code=400, detail="Invalid base path.")
-
-    # Case-insensitive comparison for Windows
+    # Case 1: The request refers to the current workspace itself
     if base_path_from_request.lower() == current_dir_name.lower():
-        src_path = current_dir_abs
+        src_path = current_dir
     else:
-        # Try joining with current_dir
-        src_path = os.path.abspath(os.path.join(current_dir, base_path_from_request))
-        
-        # If not exists, maybe the path is relative to current_dir's parent? 
-        # (Though usually it should be within the workspace)
-        if not os.path.exists(src_path):
-             print(f"DEBUG: src_path {src_path} not found. checking if it exists as is...")
-             if os.path.exists(base_path_from_request):
-                 src_path = os.path.abspath(base_path_from_request)
+        # Case 2: The request refers to a subdirectory within the current workspace
+        potential_sub_path = os.path.join(current_dir, base_path_from_request)
+        if os.path.exists(potential_sub_path):
+            src_path = os.path.abspath(potential_sub_path)
+        else:
+            # Case 2-b: Support nested directories like 'samples/CSIM'
+            # Look for the directory named base_path_from_request inside current_dir
+            found_path = None
+            for root, dirs, files in os.walk(current_dir):
+                if base_path_from_request in dirs:
+                    found_path = os.path.join(root, base_path_from_request)
+                    break # Found it
+            
+            if found_path:
+                 src_path = os.path.abspath(found_path)
+                 print(f"DEBUG: Found {base_path_from_request} at {src_path}")
+            else:
+                 # Case 3: The request might be an absolute path already
+                 if os.path.exists(request.base_path):
+                     src_path = os.path.abspath(request.base_path)
+                 else:
+                     print(f"ERROR: Could not resolve src_path for {base_path_from_request}")
+                     raise HTTPException(status_code=404, detail=f"Source directory not found: {base_path_from_request}")
 
-    src_path = os.path.normpath(src_path)
-    
-    # If src_path is a file, get its directory
-    if os.path.exists(src_path) and os.path.isfile(src_path):
-        print(f"DEBUG: src_path is a file, using parent directory instead.")
+
+    # If src_path is a file, we want its containing directory
+    if os.path.isfile(src_path):
         src_path = os.path.dirname(src_path)
 
+    src_path = os.path.normpath(src_path)
     print(f"DEBUG: Final src_path to copy: {src_path}")
 
     if not os.path.exists(src_path) or not os.path.isdir(src_path):
-        print(f"ERROR: Source directory not found: {src_path}")
-        raise HTTPException(status_code=404, detail=f"Source directory not found: {src_path}")
+        print(f"ERROR: Resolved path is not a directory: {src_path}")
+        raise HTTPException(status_code=404, detail=f"Target is not a directory: {src_path}")
 
     dst_path = f"{src_path}_fixed"
-    print(f"DEBUG: dst_path (directory only): {dst_path}")
+    print(f"DEBUG: dst_path: {dst_path}")
+
 
     if not os.path.exists(dst_path):
         try:

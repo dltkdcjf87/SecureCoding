@@ -1,0 +1,87 @@
+# 2001.04.03 
+# ver 1.1 made by godrm@bridgetec.co.kr
+#
+# 2012.02.28
+# ver 2.0 made by smcho@bridgetec.co.kr
+
+LBITS := $(shell getconf LONG_BIT)
+
+#DATE     = 20160608
+#DATE    := $(shell /bin/date +%Y%m%d)
+#OS_VER  := $(shell cat /etc/redhat-release | awk '{print $$7}')
+#KERNEL  := $(shell uname -r)
+#VERSION  = V5.0.5
+#EXE_NAME = mspy-$(VERSION)-RHEL$(OS_VER)-$(KERNEL)-$(DATE).exe
+EXE_NAME=mSPY-${LBITS}-${BUILD_INFO}-ses_actstd
+
+OPT      = -DLINUX -DMULTI_THREAD -DUSE_GODRM 
+OPT     += -DONCMS -DTAS_MODE 
+OPT     += -DDEBUG_MODE
+OPT     += -DTEST_MODE -DBMT_MODE
+OPT     += -DSAM_SEND_100  
+OPT     += -DFAULT_LOG_MODE
+#OPT     += -DONE_SERVER_MULTI_SES
+OPT     += -DSES_HA_MODE -DSES_ACTSTD_MODE
+OPT     += -DMULTI_Q_MODE # 20241205 kdh add
+#OPT     += -DMPBX_MODE
+ifeq ($(LBITS), 32)
+OPT     += -D_32bits_build
+endif
+
+LIB_PATH = -L/home/mcpas/lib
+
+ifeq ($(LBITS), 64)
+LIBS   = $(LIB_PATH) -lresolv -lm -lrt -lstdc++ -lnet64 -lpthread -lbtxbus3-64
+#LIBS   = $(LIB_PATH) -lresolv -lm -lrt -lstdc++ -lnet64 -lpthread -lbtxbus3-64 -lasan # 20240909 kdh - add :: asan
+
+# LIBS   = $(LIB_PATH) -lresolv -lm -lstdc++ -lnet64 -lpthread -lthread64 -lcfg64 -lapg.6.1 -lbtxbus3-64
+#LIBS   = -lresolv -lm -lstdc++ -L/home/smcho/lib/godrm/obj -lnet -lpthread -lthread -lcfg -lapg -L/home/smcho/lib -lbtxbus3
+else
+LIBS   = $(LIB_PATH) -lresolv -lm -lrt -lstdc++ -lnet -lpthread -lbtxbus3
+endif
+
+INCS   = -I. -I/home/mcpas/include
+
+
+HEADS  = 
+
+OBJS   = SPY_alm.o    SPY_extlist.o  SPY_main.o  SPY_rssw.o     SPY_svckey.o \
+		 SPY_blist.o  SPY_blist_v6.o   SPY_hash.o     SPY_mmc.o   SPY_mmc2.o SPY_scm.o      SPY_timer.o  \
+		 SPY_cfg.o    SPY_opt.o   SPY_send.o     SPY_trace.o  \
+		 SPY_cr.o     SPY_lib.o      SPY_regi.o  SPY_sswlist.o  SPY_udp.o    \
+		 SPY_data.o   SPY_libv6.o    SPY_rsam.o  SPY_stat.o     SPY_xbus.o   SPY_ha.o SPY_chmap.o
+OBJS  += LIB_nsmcfg.o  LIB_nsmcom.o  LIB_nsmlog.o  LIB_nsmptrq.o VersionHistory.o flcm_manager.o 
+
+
+
+
+CC       = gcc
+CFLAGS   = -g3 $(OPT) $(INCS)
+#CFLAGS   = -g3 $(OPT) $(INCS) -fsanitize=address # 20240909 kdh - add :: -fsanitize=address
+#CFLAGS   = -O3 $(OPT) $(INCS)
+CXXFLAGS = $(CFLAGS)
+LDFLAGS  = $(LIBS)
+
+
+default: all
+
+all: $(EXE_NAME)
+
+$(EXE_NAME): $(OBJS) $(HEADS)
+	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+	@echo '		s [32m $@ [5m[7;31;47m make done! [1m[0mu		'	
+	@echo 
+
+obj:
+	rm -rf  *.o
+
+clean:
+	rm -rf  *.o core.* *.exe 
+
+del:
+	rm -rf  *.o core.* *.exe 
+
+copy:
+	scp  $(EXE_NAME) 175.232.105.18:/home/mcpas/bin
+	scp  $(EXE_NAME) 175.232.105.19:/home/mcpas/bin
+
