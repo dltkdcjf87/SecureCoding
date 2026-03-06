@@ -478,6 +478,12 @@ async def create_fix_copy(request: CreateCopyRequest):
                  src_path = os.path.abspath(base_path_from_request)
 
     src_path = os.path.normpath(src_path)
+    
+    # If src_path is a file, get its directory
+    if os.path.exists(src_path) and os.path.isfile(src_path):
+        print(f"DEBUG: src_path is a file, using parent directory instead.")
+        src_path = os.path.dirname(src_path)
+
     print(f"DEBUG: Final src_path to copy: {src_path}")
 
     if not os.path.exists(src_path) or not os.path.isdir(src_path):

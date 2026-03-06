@@ -163,8 +163,7 @@ function App() {
     }
 
     if (validFiles.length === 0) {
-      const sampleFile = files[0];
-      alert(`선택한 폴더에 지원되는 소스 파일이 없습니다. (총 ${files.length}개 파일 탐색됨)\n첫 번째 파일 예시: ${sampleFile.webkitRelativePath || sampleFile.name}`);
+      alert('선택한 폴더에 분석 가능한 소스 파일(.py, .js, .java 등)이 없습니다.');
       return;
     }
 
@@ -173,8 +172,7 @@ function App() {
     setAudits([]);
     setSelectedFile(null);
 
-    // 알림 추가: 전체 탐색 파일 중 지원되는 파일 개수 안내
-    console.log(`[File Selection] Total: ${files.length}, Valid: ${validFiles.length}`);
+    console.log(`[Security Audit] Target: ${validFiles.length} source files (Excluding ${files.length - validFiles.length} internal/unsupported files)`);
 
     const results: FileAudit[] = [];
     const batchSize = 3; // Reduced for safety with Free Tier limits
@@ -532,9 +530,9 @@ function App() {
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               </div>
             </div>
-            <div className="scanning-text">보안 취약점 감사 분석 중...</div>
+            <div className="scanning-text">보안성 감사 대상: {auditProgress.total}개 파일</div>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '1rem' }}>
-              <span style={{ color: 'white', fontWeight: 700 }}>{auditProgress.current}</span> / {auditProgress.total} 개 파일 분석 완료
+              <span style={{ color: 'white', fontWeight: 700 }}>{auditProgress.current}</span> / {auditProgress.total}개 분석 완료
             </p>
             <div className="progress-bar-container">
               <div
@@ -760,10 +758,12 @@ function IssueCard({ issue, onApplyFix, onShowDiff }: { issue: Issue, onApplyFix
               <span className="badge" style={{ background: 'rgba(52, 211, 153, 0.2)', color: '#34d399', border: '1px solid #34d399' }}>적용 완료</span>
             ) : issue.action_type !== 'INFO' && issue.suggested_code && (
               <button
-                className="btn-primary"
+                className="btn-apply-fix"
                 onClick={onApplyFix}
-                style={{ fontSize: '0.7rem', padding: '4px 12px', background: 'var(--accent-color)' }}
               >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
                 AI 가이드 적용
               </button>
             )}
